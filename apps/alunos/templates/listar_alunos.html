@@ -5,11 +5,10 @@
     <h1>Lista de alunos</h1>
     <ul>
     {% for aluno in alunos %}
-        <li>
-            <a href="{% url 'update_aluno' aluno.ID_Aluno %}">{{aluno.nome}}</a>
-        </li>
-        <!--<li> {{ aluno.nome }}</li>-->
+        <li> {{ aluno.nome }}</li>
         <li> {{ aluno.turma }}</li>
+        <a href="{% url 'update_aluno' aluno.ID_Aluno %}">Editar</a>
+        <a href="{% url 'delete_aluno' aluno.ID_Aluno %}">Excluir</a>
         <hr>
     {% endfor %}
     </ul>
