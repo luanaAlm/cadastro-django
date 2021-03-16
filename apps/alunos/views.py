@@ -41,3 +41,12 @@ def updateAluno(request, ID_Aluno):
     else:
         return render(request, 'update_alunos.html', data)
 
+@login_required
+def deleteAluno(request, ID_Aluno):
+    aluno = Aluno.objects.get(ID_Aluno=ID_Aluno)
+
+    if request.method == 'POST':
+        aluno.delete()
+        return redirect('listar_alunos')
+    else:
+        return render(request, 'delete_alunos.html', {'aluno':aluno})

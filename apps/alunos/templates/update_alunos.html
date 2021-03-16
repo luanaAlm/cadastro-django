@@ -8,4 +8,5 @@
     {{ form.as_p }}
     <button type="submit">Salvar</button>
 </form>
+<a href="{% url 'delete_aluno' aluno.ID_Aluno %}">Deletar</a>
 {% endblock %}
