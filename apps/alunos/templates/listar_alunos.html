@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 
 {% block main %}
-{% csrf_token %}
+    {% csrf_token %}
     <h1>Lista de alunos</h1>
     <ul>
     {% for aluno in alunos %}
-        <li> {{ aluno.nome }}</li>
+        <li>
+            <a href="{% url 'update_aluno' aluno.ID_Aluno %}">{{aluno.nome}}</a>
+        </li>
+        <!--<li> {{ aluno.nome }}</li>-->
         <li> {{ aluno.turma }}</li>
         <hr>
     {% endfor %}

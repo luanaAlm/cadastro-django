@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h2>Updating Aluno: {{ aluno }}</h2>
+
+<form action="{% url 'update_aluno' aluno.ID_Aluno %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+</form>
+{% endblock %}
