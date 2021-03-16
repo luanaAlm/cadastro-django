@@ -1,5 +1,9 @@
 from django.db import models
+<<<<<<< HEAD
 from  apps.turmas.models import Turma
+=======
+
+>>>>>>> 4cda8fa189844a53458031e6b2c63d896b5e0c9c
 
 class Aluno(models.Model):
     ID_Aluno = models.AutoField(primary_key=True)
