@@ -1,13 +1,6 @@
 from django.db import models
 #https://www.youtube.com/watch?v=aFelj2GJPzw&t=53s
 
-class Colaborador(models.Model):
-    ID_colaborador = models.AutoField(primary_key=True)
-    nome = models.CharField(max_length=45)
-    data = models.DateField()
-
-    def __str__(self):
-        return self.nome
 
 
 class Professor(models.Model):
