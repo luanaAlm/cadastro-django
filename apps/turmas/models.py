@@ -1,5 +1,5 @@
 from django.db import models
-
+from apps.professores.models import Professor
 
 class Turma(models.Model):
     ID_Turma = models.AutoField(primary_key=True)
