@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Aluno
 from .form import AlunoForm
 
+from django.views.decorators.csrf import csrf_protect
+
 #views Alunos
 #@login_required
 #def homeAlunos(request):
@@ -50,3 +52,13 @@ def deleteAluno(request, ID_Aluno):
         return redirect('listar_alunos')
     else:
         return render(request, 'delete_alunos.html', {'aluno':aluno})
+
+@csrf_protect
+def consulta(request):
+	consulta = request.POST.get('consulta')
+	campo = request.POST.get('campo')
+
+	if campo   == 'nome':
+		alunos = Aluno.objects.filter(nome__contains=consulta)
+
+	return render(request, 'listar_alunos.html', {'alunos': alunos})

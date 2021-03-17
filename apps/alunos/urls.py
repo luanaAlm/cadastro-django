@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import listarAlunos, criarAluno, alunoNovo, updateAluno, deleteAluno
+from .views import listarAlunos, criarAluno, alunoNovo, updateAluno, deleteAluno,consulta
 
 
 #urls Alunos
@@ -9,5 +9,6 @@ urlpatterns = [
     path('novo_aluno',alunoNovo, name='novo_aluno'),
     path('^update_aluno/(?P<ID_Aluno>\d+)/$', updateAluno, name='update_aluno'),
     path('^delete_aluno/(?P<ID_Aluno>\d+)/$', deleteAluno, name='delete_aluno'),
+    path('consulta/', consulta, name='consulta'),
 ]
 
