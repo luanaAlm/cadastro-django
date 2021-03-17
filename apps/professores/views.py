@@ -56,5 +56,8 @@ def consulta(request):
 
 	if campo   == 'nome':
 		professores = Professor.objects.filter(nome__contains=consulta)
-
+    
+    #elif campo  == 'data': 
+    #    professores = Professor.objects.filter(data__contains=consulta)
+    
 	return render(request, 'listar_professores.html', {'professores': professores})
