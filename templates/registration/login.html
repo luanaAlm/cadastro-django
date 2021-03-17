@@ -1,9 +1,25 @@
-{% extends 'base.html' %}
+{% extends 'base_login.html' %}
+{% load bootstrap %}
 
-{% block main %}
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
+{% block login %}
+<form class="form-signin" method="POST">
+    <img class="mb-4" src="/docs/4.6/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <div class="row">
+        <div class="col-sm"></div>
+        <div class="col-sm">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+            
+        </div>
+        <div class="col-sm"></div>
+        
+    </div>
+    <p class="mt-5 mb-3 text-muted">&copy;2021</p>
+</form>
 {% endblock %}

@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
 
 {% block main %}
 {% csrf_token %}
     <h1>Novo aluno</h1>
     <form action="{% url 'novo_aluno' %}" method="POST">
         {% csrf_token %}
-        {{form.as_p }}
+        {{form|bootstrap }}
         <button type="submit">Salvar</button>
     </form>
 {% endblock %}

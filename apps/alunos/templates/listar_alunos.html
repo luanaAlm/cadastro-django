@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block main %}
     {% csrf_token %}
     <h1>Lista de alunos</h1>
@@ -7,8 +6,8 @@
     {% for aluno in alunos %}
         <li> {{ aluno.nome }}</li>
         <li> {{ aluno.turma }}</li>
-        <a href="{% url 'update_aluno' aluno.ID_Aluno %}">Editar</a>
-        <a href="{% url 'delete_aluno' aluno.ID_Aluno %}">Excluir</a>
+        <a type="button" class="btn btn-primary" href="{% url 'update_aluno' aluno.ID_Aluno %}">Editar</a>
+        <a type="button" class="btn btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">Excluir</a>
         <hr>
     {% endfor %}
     </ul>
