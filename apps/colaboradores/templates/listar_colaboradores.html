@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block main %}
+{% csrf_token %}
+<h1>Lista de Colaboradores</h1>
+<br>
+<div class="col-sm-12">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">User</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for colaborador in colaboradores %}
+            <tr>
+                <th scope="row">{{ colaborador.ID_Colaborador }}</th>
+                <td>{{ colaborador.user }}</td>
+                <td>{{ colaborador.nome }}</td>
+                <td>{{ colaborador.data }}</td>
+                <td>
+                    <a type="button" class="btn btn-primary" href="{% url 'update_colaborador' colaborador.ID_Colaborador %}">Editar</a>
+                    <a type="button" class="btn btn-danger" href="{% url 'delete_colaborador' colaborador.ID_Colaborador %}">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<!--<ul>
+    {% for aluno in alunos %}
+        <li> {{ aluno.nome }}</li>
+        <li> {{ aluno.turma }}</li>
+        <a type="button" class="btn btn-primary" href="{% url 'update_aluno' aluno.ID_Aluno %}">Editar</a>
+        <a type="button" class="btn btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">Excluir</a>
+        <hr>
+    {% endfor %}
+    </ul>-->
+{% endblock %}

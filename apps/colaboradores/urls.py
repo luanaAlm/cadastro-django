@@ -1,8 +1,13 @@
 from django.urls import path
-from .views import home
+from .views import homeColaboradores, listarColaboradores, criarColaborador, ColaboradorNovo, updateColaborador, deleteColaborador
 
 
 #urls colaboradores
 urlpatterns = [
-    path('',home),
+    path('',homeColaboradores, name='home_colaboradores'),
+    path('listar_colaboradores',listarColaboradores, name='listar_colaboradores'),
+    path('criar_colaboradores',criarColaborador, name='criar_colaboradores'),
+    path('novo_colaborador',ColaboradorNovo, name='novo_colaborador'),
+    path('^update_colaborador/(?P<ID_Aluno>\d+)/$', updateColaborador, name='update_colaborador'),
+    path('^delete_colaborador/(?P<ID_Aluno>\d+)/$', deleteColaborador, name='delete_colaborador'),
 ]
