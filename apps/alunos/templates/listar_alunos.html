@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block main %}
 {% csrf_token %}
+<a type="button" class="btn btn-warning" href="{% url 'criar_alunos' %}">Inserir Alunos</a>
+    
 <h1>Lista de alunos</h1>
+
 <br>
 <div class="col-sm-12">
     <table class="table table-hover">

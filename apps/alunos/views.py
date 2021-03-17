@@ -5,9 +5,9 @@ from .models import Aluno
 from .form import AlunoForm
 
 #views Alunos
-@login_required
-def homeAlunos(request):
-    return render(request, 'home_alunos.html')
+#@login_required
+#def homeAlunos(request):
+#    return render(request, 'home_alunos.html')
 
 @login_required
 def listarAlunos(request):

@@ -1,10 +1,9 @@
 from django.urls import path
-from .views import homeAlunos, listarAlunos, criarAluno, alunoNovo, updateAluno, deleteAluno
+from .views import listarAlunos, criarAluno, alunoNovo, updateAluno, deleteAluno
 
 
 #urls Alunos
 urlpatterns = [
-    path('',homeAlunos, name='home_alunos'),
     path('listar_alunos',listarAlunos, name='listar_alunos'),
     path('criar_alunos',criarAluno, name='criar_alunos'),
     path('novo_aluno',alunoNovo, name='novo_aluno'),
