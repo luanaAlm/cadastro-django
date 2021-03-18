@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block main %}
 {% csrf_token %}
+<a type="button" class="btn btn-warning" href="{% url 'criar_professores' %}">Inserir Professores</a>
 <h1>Lista de professores</h1>
 <br>
 <div class="col-sm-12">
