@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import Turma
+from .models import Turma 
 from .form import TurmaForm
 
 #views Turmas
@@ -50,3 +50,8 @@ def deleteTurma(request, ID_Turma):
         return redirect('listar_turmas')
     else:
         return render(request, 'delete_turma.html', {'turma':turma})
+
+@login_required
+def renascer(request):
+    turmas = Turma.objects.filter(turma='Renascer')
+    return render(request, 'turmas/renascer.html', {'turmas': turmas})
