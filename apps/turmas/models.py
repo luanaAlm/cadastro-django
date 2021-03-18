@@ -1,10 +1,20 @@
 from django.db import models
-from apps.professores.models import Professor
+
 
 class Turma(models.Model):
     ID_Turma = models.AutoField(primary_key=True)
     turma = models.CharField(max_length=45)
-    Professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
+    MODALIDADE_CHOICES = (
+        ('Infantil', 'Infantil'),
+        ('Pré Adolescentes', 'Pré Adolescentes'),
+        ('Adolescentes', 'Adolescentes'),
+        ('Juvenis', 'Juvenis'),
+        ('Jovens', 'Jovens'),
+        ('Adulto', 'Adulto'),
+        ('Novos Convertidos', 'Novos Convertidos'),  
+    )
+    modalidade = models.CharField(max_length=100, choices=MODALIDADE_CHOICES)
+    
 
     def __str__(self):
         return self.turma
