@@ -8,7 +8,7 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th scope="col">ID</th>
+                <th scope="col">Matricula</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Data</th>
             </tr>
@@ -16,7 +16,7 @@
         <tbody>
             {% for professor in professores %}
             <tr>
-                <th scope="row">{{ professor.ID_Professor }}</th>
+                <th scope="row">0{{ professor.ID_Professor }}</th>
                 <td>{{ professor.nome }}</td>
                 <td>{{ professor.data }}</td>
                 <td>

@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Turma 
 from apps.alunos.models import Aluno
+from apps.professores.models import Professor
 from .form import TurmaForm
 
 #views Turmas
@@ -57,4 +58,5 @@ def deleteTurma(request, ID_Turma):
 def renascer(request):
     turmas = Turma.objects.filter(turma='Renascer')
     alunos = Aluno.objects.filter(turma_id='1')
-    return render(request, 'turmas/renascer.html', {'turmas': turmas, 'alunos':alunos})
+    professores = Professor.objects.filter(turma_id='1')
+    return render(request, 'turmas/renascer.html', {'turmas': turmas, 'alunos':alunos, 'professores':professores})
