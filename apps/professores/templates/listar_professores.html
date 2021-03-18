@@ -11,6 +11,7 @@
             placeholder="Digite aqui a sua consulta">
             <select class="form-control col-md-2" name="campo">
                 <option value="nome">Nome</option>
+                <option value="data">Data</option>
             </select>
             <button type="submit" class="btn btn-success">Consultar</button>
         </div>
@@ -23,7 +24,8 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Data</th>    
+                    <th scope="col">Data</th> 
+                    <th scope="col">Turma</th>   
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +34,7 @@
                     <th scope="row">{{ professor.ID_Professor }}</th>
                     <td>{{ professor.nome }}</td>
                     <td>{{ professor.data }}</td>
+                    <td>{{ professor.turma }}</td>
                     <td>
                         <a type="button" class="btn btn-primary" href="{% url 'update_professor' professor.ID_Professor %}">Editar</a>
                         <a type="button" class="btn btn-danger" href="{% url 'delete_professor' professor.ID_Professor %}">Excluir</a>

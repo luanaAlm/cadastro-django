@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    <h1>Pagina inicial alunos</h1>
-    <a href="{% url 'criar_turmas' %}">Inserir Alunos</a>
-    <a href="{% url 'listar_turmas' %}">Lista de Alunos</a>
+    <h1>Pagina inicial Turmas</h1>
+    {% for turma in turmas %}
+        <a href="{{ turma.ID_Turma }}"></a>
+    {% endfor %}
 {% endblock %}
