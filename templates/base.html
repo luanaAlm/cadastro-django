@@ -38,11 +38,11 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'listar_alunos' %}">Alunos</a>
-                            <a class="dropdown-item" href="{% url 'criar_alunos' %}">Novo Aluno</a>
-                            
+                            <a class="dropdown-item" href="{% url 'criar_alunos' %}">Novo Aluno</a>   
                         </div>
                     </li>
                     <!--Colaboradores-->
+                    <!--
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,7 +54,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'home_colaboradores' %}">Colaboradores</a>
                         </div>
-                    </li>
+                    </li>-->
                     <!--Professores-->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -68,7 +68,10 @@
                             <a class="dropdown-item" href="{% url 'home_professores' %}">Professores</a>
                         </div>
                     </li>
-                    <!--Turma-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home_turmas' %}">Turmas</a>
+                      </li>
+                    <!--Turma
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -80,7 +83,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'home_turmas' %}">Turmas</a>
                         </div>
-                    </li>
+                    </li>-->
                 </ul>
                 <h7 class="mr-sm-3">Bem Vindo {{ usuario.colaborador.nome }}</h7>
                 <a href="{% url 'logout' %}">Logout</a>
