@@ -54,4 +54,4 @@ def deleteTurma(request, ID_Turma):
 @login_required
 def renascer(request):
     turmas = Turma.objects.filter(turma='Renascer')
-    return render(request, 'turmas/renascer.html', {'turmas': turmas})
+    return render(request, 'renascer.html', {'turmas': turmas})

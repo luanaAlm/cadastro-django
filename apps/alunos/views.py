@@ -62,3 +62,4 @@ def consulta(request):
 		alunos = Aluno.objects.filter(nome__contains=consulta)
 
 	return render(request, 'listar_alunos.html', {'alunos': alunos})
+
