@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    {% for turma in turmas %}
+    <div class="row">
+        <div class="col-sm">
+            <p>Número: <b>00{{turma.ID_Turma}}</b></p>
+        </div>
+        <div class="col-sm">
+            <p>Turma: <b>{{ turma.turma }}</b></p>
+        </div>
+        <div class="col-sm">
+            <p>Modalidade: <b>{{ turma.modalidade }}</b></p>
+        </div>
+    </div>
+    {% endfor %}
+    <div style="overflow-y: scroll; height: 310px; width: 100%;" align="center">
+        <table class="table">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Sala</th>
+                        <th scope="col">Editar</th>
+        
+        
+                    </tr>
+                </thead>
+                <tbody>
+                
+                {% for aluno in alunos %}
+                <tr>
+                    <th scope="row">{{ aluno.ID_Aluno }}</th>
+                    <td>{{ aluno.nome }}</td>
+                    <td>{{ aluno.turma }}</td>
+                    <td>
+                        <a type="button" class="btn btn-primary" href="{% url 'update_aluno' aluno.ID_Aluno %}">Editar</a>
+                        <a type="button" class="btn btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">Excluir</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+{% endblock %}

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Turma 
+from apps.alunos.models import Aluno
 from .form import TurmaForm
 
 #views Turmas
@@ -51,7 +52,9 @@ def deleteTurma(request, ID_Turma):
     else:
         return render(request, 'delete_turma.html', {'turma':turma})
 
+#Turma Renascer
 @login_required
 def renascer(request):
     turmas = Turma.objects.filter(turma='Renascer')
-    return render(request, 'renascer.html', {'turmas': turmas})
+    alunos = Aluno.objects.filter(turma_id='1')
+    return render(request, 'turmas/renascer.html', {'turmas': turmas, 'alunos':alunos})
