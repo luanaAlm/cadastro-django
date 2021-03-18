@@ -4,7 +4,7 @@
 {% block main %}
 {% csrf_token %}
     <h1>Novo aluno</h1>
-    <form action="{% url 'novo_turma' %}" method="POST">
+    <form action="{% url 'novo_colaborador' %}" method="POST">
         {% csrf_token %}
         {{form|bootstrap }}
         <button type="submit">Salvar</button>

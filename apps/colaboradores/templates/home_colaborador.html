@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h1>Pagina inicial alunos</h1>
+    <a href="{% url 'criar_colaboradores' %}">Inserir Colaborador</a>
+    <a href="{% url 'listar_colaboradores' %}">Lista de Colaboradores</a>
+{% endblock %}

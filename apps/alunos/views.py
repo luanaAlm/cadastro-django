@@ -6,6 +6,11 @@ from .form import AlunoForm
 
 from django.views.decorators.csrf import csrf_protect
 
+#views Alunos
+#@login_required
+#def homeAlunos(request):
+#    return render(request, 'home_alunos.html')
+
 @login_required
 def listarAlunos(request):
     alunos = Aluno.objects.all()
@@ -48,7 +53,6 @@ def deleteAluno(request, ID_Aluno):
     else:
         return render(request, 'delete_alunos.html', {'aluno':aluno})
 
-@login_required
 @csrf_protect
 def consulta(request):
 	consulta = request.POST.get('consulta')

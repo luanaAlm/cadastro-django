@@ -1,30 +1,28 @@
 {% extends 'base.html' %}
 {% block main %}
 {% csrf_token %}
-<h1>Lista de alunos</h1>
+<h1>Lista de Colaboradores</h1>
 <br>
 <div class="col-sm-12">
     <table class="table table-hover">
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">turma</th>
-                <th scope="col">Professor 1</th>
-                <th scope="col">Professor 2</th>
-                <th scope="col">Professor 3</th>
+                <th scope="col">User</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data</th>
             </tr>
         </thead>
         <tbody>
-            {% for turma in turmas %}
+            {% for colaborador in colaboradores %}
             <tr>
-                <th scope="row">{{ turma.ID_Turma }}</th>
-                <td>{{ turma.turma }}</td>
-                <td>{{ turma.Professor }}</td>
-                <td>{{ turma.Professor }}</td>
-                <td>{{ turma.Professor }}</td>
+                <th scope="row">{{ colaborador.ID_Colaborador }}</th>
+                <td>{{ colaborador.user }}</td>
+                <td>{{ colaborador.nome }}</td>
+                <td>{{ colaborador.data }}</td>
                 <td>
-                    <a type="button" class="btn btn-primary" href="{% url 'update_turma' turma.ID_Turma %}">Editar</a>
-                    <a type="button" class="btn btn-danger" href="{% url 'delete_turma' turma.ID_Turma %}">Excluir</a>
+                    <a type="button" class="btn btn-primary" href="{% url 'update_colaborador' colaborador.ID_Colaborador %}">Editar</a>
+                    <a type="button" class="btn btn-danger" href="{% url 'delete_colaborador' colaborador.ID_Colaborador %}">Excluir</a>
                 </td>
             </tr>
             {% endfor %}

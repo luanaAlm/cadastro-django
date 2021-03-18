@@ -1,47 +1,39 @@
 {% extends 'base.html' %}
 {% block main %}
 {% csrf_token %}
-<a type="button" class="btn btn-warning" href="{% url 'criar_professores' %}">Inserir Professores</a>
 <h1>Lista de professores</h1>
 <br>
-<form action="consulta/" method="POST" name="consulta" class="ml-3">{% csrf_token %}
-    <div class="form-group">
-        <div class="row">
-            <input type="text" class="form-control col-md-5" name="consulta"
-            placeholder="Digite aqui a sua consulta">
-            <select class="form-control col-md-2" name="campo">
-                <option value="nome">Nome</option>
-                <option value="data">Data</option>
-            </select>
-            <button type="submit" class="btn btn-success">Consultar</button>
-        </div>
-    </div>
-</form>
-<div style="overflow-y: scroll; height: 310px; width: 100%;" align="center">
-    <table class="table">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Data</th> 
-                    <th scope="col">Turma</th>   
-                </tr>
-            </thead>
-            <tbody>
-                {% for professor in professores %}
-                <tr>
-                    <th scope="row">{{ professor.ID_Professor }}</th>
-                    <td>{{ professor.nome }}</td>
-                    <td>{{ professor.data }}</td>
-                    <td>{{ professor.turma }}</td>
-                    <td>
-                        <a type="button" class="btn btn-primary" href="{% url 'update_professor' professor.ID_Professor %}">Editar</a>
-                        <a type="button" class="btn btn-danger" href="{% url 'delete_professor' professor.ID_Professor %}">Excluir</a>
-                    </td>
-                </tr>
-                {% endfor %}
+<div class="col-sm-12">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for professor in professores %}
+            <tr>
+                <th scope="row">{{ professor.ID_Professor }}</th>
+                <td>{{ professor.nome }}</td>
+                <td>{{ professor.data }}</td>
+                <td>
+                    <a type="button" class="btn btn-primary" href="{% url 'update_professor' professor.ID_Professor %}">Editar</a>
+                    <a type="button" class="btn btn-danger" href="{% url 'delete_professor' professor.ID_Professor %}">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
+<!--<ul>
+    {% for aluno in alunos %}
+        <li> {{ aluno.nome }}</li>
+        <li> {{ aluno.turma }}</li>
+        <a type="button" class="btn btn-primary" href="{% url 'update_aluno' aluno.ID_Aluno %}">Editar</a>
+        <a type="button" class="btn btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">Excluir</a>
+        <hr>
+    {% endfor %}
+    </ul>-->
 {% endblock %}
