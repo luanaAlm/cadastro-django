@@ -50,3 +50,4 @@ def deleteTurma(request, ID_Turma):
         return redirect('listar_turmas')
     else:
         return render(request, 'delete_turma.html', {'turma':turma})
+
