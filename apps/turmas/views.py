@@ -60,3 +60,11 @@ def renascer(request):
     alunos = Aluno.objects.filter(turma_id='1')
     professores = Professor.objects.filter(turma_id='1')
     return render(request, 'turmas/renascer.html', {'turmas': turmas, 'alunos':alunos, 'professores':professores})
+
+#Turma Renascer
+@login_required
+def jardimDeus(request):
+    turmas = Turma.objects.filter(turma='Jardim de Deus')
+    alunos = Aluno.objects.filter(turma_id='2')
+    professores = Professor.objects.filter(turma_id='2')
+    return render(request, 'turmas/jardim_deus.html', {'turmas': turmas, 'alunos':alunos, 'professores':professores})
