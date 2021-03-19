@@ -1,42 +1,21 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block main %}
-<div class="album py-5 bg-light">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card mb-4 shadow-sm align-items-center">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#55595c" />
-                </svg>
-
-                <div class="card-body">
-                    <div class="d-flex justify-content-between" >
-                        <a class="btn-lg btn-outline-dark" href="{% url 'home_turmas' %}">Turma</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-</div>
-<div class="text-center">
-    <h1>Inicio</h1>
+<div class="text-center posi align-items-center">
     <div class="mt-5">
         <div class="row">
             <div class="col-sm">
-                <a href="{% url 'home_turmas' %}">Turma</a>
+
+                <a class="btn btn-info" href="{% url 'home_turmas' %}">Turma</a>
             </div>
             <div class="col-sm">
-                <a href="{% url 'listar_alunos' %}">Alunos</a>
+                <a class="btn btn-info" href="{% url 'listar_alunos' %}">Alunos</a>
             </div>
             <div class="col-sm">
-                <a href="{% url 'home_professores' %}">Professores</a>
+                <a class="btn btn-info" href="{% url 'home_professores' %}">Professores</a>
             </div>
             <div class="col-sm">
-                <a href="{% url 'home_colaboradores' %}">Colaboradores</a>
+                <a class="btn btn-info" href="">Coordenação</a>
             </div>
         </div>
     </div>

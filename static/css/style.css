@@ -1,7 +1,7 @@
 :root {
   --azul-escuro-cor: #051937;
   --azul-claro-cor: #00c9b7;
-  --amarelo-cor: #ebf42f;
+  --amarelo-cor: #b1b399;
   --branco-cor: #fff;
 }
 /* === Navbar === */
@@ -11,11 +11,25 @@
   color: var(--branco-cor);
 }
 .dist {
-  margin: 90px;
+  padding-top: 10rem !important;
+  /*padding-bottom: 22rem !important;*/
 }
 .img-nav {
   width: 70px;
 }
 .cor-nav {
+  color: var(--branco-cor);
+}
+/* === Index === */
+.posi{
+  padding-top: 3.5rem !important;
+  align-items: center;
+  text-align: center;
+}
+.btn-info{
+  background-color: var(--azul-claro-cor);
+}
+footer{
+  background-color: var(--azul-escuro-cor);
   color: var(--branco-cor);
 }
