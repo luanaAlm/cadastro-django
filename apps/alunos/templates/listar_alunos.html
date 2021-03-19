@@ -25,10 +25,8 @@
                 <tr>
                     <th scope="col">Matricula</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Sala</th>
+                    <th scope="col">Turma</th>
                     <th scope="col">Editar</th>
-    
-    
                 </tr>
             </thead>
             <tbody>
@@ -41,11 +39,13 @@
                 <td>
                     <a type="button" class="btn btn-primary" href="{% url 'update_aluno' aluno.ID_Aluno %}">Editar</a>
                     <a type="button" class="btn btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">Excluir</a>
+                    
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    <a type="button" class="btn btn-primary" href="{% url 'relatorio_alunos' %}">PDF Alunos</a>
 </div>
 
 <!--
