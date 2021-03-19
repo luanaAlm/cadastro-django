@@ -1,3 +1,8 @@
+:root{
+  --azul-escuro-cor: #051937;
+  --azul-claro-cor:#00c9b7;
+  --amarelo-cor: #EBF42F;
+}
 /* Change this breakpoint if you change the breakpoint of the navbar */
 
 @media (min-width: 992px) {
