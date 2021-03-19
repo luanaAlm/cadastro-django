@@ -13,92 +13,63 @@
 </head>
 
 <body>
-    <div class="container">
     <header>
         <!--Nav-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">EBD</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="{% static 'img/ebd.jpg' %}" class="img-nav img-fluid img-thumbnail">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'home' %}">Página Inicial<span
-                                class="sr-only">(current)</span></a>
-                    </li>
-                    <!--Alunos-->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Aluno
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'listar_alunos' %}">Alunos</a>
-                            <a class="dropdown-item" href="{% url 'criar_alunos' %}">Novo Aluno</a>   
-                        </div>
-                    </li>
-                    <!--Colaboradores-->
-                    <!--
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Colaboradores
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'listar_colaboradores' %}">Lista de Colaboradores</a>
-                            <a class="dropdown-item" href="{% url 'criar_colaboradores' %}">Novos Colaboradores</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'home_colaboradores' %}">Colaboradores</a>
-                        </div>
-                    </li>-->
-                    <!--Professores-->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Professores
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'listar_professores' %}">Professores</a>
-                            <a class="dropdown-item" href="{% url 'criar_professores' %}">Novos Professores</a>
-                            
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home_turmas' %}">Turmas</a>
-                      </li>
-                    <!--Turma
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Turmas
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'listar_turmas' %}">Lista de Turmas</a>
-                            <a class="dropdown-item" href="{% url 'criar_turmas' %}">Novas Turmas</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'home_turmas' %}">Turmas</a>
-                        </div>
-                    </li>-->
-                </ul>
-                <h7 class="mr-sm-3">Bem Vindo {{ usuario.colaborador.nome }}</h7>
-                <a href="{% url 'logout' %}">Logout</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'home' %}">Página Inicial<span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                        <!--Alunos-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Aluno
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{% url 'listar_alunos' %}">Alunos</a>
+                                <a class="dropdown-item" href="{% url 'criar_alunos' %}">Novo Aluno</a>
+                            </div>
+                        </li>
+                        <!--Professores-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Professores
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{% url 'listar_professores' %}">Professores</a>
+                                <a class="dropdown-item" href="{% url 'criar_professores' %}">Novos Professores</a>
+
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home_turmas' %}">Turmas</a>
+                        </li>
+                    </ul>
+                    <h6 class="cor-nav mr-sm-3">Bem Vindo(a) {{ usuario.colaborador.nome }}</h6>
+                    <a class="btn btn-warning cor-nav " type="button" href="{% url 'logout' %}">Logout</a>
+                </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <div class="mt-5 d-flex flex-column h-100">
-            <main class="flex-shrink-0">
-                <div class="container tamanho">
-                    {% block main %} {% endblock %}
-                </div>
-            </main>
-        </div>
+    <div class="container dist">
+        {% block main %} {% endblock %}
     </div>
-    </div>
+
     <!--<footer class="footer mt-auto py-3">
         <div class="container">
             <span class="text-muted">Place sticky footer content here.</span>
