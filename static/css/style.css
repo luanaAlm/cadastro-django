@@ -27,9 +27,6 @@
   align-items: center;
   text-align: center;
 }
-.btn-info{
-  background-color: var(--azul-claro-cor);
-}
 footer{
   background-color: var(--azul-escuro-cor);
   color: var(--branco-cor);
