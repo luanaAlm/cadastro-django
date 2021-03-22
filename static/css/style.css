@@ -13,6 +13,7 @@
 .dist {
   padding-top: 10rem !important;
   /*padding-bottom: 22rem !important;*/
+  padding-bottom: 2rem !important;
 }
 .img-nav {
   width: 70px;
@@ -33,3 +34,4 @@ footer{
   background-color: var(--azul-escuro-cor);
   color: var(--branco-cor);
 }
+/* ===Listar Alunos === */
