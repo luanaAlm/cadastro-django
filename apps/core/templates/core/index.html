@@ -1,21 +1,42 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block main %}
-<div class="text-center posi align-items-center">
-    <div class="mt-5">
-        <div class="row">
-            <div class="col-sm">
+<div class="album py-5">
 
-                <a class="btn btn-info" href="{% url 'home_turmas' %}">Turma</a>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card text-center mb-3 shadow-sm">
+                <a class="btn btn-info " href="{% url 'home_turmas' %}">
+                    <br>
+                    <i class="w3-jumbo fa fa-book" aria-hidden="true"></i>
+                    <h3>Turmas</h3>
+                </a>
             </div>
-            <div class="col-sm">
-                <a class="btn btn-info" href="{% url 'listar_alunos' %}">Alunos</a>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center mb-3 shadow-sm">
+                <a class="btn btn-info" href="{% url 'listar_alunos' %}">
+                    <br>
+                    <i class="w3-jumbo fa fa-users" aria-hidden="true"></i>
+                    <br><br>Alunos</a>
             </div>
-            <div class="col-sm">
-                <a class="btn btn-info" href="{% url 'home_professores' %}">Professores</a>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center mb-3 shadow-sm">
+                <a class="btn btn-info" href="{% url 'home_professores' %}">
+                    <br>
+                    <i class="w3-jumbo fa fa-graduation-cap" aria-hidden="true"></i>
+                    <br><br>
+                    Professores</a>
             </div>
-            <div class="col-sm">
-                <a class="btn btn-info" href="">Coordenação</a>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center mb-3 shadow-sm">
+                <a class="btn btn-info" href="">
+                    <br>
+                    <i class="w3-jumbo fa fa-user-o" aria-hidden="true"></i>
+                    <br><br>
+                    Coordenação</a>
             </div>
         </div>
     </div>
