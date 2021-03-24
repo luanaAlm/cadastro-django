@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps.colaboradores',
     'apps.turmas',
     'apps.coperadores',
+    'cpf_field',
 ]
 
 MIDDLEWARE = [
