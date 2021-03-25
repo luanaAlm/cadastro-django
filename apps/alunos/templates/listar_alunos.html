@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block main %}
+{% csrf_token %}
+<a type="button" class="btn btn-warning" href="{% url 'criar_alunos' %}">
+    <i class="fa fa-user-plus" aria-hidden="true"></i>Inserir Alunos
+</a>
+<br><br>
+<h2>Lista de alunos</h2>
+<br>
+<form action="consulta/" method="POST" name="consulta" class="ml-3">{% csrf_token %}
+    <div class="form-group">
+        <div class="row">
+            <input type="text" class="form-control col-md-5" name="consulta" placeholder="Digite aqui a sua consulta">
+            <select class="form-control col-md-2" name="campo">
+                <option value="nome">Nome</option>
+            </select>
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-search" aria-hidden="true"></i> Consultar</button>
+        </div>
+    </div>
+</form>
+<div style="overflow-y: scroll; height: 310px; width: 100%;" align="center">
+    <table class="table">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Matricula</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Turma</th>
+                    <th scope="col">Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for aluno in alunos %}
+                <tr>
+                    <th scope="row">0{{ aluno.ID_Aluno }}</th>
+                    <td>{{ aluno.nome }}</td>
+                    <td>{{ aluno.turma }}</td>
+                    <td>
+                        <a type="button" class="btn btn-primary" href="{% url 'update_aluno' aluno.ID_Aluno %}">
+                            <i class="fa fa-file-text w3-large" aria-hidden="true"></i> Editar</a>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#alunoModal">
+                            <i class="fa fa-eye" aria-hidden="true"></i>  Visualizar
+                        </button>
+
+                        <a type="button" class="btn btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">
+                            <i class="fa fa-times w3-large" aria-hidden="true"></i> Excluir
+                        </a>
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </table>
+</div>
+<div align="center">
+    <a type="button" class="btn btn-danger" href="{% url 'relatorio_alunos' %}">
+        <i class="fa fa-file-pdf-o w3-large" aria-hidden="true"></i> PDF
+    </a>
+    <a class=" btn btn-success" href="">
+        <i class="w3-large fa fa-file-excel-o" aria-hidden="true"></i>Excel
+    </a>
+</div>
+<div class="dist"></div>
+<!-- Modal -->
+<div class="modal fade" id="alunoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block main %}
+{% csrf_token %}
+<a type="button" class="btn btn-warning" href="{% url 'criar_professores' %}">Inserir Professores</a>
+<h1>Lista de professores</h1>
+<br>
+<div class="col-sm-12">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Matricula</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for professor in professores %}
+            <tr>
+                <th scope="row">0{{ professor.ID_Professor }}</th>
+                <td>{{ professor.nome }}</td>
+                <td>{{ professor.data }}</td>
+                <td>
+                    <a type="button" class="btn btn-primary" href="{% url 'update_professor' professor.ID_Professor %}">Editar</a>
+                    <a type="button" class="btn btn-danger" href="{% url 'delete_professor' professor.ID_Professor %}">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<!--<ul>
+    {% for aluno in alunos %}
+        <li> {{ aluno.nome }}</li>
+        <li> {{ aluno.turma }}</li>
+        <a type="button" class="btn btn-primary" href="{% url 'update_aluno' aluno.ID_Aluno %}">Editar</a>
+        <a type="button" class="btn btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">Excluir</a>
+        <hr>
+    {% endfor %}
+    </ul>-->
+{% endblock %}

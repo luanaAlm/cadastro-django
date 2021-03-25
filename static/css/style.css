@@ -1,0 +1,39 @@
+:root {
+  --azul-escuro-cor: #051937;
+  --azul-claro-cor: #00c9b7;
+  --amarelo-cor: #b1b399;
+  --branco-cor: #fff;
+}
+/* === Navbar === */
+.bg-dark {
+  padding: 13px;
+  background-color: var(--azul-escuro-cor) !important;
+  color: var(--branco-cor);
+}
+.dist {
+  padding-top: 10rem !important;
+  /*padding-bottom: 22rem !important;*/
+  padding-bottom: 2rem !important;
+}
+.img-nav {
+  width: 70px;
+}
+.cor-nav {
+  color: var(--branco-cor);
+}
+/* === Index === */
+.posi{
+  padding-top: 3.5rem !important;
+  align-items: center;
+  text-align: center;
+}
+footer{
+  background-color: var(--azul-escuro-cor);
+  color: var(--branco-cor);
+}
+/* === Fomularios === */
+form{
+  padding-top: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+}

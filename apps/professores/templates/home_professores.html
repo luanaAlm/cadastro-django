@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <h1>Pagina inicial Professores</h1>
+    <a href="{% url 'criar_professores' %}">Inserir Professores</a>
+    <a href="{% url 'listar_professores' %}">Lista de Professores</a>
+{% endblock %}
