@@ -1,12 +1,32 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
+{% load widget_tweaks %}
 
 {% block main %}
 {% csrf_token %}
 <h1>Novo aluno</h1>
 <form class="" action="{% url 'novo_aluno' %}" method="POST">
     {% csrf_token %}
-    {{form|bootstrap }}
+    <label for="nome">Nome</label>
+    <div class="control">
+        {% render_field form.nome class="input" placeholder="Digite o seu nome" %}
+    </div>
+    <label for="turma">Turma</label>
+    <div class="select">
+        {% render_field form.turma %}
+    </div>
+    <label for="sexo">Sexo</label>
+    <div>
+        {{ form.sexo }}
+    </div>
+    <label for="data">Data</label>
+    <div>
+        {% render_field form.data class="input" placeholder="dd/mm/yyyy"%}
+    </div>
+    <label for="cpf">CPF</label>
+    <div>
+        {% render_field form.cpf class="input" placeholder="000.000.000-00"%}
+    </div>
     <br>
     <button class="btn btn-success" type="submit">Salvar</button>
     <a class="btn btn-warning" href="{% url 'listar_alunos' %}">Voltar</a>

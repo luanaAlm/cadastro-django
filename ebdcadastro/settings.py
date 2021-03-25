@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'apps.validacpfs',
     'apps.core',
     'cpf_field',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
