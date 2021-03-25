@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'apps.funcionarios',
     'apps.alunos',
     'apps.turmas',
-    #'apps.professores',
+    'apps.professores',
     #'apps.colaboradores',
     #'apps.coperadores',
 ]
