@@ -37,3 +37,10 @@ form{
   padding-left: 60px;
   padding-right: 60px;
 }
+/* === Tabela === */
+#tabela{
+  overflow-y: scroll;
+  height: 310px;
+  width: 100%;
+  align-items: center;
+}
