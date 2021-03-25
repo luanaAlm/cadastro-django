@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'apps.turmas',
     'apps.professores',
     'apps.coperadores',
+    'apps.validacpfs',
+    'cpf_field',
 ]
 
 MIDDLEWARE = [
