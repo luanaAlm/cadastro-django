@@ -10,9 +10,13 @@ class Aluno(models.Model):
     ID_Aluno = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=45)
     turma = models.ForeignKey(Turma, on_delete=models.CASCADE)
+    cpf = CPFField()
     sexo = models.CharField(max_length=100, choices=SEXO_CHOICES)
     data = models.DateField()
-    cpf = CPFField()
+    imagem = models.ImageField(upload_to='alunos')
+    telefone = models.IntegerField(blank=False, null=False)
+    email = models.EmailField(max_length=200, blank=True)
+	
 
     
     def __str__(self):

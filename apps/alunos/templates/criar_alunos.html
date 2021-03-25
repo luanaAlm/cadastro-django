@@ -1,35 +1,51 @@
 {% extends 'base.html' %}
-{% load bootstrap %}
+{% load static %}
 {% load widget_tweaks %}
 
 {% block main %}
 {% csrf_token %}
 <h1>Novo aluno</h1>
-<form class="" action="{% url 'novo_aluno' %}" method="POST">
-    {% csrf_token %}
-    <label for="nome">Nome</label>
-    <div class="control">
-        {% render_field form.nome class="input" placeholder="Digite o seu nome" %}
-    </div>
-    <label for="turma">Turma</label>
-    <div class="select">
-        {% render_field form.turma %}
-    </div>
-    <label for="sexo">Sexo</label>
-    <div>
-        {{ form.sexo }}
-    </div>
-    <label for="data">Data</label>
-    <div>
-        {% render_field form.data class="input" placeholder="dd/mm/yyyy"%}
-    </div>
-    <label for="cpf">CPF</label>
-    <div>
-        {% render_field form.cpf class="input" placeholder="000.000.000-00"%}
-    </div>
-    <br>
-    <button class="btn btn-success" type="submit">Salvar</button>
-    <a class="btn btn-warning" href="{% url 'listar_alunos' %}">Voltar</a>
-</form>
+<div class="row">
+    <form class="" action="{% url 'novo_aluno' %}" method="POST">
+        <div class="form-group ">
+            {% csrf_token %}
+            <label>Nome</label>
+            <div>
+                {% render_field form.nome class="input" placeholder="Digite o seu nome" %}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Turma</label>
+            <div>{% render_field form.turma %}</div>
+        </div>
+        <div class="form-group">
+            <label for="sexo">Sexo</label>
+            <div>{{ form.sexo }}</div>
+        </div>
+        <div class="form-group">
+            <label for="data">Data</label>
+            <div>{% render_field form.data class="input" placeholder="dd/mm/aaaa"%</div>
+        </div>
+        <div class="form-group">
+            <label for="cpf">CPF</label>
+            <div>{% render_field form.cpf class="input" placeholder="000.000.000-00"%}</div>
+        </div>
+        <div class="form-group">
+            <label>Telefone</label>
+            <div>{% render_field form.telefone class="input" placeholder="(99) 9 99999999"%}</div>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <div>{% render_field form.email class="input" placeholder="nome@exemplo.com"%}</div>
+        </div>
+        <div class="form-group">
+            <label>Imagem</label>
+            <div>{% render_field form.imagem class="file" %}</div>
+        </div>
+        <br>
+        <button class="btn btn-success" type="submit">Salvar</button>
+        <a class="btn btn-warning" href="{% url 'listar_alunos' %}">Voltar</a>
+    </form>
+</div>
 <div class="dist"></div>
 {% endblock %}

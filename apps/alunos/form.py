@@ -5,7 +5,8 @@ from .models import Aluno
 class AlunoForm(forms.ModelForm):
     class Meta:
         model = Aluno
-        fields = ['nome', 'turma', 'sexo', 'data', 'cpf']
+        fields = ['nome', 'turma', 'sexo', 'data', 'cpf', 'telefone', 'email', 'imagem']
+
 '''
     widgets = {
         'nome': forms.TextInput(attrs={'class': 'input', 'placeholder': 'Digite o seu nome'}),
