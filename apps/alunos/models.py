@@ -1,6 +1,6 @@
 from django.db import models
 from  apps.turmas.models import Turma
-
+from cpf_field.models import CPFField
 
 class Aluno(models.Model):
     SEXO_CHOICES = (
@@ -12,6 +12,8 @@ class Aluno(models.Model):
     turma = models.ForeignKey(Turma, on_delete=models.CASCADE)
     sexo = models.CharField(max_length=100, choices=SEXO_CHOICES)
     data = models.DateField()
+    cpf = CPFField()
 
+    
     def __str__(self):
         return self.nome
