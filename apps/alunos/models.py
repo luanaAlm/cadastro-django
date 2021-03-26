@@ -2,6 +2,7 @@ from django.db import models
 from  apps.turmas.models import Turma
 from cpf_field.models import CPFField
 
+
 class Aluno(models.Model):
     SEXO_CHOICES = (
         ('Masculino', 'Masculino'),
@@ -13,7 +14,7 @@ class Aluno(models.Model):
     cpf = CPFField()
     sexo = models.CharField(max_length=100, choices=SEXO_CHOICES)
     data = models.DateField()
-    imagem = models.ImageField(upload_to='alunos')
+    #imagem = models.ImageField(upload_to="media/%y") 
     telefone = models.IntegerField(blank=False, null=False)
     email = models.EmailField(max_length=200, blank=True)
 	

@@ -23,8 +23,8 @@
             <div>{{ form.sexo }}</div>
         </div>
         <div class="form-group">
-            <label for="data">Data</label>
-            <div>{% render_field form.data class="input" placeholder="dd/mm/aaaa"%</div>
+            <label for="data">Data de Aniversário</label>
+            <div>{% render_field form.data class="input" placeholder="dd/mm/aaaa" %}</div>
         </div>
         <div class="form-group">
             <label for="cpf">CPF</label>
@@ -40,7 +40,7 @@
         </div>
         <div class="form-group">
             <label>Imagem</label>
-            <div>{% render_field form.imagem class="file" %}</div>
+            <div>{% render_field form.imagem class="input" %}</div>
         </div>
         <br>
         <button class="btn btn-success" type="submit">Salvar</button>
