@@ -8,19 +8,16 @@
 <h2>Lista de alunos</h2>
 <br>
 <!--Inicio Consulta-->
-<form action="consulta/" method="POST" name="consulta" class="ml-3">{% csrf_token %}
-    <div class="form-group">
-        <div class="row">
-            <input type="text" class="form-control col-md-5" name="consulta" placeholder="Digite aqui a sua consulta">
-            <select class="form-control col-md-2" name="campo">
-                <option value="nome">Nome</option>
-                <option value="cpf">CPF</option>
-            </select>
-            <button type="submit" class="btn btn-success">
-                <i class="fa fa-search" aria-hidden="true"></i> Consultar</button>
-        </div>
+<div class="row">
+    <div class="col-12">
+        <form class="form-inline" action="">
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="text"  class="form-control" id="pesquisa" name="pesquisa" placeholder="Digite a sua busca">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Pesquisar</button>
+        </form>
     </div>
-</form>
+</div>
 <!--FIm Consulta-->
 <!--Inicio Tabela-->
 <div style="overflow-y: scroll; height: 310px; width: 100%;" align="center">
