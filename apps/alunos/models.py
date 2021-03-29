@@ -45,6 +45,7 @@ class Aluno(models.Model):
     data = models.DateField(max_length=8)
     telefone = models.IntegerField(blank=False, null=False, max_length=16)
     email = models.EmailField(max_length=200)
+    #endereço
     cep = models.IntegerField(max_length=8)
     endereco = models.CharField(max_length=100, blank=False, null=False)
     numero = models.IntegerField(null=True, blank=True)
@@ -52,7 +53,8 @@ class Aluno(models.Model):
     bairro = models.CharField(max_length=100, blank=False, null=False)
     municipio = models.CharField(max_length=100, blank=False, null=False)
     estado = models.CharField(max_length=100, choices=STATE_CHOICES)
-	
+	#imagem
+    imagem = models.ImageField(blank=True, null=True)
     
     def __str__(self):
         return self.nome

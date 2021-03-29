@@ -5,5 +5,5 @@ from .models import Aluno
 class AlunoForm(forms.ModelForm):
     class Meta:
         model = Aluno
-        fields = [ 'turma','nome', 'sexo', 'data', 'cpf', 'telefone', 'email', 'cep', 'endereco', 'numero', 'complemento', 'bairro', 'municipio', 'estado']
+        fields = [ 'turma','nome', 'sexo', 'data', 'cpf', 'telefone', 'email', 'cep', 'endereco', 'numero', 'complemento', 'bairro', 'municipio', 'estado','imagem']
 

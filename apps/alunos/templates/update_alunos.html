@@ -6,7 +6,16 @@
 
 <form action="{% url 'update_aluno' aluno.ID_Aluno %}" method="POST">
     {% csrf_token %}
-    {{ form|bootstrap }}
-    <button class="btn btn-success" type="submit">Salvar</button>
+    <div class="form-row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <h1>Novo aluno</h1>
+            <br>
+            <p>Preencha todos os campos obrigatórios.</p>
+            <hr>
+            {{ form|bootstrap }}
+            <br>
+            <button class="btn btn-success" type="submit">Salvar</button>
+        </div>
 </form>
 {% endblock %}

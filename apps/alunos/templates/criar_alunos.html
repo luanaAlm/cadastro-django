@@ -15,7 +15,11 @@
             <p>Preencha todos os campos obrigatórios.</p>
             <hr>
             {{ form|bootstrap }}
+            <br>
+            <button class="btn btn-success" type="submit">Salvar</button>
+            <a class="btn btn-warning" href="{% url 'listar_alunos' %}">Voltar</a>
         </div>
+
     </div>
     <!-- <br>
     <h3>Dados pessoais</h3>
@@ -95,8 +99,6 @@
             <div>{% render_field form.estado class="input" placeholder="Digite o estado"%}</div>
         </div>
     </div> -->
-    <br>
-    <button class="btn btn-success" type="submit">Salvar</button>
-    <a class="btn btn-warning" href="{% url 'listar_alunos' %}">Voltar</a>
+
 </form>
 {% endblock %}
