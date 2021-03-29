@@ -7,18 +7,22 @@
 <br><br>
 <h2>Lista de alunos</h2>
 <br>
+<!--Inicio Consulta-->
 <form action="consulta/" method="POST" name="consulta" class="ml-3">{% csrf_token %}
     <div class="form-group">
         <div class="row">
             <input type="text" class="form-control col-md-5" name="consulta" placeholder="Digite aqui a sua consulta">
             <select class="form-control col-md-2" name="campo">
                 <option value="nome">Nome</option>
+                <option value="cpf">CPF</option>
             </select>
             <button type="submit" class="btn btn-success">
                 <i class="fa fa-search" aria-hidden="true"></i> Consultar</button>
         </div>
     </div>
 </form>
+<!--FIm Consulta-->
+<!--Inicio Tabela-->
 <div style="overflow-y: scroll; height: 310px; width: 100%;" align="center">
     <table class="table">
         <table class="table table-hover">
@@ -41,7 +45,7 @@
                             <i class="fa fa-file-text w3-large" aria-hidden="true"></i> Editar</a>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#alunoModal">
-                            <i class="fa fa-eye" aria-hidden="true"></i>  Visualizar
+                            <i class="fa fa-eye" aria-hidden="true"></i> Visualizar
                         </button>
 
                         <a type="button" class="btn btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">
@@ -55,6 +59,8 @@
         </table>
     </table>
 </div>
+<!--Fim Tabela-->
+<!--Relatorios PDF e Excel-->
 <div align="center">
     <a type="button" class="btn btn-danger" href="{% url 'relatorio_alunos' %}">
         <i class="fa fa-file-pdf-o w3-large" aria-hidden="true"></i> PDF
@@ -67,21 +73,21 @@
 <!-- Modal -->
 <div class="modal fade" id="alunoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 {% endblock %}

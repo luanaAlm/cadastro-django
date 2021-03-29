@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Aluno
 from .form import AlunoForm
 from django.views.decorators.csrf import csrf_protect
+
 #pdf
 from django.template.loader import get_template
 from xhtml2pdf import pisa
@@ -64,7 +65,6 @@ def consulta(request):
 
 	if campo   == 'nome':
 		alunos = Aluno.objects.filter(nome__contains=consulta)
-
 	return render(request, 'listar_alunos.html', {'alunos': alunos})
 
 #pdf
