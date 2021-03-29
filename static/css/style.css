@@ -4,6 +4,10 @@
   --amarelo-cor: #b1b399;
   --branco-cor: #fff;
 }
+*{
+  padding: 0;
+  margin: 0%;
+}
 /* === Navbar === */
 .bg-dark {
   padding: 13px;
@@ -32,9 +36,14 @@ footer{
   color: var(--branco-cor);
 }
 /* === Fomularios === */
+p{
+  color: #939484da;
+}
 form{
-  padding-top: 20px;
-  
+  padding-top: 5px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 100px;
 }
 /* === Tabela === */
 #tabela{

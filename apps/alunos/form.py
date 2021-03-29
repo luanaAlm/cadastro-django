@@ -5,13 +5,5 @@ from .models import Aluno
 class AlunoForm(forms.ModelForm):
     class Meta:
         model = Aluno
-        fields = ['nome', 'turma', 'sexo', 'data', 'cpf', 'telefone', 'email']
+        fields = [ 'turma','nome', 'sexo', 'data', 'cpf', 'telefone', 'email', 'cep', 'endereco', 'numero', 'complemento', 'bairro', 'municipio', 'estado']
 
-'''
-    widgets = {
-        'nome': forms.TextInput(attrs={'class': 'input', 'placeholder': 'Digite o seu nome'}),
-        'data': forms.TextInput(attrs={'class': 'input', 'placeholder': 'Digite o seu nome'}),
-        'cpf': forms.TextInput(attrs={'class': 'input', 'placeholder': 'Digite o seu nome'}),
-
-    }
-'''

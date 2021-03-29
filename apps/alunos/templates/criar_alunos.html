@@ -4,56 +4,99 @@
 
 {% block main %}
 {% csrf_token %}
-<h1>Novo aluno</h1>
-<div class="row">
-    <form class="" action="{% url 'novo_aluno' %}" method="POST">
+{% load bootstrap %}
+<form class="align-items-center" action="{% url 'novo_aluno' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <h1>Novo aluno</h1>
+            <br>
+            <p>Preencha todos os campos obrigatórios.</p>
+            <hr>
+            {{ form|bootstrap }}
+        </div>
+    </div>
+    <!-- <br>
+    <h3>Dados pessoais</h3>
+    
+    <div class="form-row">
+        <div class="input-form">
+            <label>Turma</label>
+            <div class="form-control-lg">{% render_field form.turma %}</div>
+        </div>
+    </div>
+    <div class="row">
         <div class="form-group">
-            {% csrf_token %}
-            <div class="row">
-                <div class="form-group">
-                    <label>Turma</label>
-                    <div>{% render_field form.turma %}</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group">
-                    <label>Nome</label>
-                    <div>
-                        {% render_field form.nome class="input" placeholder="Digite o seu nome" %}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>CPF</label>
-                    <div>{% render_field form.cpf class="input" placeholder="000.000.000-00"%}</div>
-                </div>
-                <div class="form-group">
-                    <label>Sexo</label>
-                    <div>{{ form.sexo }}</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group">
-                    <label>Data de Aniversário</label>
-                    <div>{% render_field form.data class="input" placeholder="dd/mm/aaaa" %}</div>
-                </div>
-                <div class="form-group">
-                    <label>Telefone</label>
-                    <div>{% render_field form.telefone class="input" placeholder="(99) 9 99999999"%}</div>
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <div>{% render_field form.email class="input" placeholder="nome@exemplo.com"%}</div>
-                </div>
+            <label>Nome</label>
+            <div class="form-control-lg">{% render_field form.nome class="input" placeholder="Digite o nome" %}
             </div>
         </div>
-        <!-- <div class="form-group">
+        <div class="form-group ">
+            <label>CPF</label>
+            <div class="form-control-lg">{% render_field form.cpf class="input" placeholder="000.000.000-00"%}</div>
+        </div>
+        <div class="form-group ">
+            <label>Sexo</label>
+            <div class="form-control-lg">{{ form.sexo }}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-form">
+            <label>Data de Aniversário</label>
+            <div>{% render_field form.data class="input" placeholder="dd/mm/aaaa" %}</div>
+        </div>
+        <div class="input-form">
+            <label>Telefone</label>
+            <div>{% render_field form.telefone class="input" placeholder="(99) 9 99999999"%}</div>
+        </div>
+        <div class="input-form">
+            <label>Email</label>
+            <div>{% render_field form.email class="input" placeholder="nome@exemplo.com"%}</div>
+        </div>
+    </div> -->
+    <!-- <div class="form-group">
             <label>Imagem</label>
             <div>{% render_field form.imagem class="input" %}</div>
         </div> -->
-        <br>
-        <button class="btn btn-success" type="submit">Salvar</button>
-        <a class="btn btn-warning" href="{% url 'listar_alunos' %}">Voltar</a>
-    </form>
-</div>
-<div class="dist"></div>
+    <!-- <br>
+    <h3>Endereço</h3>
+    <div class="row">
+        <div class="input-form">
+            <label>Cep</label>
+            <div>{% render_field form.cep class="input" placeholder="99999-999"%}</div>
+        </div>
+        <div class="input-form">
+            <label>Endereço</label>
+            <div>{% render_field form.endereco class="input" placeholder="Digite o endereço"%}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-form">
+            <label>Número Residencial</label>
+            <div>{% render_field form.numero class="input" placeholder="Número da casa"%}</div>
+        </div>
+        <div class="input-form">
+            <label>Complemento</label>
+            <div>{% render_field form.complemento class="input" placeholder="Digite o complemento"%}</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-form">
+            <label>Bairro</label>
+            <div>{% render_field form.bairro class="input" placeholder="Bairro"%}</div>
+        </div>
+        <div class="input-form">
+            <label>Municipio</label>
+            <div>{% render_field form.municipio class="input" placeholder="Digite o municipio"%}</div>
+        </div>
+        <div class="input-form">
+            <label>Estado</label>
+            <div>{% render_field form.estado class="input" placeholder="Digite o estado"%}</div>
+        </div>
+    </div> -->
+    <br>
+    <button class="btn btn-success" type="submit">Salvar</button>
+    <a class="btn btn-warning" href="{% url 'listar_alunos' %}">Voltar</a>
+</form>
 {% endblock %}
