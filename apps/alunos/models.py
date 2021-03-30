@@ -54,7 +54,7 @@ class Aluno(models.Model):
     municipio = models.CharField(max_length=100, blank=False, null=False)
     estado = models.CharField(max_length=100, choices=STATE_CHOICES)
 	#imagem
-    imagem = models.ImageField(upload_to="media/%y", blank=True, null=True)
+    imagem = models.ImageField(upload_to="imagem/%y")
     
     def __str__(self):
         return self.nome

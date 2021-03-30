@@ -100,7 +100,9 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'login'
 
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
+MEDIA_URL = "/imagem/"
 
-MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "imagem/")
+
+
 

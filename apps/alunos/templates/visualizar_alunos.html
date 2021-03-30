@@ -26,6 +26,9 @@
 <br>
 {{aluno.estado}}
 <br>
+{% for aluno in alunos %}
+<img src="{{ aluno.imagem }}" alt="">
+{% endfor %}
 {{aluno.imagem}}
 <!-- <form action="{% url 'visualizar_aluno' aluno.ID_Aluno %}" method="POST">
     {% csrf_token %}
