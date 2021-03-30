@@ -9,7 +9,7 @@ urlpatterns = [
     path('novo_aluno',alunoNovo, name='novo_aluno'),
     path('update_aluno/(?P<ID_Aluno>\d+)/$', updateAluno, name='update_aluno'),
     path('delete_aluno/(?P<ID_Aluno>\d+)/$', deleteAluno, name='delete_aluno'),
-    path('consulta/', consulta, name='consulta'),
+    #path('consulta/', consulta, name='consulta'),
     path('consulta/', consulta, name='consulta'),
     #todos os alunos
     path('relatorio_alunos/', render_pdf_view, name='relatorio_alunos'),
