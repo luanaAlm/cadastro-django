@@ -60,19 +60,8 @@ def deleteAluno(request, ID_Aluno):
 
 @login_required
 def visualizarAluno(request, ID_Aluno):
-    data = {}
     aluno = Aluno.objects.get(ID_Aluno=ID_Aluno)
-    form = AlunoForm(request.POST or None, instance=aluno)
-    data['aluno'] = aluno
-    data['form'] = form
-
-    if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return redirect('listar_alunos')
-    else:
-        return render(request, 'visualizar_alunos.html', data)
-
+    return render(request, 'visualizar_alunos.html', {'aluno': aluno})
 
 @csrf_protect
 def consulta(request):
