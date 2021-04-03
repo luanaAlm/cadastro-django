@@ -2,9 +2,47 @@
 {% load bootstrap %}
 
 {% block main %}
-<p>Turma: {{ aluno.turma }}</p>
-<p>Matricula: 0{{ aluno.ID_Aluno }}</p>
-<p>Nome: {{ aluno.nome }}</p>
-<img src="{{ aluno.imagem.url }}">
-
+<h2>Updating Aluno: {{ aluno }}</h2>
+<h1>{{aluno.turma}}</h1>
+{{aluno.cpf}}
+<br>
+{{aluno.sexo}}
+<br>
+{{aluno.data}}
+<br>
+{{aluno.telefone}}
+<br>
+{{aluno.email}}
+<br>
+{{aluno.cep}}
+<br>
+{{aluno.numero}}
+<br>
+{{aluno.complemento}}
+<br>
+{{aluno.bairro}}
+<br>
+{{aluno.municipio}}
+<br>
+{{aluno.estado}}
+<br>
+{% for aluno in alunos %}
+<img src="{{ aluno.imagem }}" alt="">
+{% endfor %}
+{{aluno.imagem}}
+<!-- <form action="{% url 'visualizar_aluno' aluno.ID_Aluno %}" method="POST">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <h1>Novo aluno</h1>
+           
+            <br>
+            <p>Preencha todos os campos obrigatórios.</p>
+            <hr>
+            {{ form|bootstrap }}
+            <br>
+            <button class="btn btn-success" type="submit">Salvar</button>
+        </div>
+</form> -->
 {% endblock %}
