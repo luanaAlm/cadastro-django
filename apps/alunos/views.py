@@ -17,8 +17,14 @@ from django.views.generic import ListView , View
 #    return render(request, 'home_alunos.html')
 
 @login_required
+@csrf_protect
 def listarAlunos(request):
-    alunos = Aluno.objects.all()
+    termo_busca = request.GET.get('pesquisa', None)
+    if termo_busca:
+        alunos = Aluno.objects.all()
+        alunos = alunos.filter(nome__contains=termo_busca)
+    else:
+        alunos = Aluno.objects.all()
     return render(request, 'listar_alunos.html', {'alunos': alunos})
 
 @login_required
@@ -81,13 +87,8 @@ def consulta(request):
 
 	if campo   == 'nome':
 		alunos = Aluno.objects.filter(nome__contains=consulta)
-	elif campo == 'data':
-		alunos = Aluno.objects.filter(data__contains=consulta)
-	elif campo == 'sexo':
-		alunos = Aluno.objects.filter(sexo__contains=consulta)
-	
 	return render(request, 'listar_alunos.html', {'alunos': alunos})
-_campo = ''
+
 #pdf
 def render_pdf_view(request):
     template_path = 'pdfs/relatorio_alunos.html'

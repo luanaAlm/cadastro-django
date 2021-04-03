@@ -13,6 +13,7 @@ urlpatterns = [
     
     #path('consulta/', consulta, name='consulta'),
     path('consulta/', consulta, name='consulta'),
+    path('consulta/', consulta, name='consulta'),
     #todos os alunos
     path('relatorio_alunos/', render_pdf_view, name='relatorio_alunos'),
 ]
