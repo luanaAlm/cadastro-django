@@ -42,13 +42,14 @@
                     <td>{{ aluno.turma }}</td>
                     <td>
                         <a type="button" class="btn btn-primary" href="{% url 'update_aluno' aluno.ID_Aluno %}">
-                            <i class="fa fa-file-text w3-large" aria-hidden="true"></i> Editar</a>
-                        <a type="button" class="btn btn-info" href="{% url 'visualizar_aluno' aluno.ID_Aluno %}">
-                            <i class="fa fa-file-text w3-large" aria-hidden="true"></i> Visualizar</a>
-                        <a type="button" class="btn btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">
-                            <i class="fa fa-times w3-large" aria-hidden="true"></i> Excluir
+                            <i class="fa fa-file-text w3-large" aria-hidden="true"></i> 
                         </a>
-
+                        <a type="button" class="btn btn-info" href="{% url 'visualizar_aluno' aluno.ID_Aluno %}">
+                            <i class="fa fa-eye" aria-hidden="true"></i> 
+                        </a>
+                        <a type="button" class="btn btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">
+                            <i class="fa fa-times w3-large" aria-hidden="true"></i> 
+                        </a>
                     </td>
                 </tr>
                 {% endfor %}
