@@ -2,34 +2,41 @@
 {% load bootstrap %}
 
 {% block main %}
-<h2>Updating Aluno: {{ aluno }}</h2>
-<h1>{{aluno.turma}}</h1>
-{{aluno.cpf}}
-<br>
-{{aluno.sexo}}
-<br>
-{{aluno.data}}
-<br>
-{{aluno.telefone}}
-<br>
-{{aluno.email}}
-<br>
-{{aluno.cep}}
-<br>
-{{aluno.numero}}
-<br>
-{{aluno.complemento}}
-<br>
-{{aluno.bairro}}
-<br>
-{{aluno.municipio}}
-<br>
-{{aluno.estado}}
-<br>
-{% for aluno in alunos %}
-<img src="{{ aluno.imagem }}" alt="">
-{% endfor %}
-{{aluno.imagem}}
+Detalhes do Aluno
+
+<div class="dist-vis">
+    teste
+    {% for aluno in alunos %}
+    <img src="{{ aluno.imagem }}" alt="">
+    {% endfor %}
+    {{aluno.imagem}}
+    <hr>
+    <p>Dados Pessoais</p>
+    <h5> <b>Matricula: </b> 0{{aluno.ID_Aluno}}</h5>
+    <h5> <b>Nome: </b> {{ aluno }}</h5>
+    <h5> <b>Turma: </b> {{aluno.turma}}</h5>
+    <h5> <b>CPF: </b> {{aluno.cpf}}</h5>
+    <h5> <b>Sexo: </b> {{aluno.sexo}}</h5>
+    <h5> <b>Nascimento: </b> {{aluno.data}}</h5>
+    <h5> <b>Telefone: </b> {{aluno.telefone}} </h5>
+    <h5> <b>Email: </b> {{aluno.email}} </h5>
+    <hr>
+    <p>Endereço</p>
+    <h5> <b>CEP: </b> {{aluno.cep}}</h5>
+    <h5> <b>Endereço: </b> {{aluno.endereco}}</h5>
+    <h5> <b>Número: </b> {{aluno.numero}}</h5>
+    <h5> <b>Complemento: </b> {{aluno.complemento}}</h5>
+    <h5> <b>Bairro: </b> {{aluno.bairro}}</h5>
+    <h5> <b>Município: </b> {{aluno.municipio}} </h5>
+    <h5> <b>Estado: </b> {{aluno.estado}}</h5>
+</div>
+<div align="right">
+    <a type="button" class="btn btn-danger" href="{% url 'relatorio_alunos' %}">
+        <i class="fa fa-file-pdf-o w3-large" aria-hidden="true"></i> PDF
+    </a>
+</div>
+<div class="dist"></div>
+
 <!-- <form action="{% url 'visualizar_aluno' aluno.ID_Aluno %}" method="POST">
     {% csrf_token %}
     <div class="form-row">

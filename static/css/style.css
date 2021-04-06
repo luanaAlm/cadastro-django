@@ -41,8 +41,6 @@ p{
 }
 form{
   padding-top: 5px;
-  padding-left: 50px;
-  padding-right: 50px;
   padding-bottom: 20px;
 }
 /* === Tabela === */
@@ -52,3 +50,12 @@ form{
   width: 100%;
   align-items: center;
 }
+/* === Visualizar === */
+.dist-vis {
+  align-items: center;
+  padding-top: 6rem !important;
+  padding-bottom: 2rem !important;
+  padding-right: 8rem;
+  padding-left: 2rem;
+}
+
