@@ -116,9 +116,8 @@ def render_pdf_view(request):
 
 def render_pdf_view_id_aluno(request, ID_Aluno):
     template_path = 'pdfs/relatorio_id_aluno.html'
-    aluno = Aluno.objects.get(ID_Aluno=ID_Aluno)
-
-    context = {'myvar': 'Aluno', 'aluno': aluno}
+    alunos = Aluno.objects.get(ID_Aluno=ID_Aluno)
+    context = {'myvar': 'Alunos', 'alunos': alunos}
     response = HttpResponse(content_type='application/pdf')
     # dowload
     #response['Content-Disposition'] = 'attachment; filename="aluno.pdf"'
