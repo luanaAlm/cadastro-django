@@ -30,26 +30,6 @@ Detalhes do Aluno
     <h5> <b>Município: </b> {{aluno.municipio}} </h5>
     <h5> <b>Estado: </b> {{aluno.estado}}</h5>
 </div>
-<div align="right">
-    <a type="button" class="btn btn-danger" href="{% url 'relatorio_alunos' %}">
-        <i class="fa fa-file-pdf-o w3-large" aria-hidden="true"></i> PDF
-    </a>
-</div>
 <div class="dist"></div>
 
-<!-- <form action="{% url 'visualizar_aluno' aluno.ID_Aluno %}" method="POST">
-    {% csrf_token %}
-    <div class="form-row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-            <h1>Novo aluno</h1>
-           
-            <br>
-            <p>Preencha todos os campos obrigatórios.</p>
-            <hr>
-            {{ form|bootstrap }}
-            <br>
-            <button class="btn btn-success" type="submit">Salvar</button>
-        </div>
-</form> -->
 {% endblock %}

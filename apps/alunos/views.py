@@ -89,9 +89,8 @@ def consulta(request):
         alunos = Aluno.objects.filter(nome__contains=consulta)
     return render(request, 'listar_alunos.html', {'alunos': alunos})
 
+
 # pdf
-
-
 def render_pdf_view(request):
     template_path = 'pdfs/relatorio_alunos.html'
     alunos = Aluno.objects.all()
@@ -102,28 +101,6 @@ def render_pdf_view(request):
     # find the template and render it.
     # visualização
     response['Content-Disposition'] = 'filename="aluno.pdf"'
-    template = get_template(template_path)
-    html = template.render(context)
-
-    # create a pdf
-    pisa_status = pisa.CreatePDF(
-        html, dest=response)
-    # if error then show some funy view
-    if pisa_status.err:
-        return HttpResponse('We had some errors <pre>' + html + '</pre>')
-    return response
-
-
-def render_pdf_view_id_aluno(request, ID_Aluno):
-    template_path = 'pdfs/relatorio_id_aluno.html'
-    alunos = Aluno.objects.get(ID_Aluno=ID_Aluno)
-    context = {'myvar': 'Alunos', 'alunos': alunos}
-    response = HttpResponse(content_type='application/pdf')
-    # dowload
-    #response['Content-Disposition'] = 'attachment; filename="aluno.pdf"'
-    # find the template and render it.
-    # visualização
-    response['Content-Disposition'] = 'filename="id_aluno.pdf"'
     template = get_template(template_path)
     html = template.render(context)
 
