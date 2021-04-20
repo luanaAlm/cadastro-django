@@ -1,8 +1,12 @@
+{% extends 'base_pdf.html' %}
+{% load static %}
+{% block main %} 
 <h1>{{ myvar }}</h1>
-
+<div class="bg-image-pdf"></div>
 {% for aluno in alunos %}
     <p>Turma: {{ aluno.turma }}</p>
     <p>Matricula: 0{{ aluno.ID_Aluno }}</p>
     <p>Nome: {{ aluno.nome }}</p>
     <hr>
 {% endfor %}
+{% endblock %}

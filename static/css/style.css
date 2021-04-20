@@ -4,7 +4,7 @@
   --amarelo-cor: #b1b399;
   --branco-cor: #fff;
 }
-*{
+* {
   padding: 0;
   margin: 0%;
 }
@@ -26,25 +26,25 @@
   color: var(--branco-cor);
 }
 /* === Index === */
-.posi{
+.posi {
   padding-top: 3.5rem !important;
   align-items: center;
   text-align: center;
 }
-footer{
+footer {
   background-color: var(--azul-escuro-cor);
   color: var(--branco-cor);
 }
 /* === Fomularios === */
-p{
+p {
   color: #939484da;
 }
-form{
+form {
   padding-top: 5px;
   padding-bottom: 20px;
 }
 /* === Tabela === */
-#tabela{
+#tabela {
   overflow-y: scroll;
   height: 310px;
   width: 100%;
@@ -59,3 +59,10 @@ form{
   padding-left: 2rem;
 }
 
+/* PDF*/
+
+.bg-image-pdf {
+  background-image: url("/static/img/ebd.jpg");
+  background-size: cover;
+  background-position: center;
+}
