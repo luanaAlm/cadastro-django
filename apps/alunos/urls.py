@@ -13,7 +13,7 @@ urlpatterns = [
          visualizarAluno, name='visualizar_aluno'),
 
     #path('consulta/', consulta, name='consulta'),
-    path('consulta/', consulta, name='consulta'),
+    path('consulta/', consulta),
     # PDFs
     path('relatorio_alunos/', render_pdf_view, name='relatorio_alunos'),
 

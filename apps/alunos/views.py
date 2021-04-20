@@ -87,10 +87,19 @@ def consulta(request):
 
     if campo == 'nome':
         alunos = Aluno.objects.filter(nome__contains=consulta)
-    return render(request, 'listar_alunos.html', {'alunos': alunos})
+    elif campo == 'cpf':
+        alunos = Aluno.objects.filter(cpf__contains=consulta)
+    elif campo == 'endereco':
+        alunos = Aluno.objects.filter(endereco__contains=consulta)
+    elif campo == 'bairro':
+        alunos = Aluno.objects.filter(bairro__contains=consulta)
 
+    return render(request, 'listar_alunos.html', {'alunos': alunos})
+    _campo = ''
 
 # pdf
+
+
 def render_pdf_view(request):
     template_path = 'pdfs/relatorio_alunos.html'
     alunos = Aluno.objects.all()
