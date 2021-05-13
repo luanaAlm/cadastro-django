@@ -24,6 +24,9 @@ body {
   font-size: 0.875rem;
 }
 
+a:hover {
+  text-decoration: none;
+}
 .feather {
   width: 16px;
   height: 16px;
@@ -153,5 +156,11 @@ body {
 .card-header {
   background-color: #f8f9fc;
 }
-
 /* === index === */
+.title-card {
+  color: var(--primary);
+  font-weight: bold;
+}
+h3 {
+  padding-top: 1rem;
+}

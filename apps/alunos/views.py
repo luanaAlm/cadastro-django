@@ -19,13 +19,15 @@ from django.views.generic import ListView, View
 @login_required
 @csrf_protect
 def listarAlunos(request):
+    titulo = 'Alunos'
+    subtitle = 'Lista de Alunos'
     termo_busca = request.GET.get('pesquisa', None)
     if termo_busca:
         alunos = Aluno.objects.all()
         alunos = alunos.filter(nome__contains=termo_busca)
     else:
         alunos = Aluno.objects.all()
-    return render(request, 'listar_alunos.html', {'alunos': alunos})
+    return render(request, 'listar_alunos.html', {'titulo': titulo, 'subtitle': subtitle, 'alunos': alunos})
 
 
 @login_required
@@ -79,7 +81,10 @@ def visualizarAluno(request, ID_Aluno):
 
     return render(request, 'visualizar_alunos.html', data)
 
+
 """"""
+
+
 @csrf_protect
 def consulta(request):
     consulta = request.POST.get('consulta')

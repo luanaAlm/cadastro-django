@@ -1,79 +1,98 @@
 {% extends 'base.html' %}
 {% block main %}
 {% csrf_token %}
-<a type="button" class="btn btn-warning" href="{% url 'criar_alunos' %}">
-    <i class="fa fa-user-plus" aria-hidden="true"></i>Inserir Alunos
-</a>
-<br><br>
-<h2>Lista de alunos</h2>
-<br>
-<!--Inicio Consulta-->
-<form action="consulta/" method="POST" name="frm_consulta" class="ml-3">{% csrf_token %}
-    <div class="form-group">
-        <div class="row">
-            <input type="text" class="form-control col-md-5" name="consulta"
-            placeholder="Digite aqui a sua consulta">
-            <select class="form-control col-md-2" name="campo">
-                <option value="nome">Nome</option>
-                <option value="cpf">CPF</option>
-                <option value="endereco">Endereço</option>
-                <option value="bairro">Bairro</option>
-            </select>
-            <button type="submit" class="btn btn-success">Consultar</button>
+
+    <!-- titulo -->
+    <div class="d-flex justify-content-between flex-wrap 
+        flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h3>{{titulo}}</h3>
+        <div class="btn-toolbar mb-2 mb-md-0"></div>
+    </div>
+
+    <div class="card rounded-sm">
+        <div class="card-header">
+            <h5 class="title-card">{{subtitle}}</h5>
+        </div>
+        <div class="inner-square shadow">
+            <!--Inicio Consulta-->
+            <form action="consulta/" method="POST" name="frm_consulta" 
+                class="ml-3">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="row">
+                        <input type="text" class="form-control col-md-5" name="consulta"
+                        placeholder="Digite aqui a sua consulta">
+                        <select class="form-control col-md-2" name="campo">
+                            <option value="nome">Nome</option>
+                            <option value="cpf">CPF</option>
+                            <option value="endereco">Endereço</option>
+                            <option value="bairro">Bairro</option>
+                        </select>
+                        <button type="submit" class="btn btn-warning">Consultar</button>
+                    </div>
+                </div>
+            </form>
+            <!--FIm Consulta-->
+            <!--Inicio Tabela-->
+            <div style="overflow-y: scroll; height: 410px; width: 100%;" align="center">
+                <table class="table">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Matricula</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Turma</th>
+                                <th scope="col">Editar</th>
+                                <th scope="col">Visualizar</th>
+                                <th scope="col">Excluir</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for aluno in alunos %}
+                            <tr>
+                                <th scope="row">0{{ aluno.ID_Aluno }}</th>
+                                <td>{{ aluno.nome }}</td>
+                                <td>{{ aluno.turma }}</td>
+                                <td>
+                                    <a type="button" class="btn-sm btn-primary" 
+                                        href="{% url 'update_aluno' aluno.ID_Aluno %}">
+                                        <i class="bi bi-pencil-square"></i>
+                                        Editar
+                                    </a>
+                                </td>
+                                <td>
+                                    <a type="button" class="btn-sm btn-success" href="{% url 'visualizar_aluno' aluno.ID_Aluno %}">
+                                        <i class="bi bi-eye"></i>
+                                        Visualizar
+                                    </a>
+                                </td>
+                                <td>
+                                    <a type="button" class="btn-sm btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">
+                                        <i class="bi bi-file-earmark-x"></i>
+                                        Excluir
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </table>
+            </div>
+            <!--Fim Tabela-->
+            <!--Inicio Relatorios PDF e Excel-->
+            <br>
+            <div align="center">
+                <a type="button" class="btn btn-danger" href="{% url 'relatorio_alunos' %}">
+                    <i class="bi bi-file-earmark-pdf"></i> 
+                    PDF
+                </a>
+                <a class=" btn btn-success" href="">
+                    <i class="bi bi-file-earmark-spreadsheet"></i>
+                    Excel
+                </a>
+            </div>
+            <!--Fim Relatorios PDF e Excel-->
         </div>
     </div>
-</form>
-<!--FIm Consulta-->
-<!--Inicio Tabela-->
-<div style="overflow-y: scroll; height: 410px; width: 100%;" align="center">
-    <table class="table">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Matricula</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Turma</th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Visualizar</th>
-                    <th scope="col">Excluir</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for aluno in alunos %}
-                <tr>
-                    <th scope="row">0{{ aluno.ID_Aluno }}</th>
-                    <td>{{ aluno.nome }}</td>
-                    <td>{{ aluno.turma }}</td>
-                    <td>
-                        <a type="button" class="btn btn-primary" href="{% url 'update_aluno' aluno.ID_Aluno %}">
-                            <i class="fa fa-file-text w3-large" aria-hidden="true"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <a type="button" class="btn btn-info" href="{% url 'visualizar_aluno' aluno.ID_Aluno %}">
-                            <i class="fa fa-eye w3-large" aria-hidden="true"></i>
-                        </a>
-                    </td>
-                    <td>
-                        <a type="button" class="btn btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">
-                            <i class="fa fa-times w3-large" aria-hidden="true"></i>
-                        </a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </table>
-</div>
-<!--Fim Tabela-->
-<!--Relatorios PDF e Excel-->
-<div align="center">
-    <a type="button" class="btn btn-danger" href="{% url 'relatorio_alunos' %}">
-        <i class="fa fa-file-pdf-o w3-large" aria-hidden="true"></i> PDF
-    </a>
-    <a class=" btn btn-success" href="">
-        <i class="w3-large fa fa-file-excel-o" aria-hidden="true"></i>Excel
-    </a>
-</div>
-<div class="dist"></div>
+
 {% endblock %}
