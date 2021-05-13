@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_protect
 
 # pdf
 from django.template.loader import get_template
-from xhtml2pdf import pisa
+# from xhtml2pdf import pisa
 from django.views.generic import ListView, View
 
 
@@ -79,7 +79,7 @@ def visualizarAluno(request, ID_Aluno):
 
     return render(request, 'visualizar_alunos.html', data)
 
-
+""""""
 @csrf_protect
 def consulta(request):
     consulta = request.POST.get('consulta')
