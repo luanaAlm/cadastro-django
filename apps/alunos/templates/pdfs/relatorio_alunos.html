@@ -1,12 +1,14 @@
 {% extends 'base_pdf.html' %}
 {% load static %}
 {% block main %} 
-<h1>{{ myvar }}</h1>
-<div class="bg-image-pdf"></div>
-{% for aluno in alunos %}
-    <p>Turma: {{ aluno.turma }}</p>
-    <p>Matricula: 0{{ aluno.ID_Aluno }}</p>
-    <p>Nome: {{ aluno.nome }}</p>
-    <hr>
-{% endfor %}
+<button id="dowload">cowload pdf</button>
+
+    <div id="invoice">
+        {% for aluno in alunos %}
+            Turma: {{ aluno.turma }}
+            Matricula: 0{{ aluno.ID_Aluno }}
+            Nome: {{ aluno.nome }}
+            <hr>
+        {% endfor %}
+    </div>
 {% endblock %}

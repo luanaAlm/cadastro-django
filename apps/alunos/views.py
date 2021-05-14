@@ -5,16 +5,11 @@ from .models import Aluno
 from .form import AlunoForm
 from django.views.decorators.csrf import csrf_protect
 
-# pdf
-from django.template.loader import get_template
-# from xhtml2pdf import pisa
-from django.views.generic import ListView, View
-
-
 # views Alunos
 # @login_required
 # def homeAlunos(request):
 #    return render(request, 'home_alunos.html')
+
 
 @login_required
 @csrf_protect
@@ -109,22 +104,7 @@ def consulta(request):
 
 
 def render_pdf_view(request):
-    template_path = 'pdfs/relatorio_alunos.html'
+    titulo = 'Alunos'
+    subtitle = 'Lista de Alunos'
     alunos = Aluno.objects.all()
-    context = {'myvar': 'Alunos', 'alunos': alunos}
-    response = HttpResponse(content_type='application/pdf')
-    # dowload
-    #response['Content-Disposition'] = 'attachment; filename="aluno.pdf"'
-    # find the template and render it.
-    # visualização
-    response['Content-Disposition'] = 'filename="aluno.pdf"'
-    template = get_template(template_path)
-    html = template.render(context)
-
-    # create a pdf
-    pisa_status = pisa.CreatePDF(
-        html, dest=response)
-    # if error then show some funy view
-    if pisa_status.err:
-        return HttpResponse('We had some errors <pre>' + html + '</pre>')
-    return response
+    return render(request, 'pdfs/relatorio_alunos.html', {'titulo': titulo, 'subtitle': subtitle, 'alunos': alunos})
