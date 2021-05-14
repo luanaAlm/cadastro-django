@@ -1,10 +1,25 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<h2>Tem certeza que deseja deletar o aluno(a): {{ aluno }}</h2>
+
+<div class="d-flex justify-content-between flex-wrap 
+flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+<h3>Aluno</h3>
+<div class="btn-toolbar mb-2 mb-md-0"></div>
+</div>
+<div class="card rounded-sm">
+    <div class="card-header">
+        <h5 class="title-card">Excluir</h5>
+    </div>
+    <div class="inner-square shadow">
+        <h4>Tem certeza que deseja deletar o aluno(a): {{ aluno }}</h4>
 
 <form action="{% url 'delete_aluno' aluno.ID_Aluno %}" method="POST">
     {% csrf_token %}
-    <button class="btn btn-danger" type="submit">Deletar</button>
+    <br>
+    <button class="btn btn-danger btn-block" type="submit">Deletar</button>
 </form>
+
+    </div>
+</div>
 {% endblock %}
