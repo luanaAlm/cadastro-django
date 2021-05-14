@@ -32,8 +32,11 @@ def listarAlunos(request):
 
 @login_required
 def criarAluno(request):
+    titulo = 'Alunos'
+    subtitle = 'Criar novo Aluno'
+
     form = AlunoForm()
-    return render(request, 'criar_alunos.html', {'form': form})
+    return render(request, 'criar_alunos.html', {'titulo': titulo, 'subtitle': subtitle, 'form': form})
 
 
 @login_required
