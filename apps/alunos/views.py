@@ -14,7 +14,7 @@ from django.views.decorators.csrf import csrf_protect
 @login_required
 @csrf_protect
 def listarAlunos(request):
-    titulo = 'Alunos'
+    titulo = 'Aluno'
     subtitle = 'Lista de Alunos'
     termo_busca = request.GET.get('pesquisa', None)
     if termo_busca:
@@ -27,7 +27,7 @@ def listarAlunos(request):
 
 @login_required
 def criarAluno(request):
-    titulo = 'Alunos'
+    titulo = 'Aluno'
     subtitle = 'Criar novo Aluno'
 
     form = AlunoForm()

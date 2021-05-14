@@ -2,22 +2,32 @@
 {% load bootstrap %}
 
 {% block main %}
-<h2>Updating Aluno: {{ aluno }}</h2>
+<!-- titulo -->
+<div class="d-flex justify-content-between flex-wrap 
+flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+<h3>Aluno</h3>
+<div class="btn-toolbar mb-2 mb-md-0"></div>
+</div>
 
+<div class="card rounded-sm">
+    <div class="card-header">
+        <h5 class="title-card">Updating Aluno: {{ aluno }}</h5>
+    </div>
+    <div class="inner-square shadow">
 <form action="{% url 'update_aluno' aluno.ID_Aluno %}" 
     enctype="multipart/form-data" method="POST">
     {% csrf_token %}
     <div class="form-row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
-            <h1>Novo aluno</h1>
-            <br>
-            <p>Preencha todos os campos obrigatórios.</p>
-            <hr>
+            <div class="alert alert-primary" role="alert">
+                Preencha todos os campos obrigatórios.
+            </div>
             {{ form|bootstrap }}
-            
             <br>
             <button class="btn btn-success" type="submit">Salvar</button>
         </div>
 </form>
+    </div>
+</div>
 {% endblock %}
