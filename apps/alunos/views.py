@@ -49,7 +49,6 @@ def updateAluno(request, ID_Aluno):
     form = AlunoForm(request.POST or None, instance=aluno)
     data['aluno'] = aluno
     data['form'] = form
-
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -78,9 +77,6 @@ def visualizarAluno(request, ID_Aluno):
     data['form'] = form
 
     return render(request, 'visualizar_alunos.html', data)
-
-
-""""""
 
 
 @csrf_protect

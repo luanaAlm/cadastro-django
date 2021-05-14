@@ -81,7 +81,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -100,9 +100,7 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'login'
 
-MEDIA_URL = "/imagem/"
+# Media files
+#MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "imagem/")
-
-
-
+MEDIA_URL = "/media/"

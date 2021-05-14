@@ -4,7 +4,8 @@
 {% block main %}
 <h2>Updating Aluno: {{ aluno }}</h2>
 
-<form action="{% url 'update_aluno' aluno.ID_Aluno %}" method="POST">
+<form action="{% url 'update_aluno' aluno.ID_Aluno %}" 
+    enctype="multipart/form-data" method="POST">
     {% csrf_token %}
     <div class="form-row">
         <div class="col-sm-2"></div>
@@ -14,6 +15,7 @@
             <p>Preencha todos os campos obrigatórios.</p>
             <hr>
             {{ form|bootstrap }}
+            
             <br>
             <button class="btn btn-success" type="submit">Salvar</button>
         </div>

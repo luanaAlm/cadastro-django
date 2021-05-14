@@ -2,17 +2,21 @@
 {% load bootstrap %}
 
 {% block main %}
-Detalhes do Aluno
-
-<div class="dist-vis">
-    teste
-    {% for aluno in alunos %}
-    <img src="{{ aluno.imagem }}" alt="">
-    {% endfor %}
-    {{aluno.imagem}}
-    <hr>
-    <p>Dados Pessoais</p>
-    <h5> <b>Matricula: </b> 0{{aluno.ID_Aluno}}</h5>
+    <!-- titulo -->
+    <div class="d-flex justify-content-between flex-wrap 
+        flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h3>Aluno</h3>
+        <div class="btn-toolbar mb-2 mb-md-0"></div>
+    </div>
+    <div class="card rounded-sm">
+        <div class="card-header">
+            <h5 class="title-card">Atualização do Aluno</h5>
+        </div>
+        <div class="inner-square shadow">
+            <!-- Inicio da Visualizacao -->
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-sm-12">
+                    <h5> <b>Matricula: </b> 0{{aluno.ID_Aluno}}</h5>
     <h5> <b>Nome: </b> {{ aluno }}</h5>
     <h5> <b>Turma: </b> {{aluno.turma}}</h5>
     <h5> <b>CPF: </b> {{aluno.cpf}}</h5>
@@ -29,7 +33,15 @@ Detalhes do Aluno
     <h5> <b>Bairro: </b> {{aluno.bairro}}</h5>
     <h5> <b>Município: </b> {{aluno.municipio}} </h5>
     <h5> <b>Estado: </b> {{aluno.estado}}</h5>
-</div>
-<div class="dist"></div>
+    <!-- <img src="{{aluno.imageAluno}}" alt="Aluno"/> -->
+
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <img src="{{aluno.imageAluno.url}}" class="img-fluid" alt="Aluno">
+                </div>
+            </div>
+            <!-- Fim da Visualizacao -->
+        </div>
+    </div>
 
 {% endblock %}
