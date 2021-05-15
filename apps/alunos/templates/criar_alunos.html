@@ -15,7 +15,8 @@
                 <h5 class="title-card">{{subtitle}}</h5>
             </div>
             <div class="inner-square shadow">
-                <form class="" action="{% url 'novo_aluno' %}" method="POST">
+                <form action="{% url 'novo_aluno' %}" method="POST"
+                    enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="form-row">
                         <div class="col-sm-2"></div>
@@ -44,7 +45,7 @@
         </div>
         <script>
             function alerta(){
-                alert("Ao voltar o registo não será salvo!");
+                alert("Ao voltar o registo não ser salvo!");
             }
         </script>
     {% endblock %}

@@ -29,14 +29,13 @@ def listarAlunos(request):
 def criarAluno(request):
     titulo = 'Aluno'
     subtitle = 'Criar novo Aluno'
-
-    form = AlunoForm()
+    form = AlunoForm(request.POST or None)
     return render(request, 'criar_alunos.html', {'titulo': titulo, 'subtitle': subtitle, 'form': form})
 
 
 @login_required
 def alunoNovo(request):
-    form = AlunoForm(request.POST or None)
+    form = AlunoForm(request.POST, request.FILES)
     if form.is_valid():
         form.save()
     return redirect('listar_alunos')
