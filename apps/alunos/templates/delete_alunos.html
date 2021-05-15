@@ -17,9 +17,15 @@ flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
 <form action="{% url 'delete_aluno' aluno.ID_Aluno %}" method="POST">
     {% csrf_token %}
     <br>
-    <button class="btn btn-danger btn-block" type="submit">Deletar</button>
+    <button class="btn btn-danger btn-block" onclick="alerta()" type="submit">Deletar</button>
+    <p id="demo"></p>
 </form>
 
     </div>
 </div>
+<script>
+    function alerta(){
+        alert("Deseja Excluir o registro!");
+    }
+</script>
 {% endblock %}
