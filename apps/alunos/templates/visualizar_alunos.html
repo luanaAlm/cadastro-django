@@ -1,9 +1,9 @@
-{% extends 'base.html' %}
-{% load bootstrap %}
+{% extends 'base_pdf.html' %}
+{% load static %}
+{% block main %} 
 
-{% block main %}
-    <!-- titulo -->
-    <div class="d-flex justify-content-between flex-wrap 
+    <div id="invoice">
+        <div class="d-flex justify-content-between flex-wrap 
         flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h3>Aluno</h3>
         <div class="btn-toolbar mb-2 mb-md-0"></div>
@@ -43,5 +43,6 @@
             <!-- Fim da Visualizacao -->
         </div>
     </div>
-
+    </div>
+    <button id="dowload">cowload pdf</button>
 {% endblock %}

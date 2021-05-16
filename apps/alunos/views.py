@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Aluno
 from .form import AlunoForm
@@ -95,13 +96,3 @@ def consulta(request):
         alunos = Aluno.objects.filter(bairro__contains=consulta)
 
     return render(request, 'listar_alunos.html', {'alunos': alunos})
-    _campo = ''
-
-# pdf
-
-
-def render_pdf_view(request):
-    titulo = 'Alunos'
-    subtitle = 'Lista de Alunos'
-    alunos = Aluno.objects.all()
-    return render(request, 'pdfs/relatorio_alunos.html', {'titulo': titulo, 'subtitle': subtitle, 'alunos': alunos})
