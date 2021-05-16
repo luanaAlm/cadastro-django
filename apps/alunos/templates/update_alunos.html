@@ -26,8 +26,17 @@ flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             {{ form|bootstrap }}
             <br>
             <button class="btn btn-success" type="submit">Salvar</button>
+            <a class="btn btn-warning" type="button" onclick="alerta()" 
+            href="{% url 'listar_alunos' %}">
+                Voltar
+            </a>
         </div>
 </form>
     </div>
 </div>
+<script>
+    function alerta(){
+        alert("Ao voltar o registo não será salvo!");
+    }
+</script>
 {% endblock %}

@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Aluno
 from .form import AlunoForm
@@ -45,10 +44,13 @@ def alunoNovo(request):
 def updateAluno(request, ID_Aluno):
     data = {}
     aluno = Aluno.objects.get(ID_Aluno=ID_Aluno)
-    form = AlunoForm(request.POST or None, instance=aluno)
+    form = AlunoForm(instance=aluno)
+
     data['aluno'] = aluno
     data['form'] = form
+
     if request.method == 'POST':
+        form = AlunoForm(request.POST, instance=aluno)
         if form.is_valid():
             form.save()
             return redirect('listar_alunos')
