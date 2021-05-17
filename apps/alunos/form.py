@@ -6,7 +6,7 @@ from .models import Aluno
 
 class AlunoForm(ModelForm):
 
-    imageAluno = forms.ImageField(widget=ClearableFileInput)
+    imagem = forms.ImageField(widget=ClearableFileInput)
 
     class Meta:
         model = Aluno

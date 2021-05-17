@@ -81,6 +81,7 @@ def visualizarAluno(request, ID_Aluno):
     return render(request, 'visualizar_alunos.html', data)
 
 
+@login_required
 @csrf_protect
 def consulta(request):
     consulta = request.POST.get('consulta')

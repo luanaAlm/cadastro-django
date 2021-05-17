@@ -2,47 +2,39 @@
 {% load static %}
 {% block main %} 
 
-    <div id="invoice">
-        <div class="d-flex justify-content-between flex-wrap 
-        flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h3>Aluno</h3>
-        <div class="btn-toolbar mb-2 mb-md-0"></div>
-    </div>
-    <div class="card rounded-sm">
-        <div class="card-header">
-            <h5 class="title-card">Visualização</h5>
-        </div>
-        <div class="inner-square shadow">
-            <!-- Inicio da Visualizacao -->
-            <div class="row">
-                <div class="col-lg-8 col-md-6 col-sm-12">
-                    <h5> <b>Matricula: </b> 0{{aluno.ID_Aluno}}</h5>
-    <h5> <b>Nome: </b> {{ aluno }}</h5>
-    <h5> <b>Turma: </b> {{aluno.turma}}</h5>
-    <h5> <b>CPF: </b> {{aluno.cpf}}</h5>
-    <h5> <b>Sexo: </b> {{aluno.sexo}}</h5>
-    <h5> <b>Nascimento: </b> {{aluno.data}}</h5>
-    <h5> <b>Telefone: </b> {{aluno.telefone}} </h5>
-    <h5> <b>Email: </b> {{aluno.email}} </h5>
-    <hr>
-    <p>Endereço</p>
-    <h5> <b>CEP: </b> {{aluno.cep}}</h5>
-    <h5> <b>Endereço: </b> {{aluno.endereco}}</h5>
-    <h5> <b>Número: </b> {{aluno.numero}}</h5>
-    <h5> <b>Complemento: </b> {{aluno.complemento}}</h5>
-    <h5> <b>Bairro: </b> {{aluno.bairro}}</h5>
-    <h5> <b>Município: </b> {{aluno.municipio}} </h5>
-    <h5> <b>Estado: </b> {{aluno.estado}}</h5>
-    <!-- <img src="{{aluno.imageAluno}}" alt="Aluno"/> -->
-
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <img src="{{aluno.imageAluno.url}}" class="img-fluid" alt="Aluno">
-                </div>
+    <div class="corpo-pdf border">
+        <h4>FICHA DE MATRÍCULA</h4>
+        <!-- Inicio da Visualizacao -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <h5><b>Turma:</b> {{aluno.turma}}</h5>
+                <hr>
             </div>
-            <!-- Fim da Visualizacao -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <h4><b>DADOS PESSOAIS</b></h4>
+            </div>
+            <div class="col-lg-8 col-md-6 col-sm-12"> 
+                <h5><b>Matricula: </b> {{aluno.ID_Aluno}}</h5>
+                <h5> <b>Nome completo: </b> {{ aluno }}</h5> 
+                <h5> <b>Sexo: </b> {{aluno.sexo}}</h5>
+                <h5> <b>Data de Nascimento: </b> {{aluno.data}}</h5>
+                <h5> <b>CPF: </b> {{aluno.cpf}}</h5>
+                <h5> <b>Telefone: </b> {{aluno.telefone}} </h5>
+                <h5> <b>Email: </b> {{aluno.email}} </h5>
+                <hr>
+                <h5>Moradia</h5><br>
+                <h5> <b>CEP: </b> {{aluno.cep}}</h5>
+                <h5> <b>Endereço: </b> {{aluno.endereco}}</h5>
+                <h5> <b>Número: </b> {{aluno.numero}}</h5>
+                <h5> <b>Complemento: </b> {{aluno.complemento}}</h5>
+                <h5> <b>Bairro: </b> {{aluno.bairro}}</h5>
+                <h5> <b>Município: </b> {{aluno.municipio}} </h5>
+                <h5> <b>Estado: </b> {{aluno.estado}}</h5>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <img src="{{aluno.imagem.url}}" class="img-fluid img-corpo" alt="Aluno">
+            </div>
         </div>
     </div>
-    </div>
-    <button id="dowload">cowload pdf</button>
+    
 {% endblock %}

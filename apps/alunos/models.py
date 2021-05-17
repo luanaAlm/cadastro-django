@@ -38,11 +38,12 @@ class Aluno(models.Model):
         (' TO ', ' Tocantins ')
     )
     ID_Aluno = models.AutoField(primary_key=True)
-    nome = models.CharField(max_length=45)
     turma = models.ForeignKey(Turma, on_delete=models.CASCADE)
-    cpf = CPFField(max_length=14)
+
+    nome = models.CharField(max_length=45)
     sexo = models.CharField(max_length=100, choices=SEXO_CHOICES)
     data = models.DateField(max_length=8)
+    cpf = CPFField(max_length=14)
     telefone = models.IntegerField(blank=False, null=False, max_length=16)
     email = models.EmailField(max_length=200)
     # endereço
@@ -53,7 +54,8 @@ class Aluno(models.Model):
     bairro = models.CharField(max_length=100, blank=False, null=False)
     municipio = models.CharField(max_length=100, blank=False, null=False)
     estado = models.CharField(max_length=100, choices=STATE_CHOICES)
-    imageAluno = models.ImageField(upload_to="img/%y")
+    # imagem
+    imagem = models.ImageField(upload_to="img/%y")
 
     def __str__(self):
         return self.nome

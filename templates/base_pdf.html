@@ -19,30 +19,37 @@
         <link rel="stylesheet" 
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
         <!-- Css -->
-        <link rel="stylesheet" href="{% static 'css/style_pdf.css' %}">
-        
-        
+        <link rel="stylesheet" href="{% static 'css/style_pdf.css' %}">   
     </head>
-
-    <body>
-        <div class="container">
-            <div class="mt-5 d-flex flex-column h-100">
+    <body>    
+        <div id="invoice">
+            <div class="d-flex flex-column">
                 <main class="flex-shrink-0">
                     <div class="container">
-                        <!-- <div>
-                            <div class="bg-image-pdf"></div>
-                            <p><b> 
-                                Igreja Evangélica Assembleia de Deus <br>
-                                Escola Biblíca Dominical <br>
-                                Camplo Promorar <br>
-                                Rua do Conjunto N° 1043 - Bairro Promorar <br>
-                                tel:
-                            </b></p>
-                        </div> -->
+                        <div class="cabecalo-pdf border">
+                            <img class="img-fluid" src="{% static 'img/ebd.jpg' %}" alt="logo-ebd">
+                            <h5>
+                                <b> 
+                                    Igreja Evangélica Assembleia de Deus <br>
+                                    Escola Biblíca Dominical <br>
+                                    Camplo Promorar <br>
+                                    Rua do Conjunto N° 1043 - Bairro Promorar <br>
+                                    <!-- tel: -->
+                                </b>
+                            </h5>
+                        </div>
                         {% block main %} {% endblock %}
                     </div>
                 </main>
             </div>
+            
+        </div>
+        <div class="container">
+            <br>
+            <button class="btn btn-danger" id="dowload">
+                <i class="bi bi-file-earmark-pdf"></i>
+                PDF
+            </button>
         </div>
         <!--<footer class="footer mt-auto py-3">
             <div class="container">
