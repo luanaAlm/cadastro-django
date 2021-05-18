@@ -1,40 +1,66 @@
 {% extends 'base.html' %}
 {% block main %}
 {% csrf_token %}
-<a type="button" class="btn btn-warning" href="{% url 'criar_professores' %}">Inserir Professores</a>
-<h1>Lista de professores</h1>
-<br>
-<div class="col-sm-12">
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Matricula</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Data</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for professor in professores %}
-            <tr>
-                <th scope="row">0{{ professor.ID_Professor }}</th>
-                <td>{{ professor.nome }}</td>
-                <td>{{ professor.data }}</td>
-                <td>
-                    <a type="button" class="btn btn-primary" href="{% url 'update_professor' professor.ID_Professor %}">Editar</a>
-                    <a type="button" class="btn btn-danger" href="{% url 'delete_professor' professor.ID_Professor %}">Excluir</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-<!--<ul>
-    {% for aluno in alunos %}
-        <li> {{ aluno.nome }}</li>
-        <li> {{ aluno.turma }}</li>
-        <a type="button" class="btn btn-primary" href="{% url 'update_aluno' aluno.ID_Aluno %}">Editar</a>
-        <a type="button" class="btn btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">Excluir</a>
-        <hr>
-    {% endfor %}
-    </ul>-->
+
+    <!-- titulo -->
+    <div class="d-flex justify-content-between flex-wrap 
+        flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h3>{{titulo}}</h3>
+        <div class="btn-toolbar mb-2 mb-md-0"></div>
+    </div>
+
+    <div class="card rounded-sm">
+        <div class="card-header">
+            <h5 class="title-card">{{subtitle}}</h5>
+        </div>
+        <div class="inner-square shadow">
+            <!--Inicio Tabela-->
+            <div style="overflow-y: scroll; height: 410px; width: 100%;" align="center">
+                <table class="table">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Matricula</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Turma</th>
+                                <th scope="col">Editar</th>
+                                <th scope="col">Visualizar</th>
+                                <th scope="col">Excluir</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for professor in professores %}
+                            <tr>
+                                <th scope="row">{{ professor.ID_Professor }}</th>
+                                <td>{{ professor.nome }}</td>
+                                <td>{{ professor.turma }}</td>
+                                <td>
+                                    <a type="button" class="btn-sm btn-primary" 
+                                        href="{% url 'update_professor' professor.ID_Professor %}">
+                                        <i class="bi bi-pencil-square"></i>
+                                        Editar
+                                    </a>
+                                </td>
+                                <td>
+                                    <a type="button" class="btn-sm btn-success" 
+                                        href="">
+                                        <i class="bi bi-eye"></i>
+                                        Visualizar
+                                    </a>
+                                </td>
+                                <td>
+                                    <a type="button" class="btn-sm btn-danger" href="{% url 'delete_professor' professor.ID_Professor %}">
+                                        <i class="bi bi-file-earmark-x"></i>
+                                        Excluir
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </table>
+            </div>
+            <!--Fim Tabela-->
+        </div>
+    </div>
 {% endblock %}
