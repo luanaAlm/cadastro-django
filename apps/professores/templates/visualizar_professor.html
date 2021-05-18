@@ -6,45 +6,37 @@
         <h4>FICHA DO PROFESSOR</h4>
         
         <!-- Inicio da Visualizacao -->
-        <!-- <div class="row">
+        <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <h5><b>Turma:</b> {{aluno.turma}}</h5>
+                <h5><b>Turma:</b> {{professores.turma}}</h5>
                 <hr>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <h4><b>DADOS PESSOAIS</b></h4>
             </div>
             <div class="col-lg-8 col-md-6 col-sm-12"> 
-                <h5><b>Matricula: </b> {{aluno.ID_Aluno}}</h5>
-                <h5> <b>Nome completo: </b> {{ aluno }}</h5> 
-                <h5> <b>Sexo: </b> {{aluno.sexo}}</h5>
-                <h5> <b>Data de Nascimento: </b> {{aluno.data}}</h5>
-                <h5> <b>CPF: </b> {{aluno.cpf}}</h5>
-                <h5> <b>Telefone: </b> {{aluno.telefone}} </h5>
-                <h5> <b>Email: </b> {{aluno.email}} </h5>
+                <h5><b>Matricula: </b> {{professores.ID_Professor}}</h5>
+                <h5> <b>Nome completo: </b> {{ professores }}</h5> 
+                <h5> <b>Sexo: </b> {{professores.sexo}}</h5>
+                <h5> <b>Data de Nascimento: </b> {{professores.data}}</h5>
+                <h5> <b>CPF: </b> {{professores.cpf}}</h5>
+                <h5> <b>Telefone: </b> {{professores.telefone}} </h5>
+                <h5> <b>Email: </b> {{professores.email}} </h5>
                 <hr>
                 <h5><b>Moradia</b></h5><br>
-                <h5> <b>CEP: </b> {{aluno.cep}}</h5>
-                <h5> <b>Endereço: </b> {{aluno.endereco}}</h5>
-                <h5> <b>Número: </b> {{aluno.numero}}</h5>
-                <h5> <b>Complemento: </b> {{aluno.complemento}}</h5>
-                <h5> <b>Bairro: </b> {{aluno.bairro}}</h5>
-                <h5> <b>Município: </b> {{aluno.municipio}} </h5>
-                <h5> <b>Estado: </b> {{aluno.estado}}</h5>
-                <hr>
-                <h5><b>Saúde</b></h5><br>
-                <h5> <b>Em caso de emergência entrar em contato com? </b> {{aluno.nomeResp}}</h5>
-                <h5> <b>Telefone do responsável: </b> {{aluno.telefoneResp}}</h5>
-                <h5> <b>Possui algum problema de saúde? </b> {{aluno.Saude}}</h5>
-                <h5> <b>O aluno toma algum medicamento? </b> {{aluno.Medicamento}}</h5>
-                <h5> <b>Tem alguma deficiência? </b> {{aluno.Deficiencia}}</h5>
-                <h5> <b>Alguma alergia ou restrição alimentar? </b> {{aluno.RestricaoAlimentar}}</h5>
+                <h5> <b>CEP: </b> {{professores.cep}}</h5>
+                <h5> <b>Endereço: </b> {{professores.endereco}}</h5>
+                <h5> <b>Número: </b> {{professores.numero}}</h5>
+                <h5> <b>Complemento: </b> {{professores.complemento}}</h5>
+                <h5> <b>Bairro: </b> {{professores.bairro}}</h5>
+                <h5> <b>Município: </b> {{professores.municipio}} </h5>
+                <h5> <b>Estado: </b> {{professores.estado}}</h5>
                 <br>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
-                <img src="{{aluno.imagem.url}}" class="rounded img-corpo" alt="Aluno">
+                <img src="{{professores.imagem.url}}" class="rounded img-corpo" alt="professor">
             </div>
-        </div> -->
+        </div>
     </div>
     
 {% endblock %}
