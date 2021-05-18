@@ -5,9 +5,6 @@ from .models import Turma
 from apps.alunos.models import Aluno
 from apps.professores.models import Professor
 from .form import TurmaForm
-# pdf
-from django.template.loader import get_template
-from xhtml2pdf import pisa
 
 
 # views Turmas
@@ -87,30 +84,3 @@ def jardimDeus(request):
     alunos = Aluno.objects.filter(turma_id='2')
     professores = Professor.objects.filter(turma_id='2')
     return render(request, 'turmas/jardim_deus.html', {'turmas': turmas, 'alunos': alunos, 'professores': professores})
-
-
-# pdf
-def render_pdf_view(request):
-    template_path = 'pdf_turmas/relatorio_renascer.html'
-    turmas = Turma.objects.filter(turma='Renascer')
-    professores = Professor.objects.filter(turma_id='1')
-    alunos = Aluno.objects.filter(turma_id='1')
-
-    context = {'myvar': 'Turma', 'turmas': turmas,
-               'professores': professores, 'alunos': alunos}
-    response = HttpResponse(content_type='application/pdf')
-    # dowload
-    #response['Content-Disposition'] = 'attachment; filename="aluno.pdf"'
-    # find the template and render it.
-    # visualização
-    response['Content-Disposition'] = 'filename="renascer.pdf"'
-    template = get_template(template_path)
-    html = template.render(context)
-
-    # create a pdf
-    pisa_status = pisa.CreatePDF(
-        html, dest=response)
-    # if error then show some funy view
-    if pisa_status.err:
-        return HttpResponse('We had some errors <pre>' + html + '</pre>')
-    return response
