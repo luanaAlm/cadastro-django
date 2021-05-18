@@ -5,9 +5,15 @@ from .views import homeTurmas, listarTurmas, criarTurmas, turmaNovo, updateTurma
 # urls Turmas
 urlpatterns = [
     path('home_turmas', homeTurmas, name='home_turmas'),
-    path('listar_turmas', listarTurmas, name='listar_turmas'),
+
     path('criar_turmas', criarTurmas, name='criar_turmas'),
     path('novo_turma', turmaNovo, name='novo_turma'),
+
+    path('listar_turmas/(?P<ID_Turma>\d+)/$',
+         listarTurmas, name='listar_turmas'),
+
+
+
     path('^update_turma/(?P<ID_Turma>\d+)/$',
          updateTurma, name='update_turma'),
     path('^delete_turma/(?P<ID_Turma>\d+)/$',

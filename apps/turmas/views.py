@@ -18,9 +18,13 @@ def homeTurmas(request):
 
 
 @login_required
-def listarTurmas(request):
-    turmas = Turma.objects.all()
-    return render(request, 'listar_turmas.html')
+def listarTurmas(request, ID_Turma):
+    data = {}
+    turma = Turma.objects.get(ID_Turma=ID_Turma)
+    form = TurmaForm(request.POST or None, instance=turma)
+    data['turma'] = turma
+    data['form'] = form
+    return render(request, 'listar_turmas.html', data)
 
 
 @login_required
@@ -65,8 +69,6 @@ def deleteTurma(request, ID_Turma):
         return redirect('listar_turmas')
     else:
         return render(request, 'delete_turma.html', {'turma': turma})
-
-# Turma Renascer
 
 
 @login_required

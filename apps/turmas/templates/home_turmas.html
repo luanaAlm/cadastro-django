@@ -19,7 +19,7 @@
                     {{ turma.modalidade }}    
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
-                    <a href="{% url 'listar_turmas' %}" class="btn btn-primary btn-block">
+                    <a href="{% url 'listar_turmas' turma.ID_Turma %}" class="btn btn-primary btn-block">
                         <i class="bi bi-people-fill"></i>
                         Entrar
                     </a>
