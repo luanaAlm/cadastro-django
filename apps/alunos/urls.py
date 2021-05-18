@@ -7,9 +7,9 @@ urlpatterns = [
     path('listar_alunos', listarAlunos, name='listar_alunos'),
     path('criar_alunos', criarAluno, name='criar_alunos'),
     path('novo_aluno', alunoNovo, name='novo_aluno'),
-    path('update_aluno/<int:ID_Aluno>/', updateAluno, name='update_aluno'),
-    path('delete_aluno/<int:ID_Aluno>/', deleteAluno, name='delete_aluno'),
-    path('visualizar_aluno/<int:ID_Aluno>/',
+    path('update_aluno/(?P<ID_Aluno>\d+)/$', updateAluno, name='update_aluno'),
+    path('delete_aluno/(?P<ID_Aluno>\d+)/$', deleteAluno, name='delete_aluno'),
+    path('visualizar_aluno/(?P<ID_Aluno>\d+)/$',
          visualizarAluno, name='visualizar_aluno'),
     path('consulta/', consulta),
 ]
