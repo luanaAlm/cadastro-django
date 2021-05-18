@@ -10,13 +10,18 @@ body {
 .cabecalo-pdf > img {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  width: 8rem;
+  width: 4rem !important;
   height: auto;
 }
 .corpo-pdf {
-  padding: 1.5rem;
+  padding: 1rem;
 }
-
+h7 {
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 1rem;
+  font-size: 0.9rem;
+}
 h4 {
   font-weight: bold;
   text-align: center;
@@ -28,7 +33,7 @@ h5 {
 }
 
 .img-corpo {
-  width: 10rem !important;
-  height: 12rem !important;
+  width: 10rem;
+  height: 10rem;
   object-fit: cover;
 }

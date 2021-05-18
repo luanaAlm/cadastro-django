@@ -22,7 +22,7 @@
                 <h5> <b>Telefone: </b> {{aluno.telefone}} </h5>
                 <h5> <b>Email: </b> {{aluno.email}} </h5>
                 <hr>
-                <h5>Moradia</h5><br>
+                <h5><b>Moradia</b></h5><br>
                 <h5> <b>CEP: </b> {{aluno.cep}}</h5>
                 <h5> <b>Endereço: </b> {{aluno.endereco}}</h5>
                 <h5> <b>Número: </b> {{aluno.numero}}</h5>
@@ -30,9 +30,18 @@
                 <h5> <b>Bairro: </b> {{aluno.bairro}}</h5>
                 <h5> <b>Município: </b> {{aluno.municipio}} </h5>
                 <h5> <b>Estado: </b> {{aluno.estado}}</h5>
+                <hr>
+                <h5><b>Saúde</b></h5><br>
+                <h5> <b>Em caso de emergência entrar em contato com? </b> {{aluno.nomeResp}}</h5>
+                <h5> <b>Telefone do responsável: </b> {{aluno.telefoneResp}}</h5>
+                <h5> <b>Possui algum problema de saúde? </b> {{aluno.Saude}}</h5>
+                <h5> <b>O aluno toma algum medicamento? </b> {{aluno.Medicamento}}</h5>
+                <h5> <b>Tem alguma deficiência? </b> {{aluno.Deficiencia}}</h5>
+                <h5> <b>Alguma alergia ou restrição alimentar? </b> {{aluno.RestricaoAlimentar}}</h5>
+                
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
-                <img src="{{aluno.imagem.url}}" class="img-fluid img-corpo" alt="Aluno">
+                <img src="{{aluno.imagem.url}}" class="rounded img-corpo" alt="Aluno">
             </div>
         </div>
     </div>

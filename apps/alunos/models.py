@@ -37,6 +37,7 @@ class Aluno(models.Model):
         (' SE ', ' Sergipe '),
         (' TO ', ' Tocantins ')
     )
+
     ID_Aluno = models.AutoField(primary_key=True)
     turma = models.ForeignKey(Turma, on_delete=models.CASCADE)
 
@@ -45,7 +46,7 @@ class Aluno(models.Model):
     data = models.DateField(max_length=8)
     cpf = CPFField(max_length=14)
     telefone = models.IntegerField(blank=False, null=False, max_length=16)
-    email = models.EmailField(max_length=200)
+    email = models.EmailField(max_length=200, null=True)
     # endereço
     cep = models.IntegerField(max_length=8)
     endereco = models.CharField(max_length=100, blank=False, null=False)
@@ -54,6 +55,18 @@ class Aluno(models.Model):
     bairro = models.CharField(max_length=100, blank=False, null=False)
     municipio = models.CharField(max_length=100, blank=False, null=False)
     estado = models.CharField(max_length=100, choices=STATE_CHOICES)
+    # Responsavel
+    nomeResp = models.CharField(
+        "Em caso de emergência entrar em contato com?", max_length=45)
+    telefoneResp = models.IntegerField(
+        "Telefone do responsável", blank=False, null=False, max_length=16)
+    # saude
+    Saude = models.CharField("Possui algum problema de saúde?", max_length=100)
+    Medicamento = models.CharField(
+        "O aluno toma algum medicamento?", max_length=100)
+    Deficiencia = models.CharField("Tem alguma deficiência?", max_length=100)
+    RestricaoAlimentar = models.CharField(
+        "Alguma alergia ou restrição alimentar?", max_length=100)
     # imagem
     imagem = models.ImageField(upload_to="img/%y")
 
