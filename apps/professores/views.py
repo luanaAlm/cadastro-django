@@ -5,13 +5,6 @@ from .models import Professor
 from .form import ProfessorForm
 from django.views.decorators.csrf import csrf_protect
 
-# views Professores
-
-
-@login_required
-def homeProfessores(request):
-    return render(request, 'home_professores.html')
-
 
 @login_required
 def listarProfessores(request):
