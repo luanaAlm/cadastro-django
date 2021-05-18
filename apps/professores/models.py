@@ -1,5 +1,5 @@
 from django.db import models
-from  apps.turmas.models import Turma
+from apps.turmas.models import Turma
 
 
 class Professor(models.Model):
@@ -8,6 +8,5 @@ class Professor(models.Model):
     data = models.DateField()
     turma = models.ForeignKey(Turma, on_delete=models.CASCADE)
 
-    
     def __str__(self):
         return self.nome
