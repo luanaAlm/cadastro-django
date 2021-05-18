@@ -28,13 +28,15 @@ def listarProfessores(request):
 
 @login_required
 def criarProfessor(request):
-    form = ProfessorForm()
-    return render(request, 'criar_professores.html', {'form': form})
+    titulo = 'Professor'
+    subtitle = 'Lista de Professores'
+    form = ProfessorForm(request.POST or None)
+    return render(request, 'criar_professores.html', {'titulo': titulo, 'subtitle': subtitle, 'form': form})
 
 
 @login_required
 def professorNovo(request):
-    form = ProfessorForm(request.POST or None)
+    form = ProfessorForm(request.POST, request.FILES)
     if form.is_valid():
         form.save()
     return redirect('listar_professores')
