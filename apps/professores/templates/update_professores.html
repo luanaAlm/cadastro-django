@@ -1,12 +1,40 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
-
 {% block main %}
-<h2>Updating Professor: {{ professor }}</h2>
-
-<form action="{% url 'update_professor' professor.ID_Professor %}" method="POST">
-    {% csrf_token %}
-    {{ form|bootstrap }}
-    <button class="btn btn-success" type="submit">Salvar</button>
-</form>
+    <!-- titulo -->
+    <div class="d-flex justify-content-between flex-wrap 
+        flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h3>Professor</h3>
+        <div class="btn-toolbar mb-2 mb-md-0"></div>
+    </div>
+    <div class="card rounded-sm">
+        <div class="card-header">
+            <h5 class="title-card">Edição professor(a): {{ professor }}</h5>
+        </div>
+        <div class="inner-square shadow">
+    <form action="{% url 'update_professor' professor.ID_Professor %}" 
+        enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <div class="alert alert-primary" role="alert">
+                    Preencha todos os campos obrigatórios.
+                </div>
+                {{ form|bootstrap }}
+                <br>
+                <button class="btn btn-success" type="submit">Salvar</button>
+                <a class="btn btn-warning" type="button" onclick="alerta()" 
+                href="{% url 'listar_professores' %}">
+                    Voltar
+                </a>
+            </div>
+    </form>
+        </div>
+    </div>
+    <script>
+        function alerta(){
+            alert("Ao voltar o registo não será salvo!");
+        }
+    </script>
 {% endblock %}
