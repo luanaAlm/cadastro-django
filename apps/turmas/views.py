@@ -13,13 +13,14 @@ from xhtml2pdf import pisa
 # views Turmas
 @login_required
 def homeTurmas(request):
-    return render(request, 'home_turmas.html')
+    turmas = Turma.objects.all()
+    return render(request, 'home_turmas.html', {'turmas': turmas})
 
 
 @login_required
 def listarTurmas(request):
     turmas = Turma.objects.all()
-    return render(request, 'listar_turmas.html', {'turmas': turmas})
+    return render(request, 'listar_turmas.html')
 
 
 @login_required
