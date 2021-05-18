@@ -27,34 +27,9 @@ def listarProfessores(request):
 
 
 @login_required
-@csrf_protect
-def consulta(request):
-    consulta = request.POST.get('consulta')
-    campo = request.POST.get('campo')
-
-    if campo == 'nome':
-        professores = Professor.objects.filter(nome__contains=consulta)
-    elif campo == 'turma':
-        professores = Professor.objects.filter(turma__contains=consulta)
-
-    return render(request, 'listar_alunos.html', {'professores': professores})
-
-
-@login_required
 def criarProfessor(request):
     form = ProfessorForm()
     return render(request, 'criar_professores.html', {'form': form})
-
-
-@login_required
-def visualizarProfessor(request, ID_Professor):
-    data = {}
-    professores = Professor.objects.get(ID_Professor=ID_Professor)
-    form = ProfessorForm(request.POST or None, instance=professores)
-    data['professores'] = professores
-    data['form'] = form
-
-    return render(request, 'visualizar_professor.html', data)
 
 
 @login_required
@@ -90,3 +65,28 @@ def deleteProfessor(request, ID_Professor):
         return redirect('listar_professores')
     else:
         return render(request, 'delete_professores.html', {'professor': professor})
+
+
+@login_required
+def visualizarProfessor(request, ID_Professor):
+    data = {}
+    professores = Professor.objects.get(ID_Professor=ID_Professor)
+    form = ProfessorForm(request.POST or None, instance=professores)
+    data['professores'] = professores
+    data['form'] = form
+
+    return render(request, 'visualizar_professor.html', data)
+
+
+@login_required
+@csrf_protect
+def consulta(request):
+    consulta = request.POST.get('consulta')
+    campo = request.POST.get('campo')
+
+    if campo == 'nome':
+        professores = Professor.objects.filter(nome__contains=consulta)
+    # elif campo == 'turma':
+    #     professores = Professor.objects.filter(Turma__contains=consulta)
+
+    return render(request, 'listar_professores.html', {'professores': professores})
