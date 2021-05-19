@@ -1,9 +1,6 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Turma
-from apps.alunos.models import Aluno
-from apps.professores.models import Professor
 from .form import TurmaForm
 
 
@@ -12,16 +9,6 @@ from .form import TurmaForm
 def homeTurmas(request):
     turmas = Turma.objects.all()
     return render(request, 'home_turmas.html', {'turmas': turmas})
-
-
-@login_required
-def listarTurmas(request, ID_Turma):
-    data = {}
-    turma = Turma.objects.get(ID_Turma=ID_Turma)
-    form = TurmaForm(request.POST or None, instance=turma)
-    data['turma'] = turma
-    data['form'] = form
-    return render(request, 'listar_turmas.html', data)
 
 
 @login_required
@@ -58,22 +45,22 @@ def updateTurma(request, ID_Turma):
 
 
 @login_required
-def deleteTurma(request, ID_Turma):
+def listarTurmas(request, ID_Turma):
+    data = {}
     turma = Turma.objects.get(ID_Turma=ID_Turma)
+    form = TurmaForm(request.POST or None, instance=turma)
+    data['turma'] = turma
+    data['form'] = form
 
-    if request.method == 'POST':
-        turma.delete()
-        return redirect('listar_turmas')
-    else:
-        return render(request, 'delete_turma.html', {'turma': turma})
+    return render(request, 'listar_turmas.html', data)
 
 
 @login_required
 def renascer(request):
     turmas = Turma.objects.filter(turma='Renascer')
-    alunos = Aluno.objects.filter(turma_id='1')
-    professores = Professor.objects.filter(turma_id='1')
-    return render(request, 'turmas/renascer.html', {'turmas': turmas, 'alunos': alunos, 'professores': professores})
+    #alunos = Aluno.objects.filter(turma_id='1')
+    #professores = Professor.objects.filter(turma_id='1')
+    return render(request, 'turmas/renascer.html', {'turmas': turmas})
 
 # Turma Renascer
 
@@ -81,6 +68,6 @@ def renascer(request):
 @login_required
 def jardimDeus(request):
     turmas = Turma.objects.filter(turma='Jardim de Deus')
-    alunos = Aluno.objects.filter(turma_id='2')
-    professores = Professor.objects.filter(turma_id='2')
-    return render(request, 'turmas/jardim_deus.html', {'turmas': turmas, 'alunos': alunos, 'professores': professores})
+    #alunos = Aluno.objects.filter(turma_id='2')
+    #professores = Professor.objects.filter(turma_id='2')
+    return render(request, 'turmas/jardim_deus.html', {'turmas': turmas})

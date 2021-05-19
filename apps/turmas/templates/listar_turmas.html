@@ -2,6 +2,13 @@
 {% block main %}
 {% csrf_token %}
     
-    teste
+        <h5><b>Turma: </b> {{turma.turma}}</h5>
+        <h5><b>Modalidade: </b> {{turma.modalidade}}</h5>
+        <h5><b>Alunos:</b> {{turma.alunos}}</h5>
+        {{ turma.turma_id }}
+    
+    <!-- {% for aluno in alunos %}
 
+        {{ aluno.nome }}
+    {% endfor %} -->
 {% endblock %}
