@@ -1,10 +1,15 @@
+from django.db import connection
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Turma
 from .form import TurmaForm
-
+# Aluno
+from apps.alunos.models import Aluno
+from apps.alunos.form import AlunoForm
 
 # views Turmas
+
+
 @login_required
 def homeTurmas(request):
     turmas = Turma.objects.all()
@@ -57,17 +62,22 @@ def listarTurmas(request, ID_Turma):
 
 @login_required
 def renascer(request):
-    turmas = Turma.objects.filter(turma='Renascer')
+    form = TurmaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    return redirect('listar_turmas')
+    #turmas = Turma.objects.filter(turma='Renascer')
     #alunos = Aluno.objects.filter(turma_id='1')
     #professores = Professor.objects.filter(turma_id='1')
-    return render(request, 'turmas/renascer.html', {'turmas': turmas})
+    # return render(request, 'turmas/renascer.html', {'turmas': turmas})
 
 # Turma Renascer
 
 
 @login_required
 def jardimDeus(request):
-    turmas = Turma.objects.filter(turma='Jardim de Deus')
+    pass
+
+    #turmas = Turma.objects.filter(turma='Jardim de Deus')
     #alunos = Aluno.objects.filter(turma_id='2')
     #professores = Professor.objects.filter(turma_id='2')
-    return render(request, 'turmas/jardim_deus.html', {'turmas': turmas})
