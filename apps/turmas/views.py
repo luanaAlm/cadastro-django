@@ -62,14 +62,10 @@ def listarTurmas(request, ID_Turma):
 
 @login_required
 def renascer(request):
-    form = TurmaForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-    return redirect('listar_turmas')
-    #turmas = Turma.objects.filter(turma='Renascer')
+    turmas = Turma.objects.filter(turma='Renascer')
     #alunos = Aluno.objects.filter(turma_id='1')
     #professores = Professor.objects.filter(turma_id='1')
-    # return render(request, 'turmas/renascer.html', {'turmas': turmas})
+    return render(request, 'turmas/renascer.html', {'turmas': turmas})
 
 # Turma Renascer
 
