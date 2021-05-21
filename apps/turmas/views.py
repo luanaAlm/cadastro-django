@@ -37,22 +37,3 @@ def listarTurmas(request, turma_id):
     professores = Professor.objects.filter(turma_id=turma_id)
     # 'turmas': turmas,
     return render(request, 'listar_turmas.html', {'alunos': alunos, 'professores': professores})
-
-
-@login_required
-def renascer(request):
-    turmas = Turma.objects.filter(turma='Renascer')
-    #alunos = Aluno.objects.filter(turma_id='1')
-    #professores = Professor.objects.filter(turma_id='1')
-    return render(request, 'turmas/renascer.html', {'turmas': turmas})
-
-# Turma Renascer
-
-
-@login_required
-def jardimDeus(request):
-    pass
-
-    #turmas = Turma.objects.filter(turma='Jardim de Deus')
-    #alunos = Aluno.objects.filter(turma_id='2')
-    #professores = Professor.objects.filter(turma_id='2')
