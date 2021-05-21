@@ -111,25 +111,12 @@
                     </h6>
                     
                     <ul class="nav flex-column mb-2">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bi bi-pen-fill"></i>
-                                Turma
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" 
-                                    href="{% url 'home_turmas' %}">Turmas</a>
-                                <a class="dropdown-item" 
-                                    href="{% url 'criar_turmas' %}">Nova Turma</a>
-
-                            </div>
-                        </li>
                         
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{% url 'home_turmas' %}">
+                                <i class="bi bi-pen-fill"></i>
                                 <span data-feather="file-text"></span>
-                                Last quarter
+                                Turmas
                             </a>
                         </li>
                         <li class="nav-item">

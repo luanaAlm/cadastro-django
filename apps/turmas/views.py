@@ -1,12 +1,9 @@
-from django.db import connection
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Turma
 from .form import TurmaForm
 # Aluno
 from apps.alunos.models import Aluno
-from apps.alunos.form import AlunoForm
-
 # Professor
 from apps.professores.models import Professor
 
@@ -15,23 +12,6 @@ from apps.professores.models import Professor
 def homeTurmas(request):
     turmas = Turma.objects.all()
     return render(request, 'home_turmas.html', {'turmas': turmas})
-
-
-@login_required
-def criarTurmas(request):
-    titulo = 'Turma'
-    subtitle = 'Criar nova Turma'
-
-    form = TurmaForm()
-    return render(request, 'criar_turmas.html', {'titulo': titulo, 'subtitle': subtitle, 'form': form})
-
-
-@login_required
-def turmaNovo(request):
-    form = TurmaForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-    return redirect('home_turmas')
 
 
 @login_required

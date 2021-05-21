@@ -1,13 +1,10 @@
 from django.urls import path
-from .views import homeTurmas, listarTurmas, criarTurmas, turmaNovo, updateTurma, renascer, jardimDeus
+from .views import homeTurmas, listarTurmas, updateTurma, renascer, jardimDeus
 
 
 # urls Turmas
 urlpatterns = [
     path('home_turmas', homeTurmas, name='home_turmas'),
-
-    path('criar_turmas', criarTurmas, name='criar_turmas'),
-    path('novo_turma', turmaNovo, name='novo_turma'),
 
     path('listar_turmas/(?P<turma_id>\d+)/$',
          listarTurmas, name='listar_turmas'),
