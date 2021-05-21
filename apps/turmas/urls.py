@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import homeTurmas, listarTurmas, updateTurma
+from .views import homeTurmas, listarTurmas
 
 
 # urls Turmas
@@ -8,9 +8,6 @@ urlpatterns = [
 
     path('listar_turmas/(?P<turma_id>\d+)/$',
          listarTurmas, name='listar_turmas'),
-
-    path('^update_turma/(?P<ID_Turma>\d+)/$',
-         updateTurma, name='update_turma'),
 
 
 ]
