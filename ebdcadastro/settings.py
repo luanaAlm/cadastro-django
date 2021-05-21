@@ -20,7 +20,6 @@ INSTALLED_APPS = [
     'apps.alunos',
     'apps.turmas',
     'apps.professores',
-    'apps.coperadores',
     'apps.validacpfs',
     'apps.core',
     'cpf_field',
