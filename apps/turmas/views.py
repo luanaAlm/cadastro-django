@@ -7,7 +7,8 @@ from .form import TurmaForm
 from apps.alunos.models import Aluno
 from apps.alunos.form import AlunoForm
 
-# views Turmas
+# Professor
+from apps.professores.models import Professor
 
 
 @login_required
@@ -30,7 +31,7 @@ def turmaNovo(request):
     form = TurmaForm(request.POST or None)
     if form.is_valid():
         form.save()
-    return redirect('listar_turmas')
+    return redirect('home_turmas')
 
 
 @login_required
@@ -50,14 +51,12 @@ def updateTurma(request, ID_Turma):
 
 
 @login_required
-def listarTurmas(request, ID_Turma):
-    data = {}
-    turma = Turma.objects.get(ID_Turma=ID_Turma)
-    form = TurmaForm(request.POST or None, instance=turma)
-    data['turma'] = turma
-    data['form'] = form
-
-    return render(request, 'listar_turmas.html', data)
+def listarTurmas(request, turma_id):
+    #turmas = Turma.objects.filter()
+    alunos = Aluno.objects.filter(turma_id=turma_id)
+    professores = Professor.objects.filter(turma_id=turma_id)
+    # 'turmas': turmas,
+    return render(request, 'listar_turmas.html', {'alunos': alunos, 'professores': professores})
 
 
 @login_required

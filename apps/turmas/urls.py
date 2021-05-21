@@ -9,7 +9,7 @@ urlpatterns = [
     path('criar_turmas', criarTurmas, name='criar_turmas'),
     path('novo_turma', turmaNovo, name='novo_turma'),
 
-    path('listar_turmas/(?P<ID_Turma>\d+)/$',
+    path('listar_turmas/(?P<turma_id>\d+)/$',
          listarTurmas, name='listar_turmas'),
 
     path('^update_turma/(?P<ID_Turma>\d+)/$',
