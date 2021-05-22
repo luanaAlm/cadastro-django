@@ -100,18 +100,31 @@
 
                             </div>
                         </li>
-                        
-                    </ul>
-                    <!-- Turmas -->
+                        <!--Administração-->
+                        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                            <span>Administração</span>
+                            <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+                                <span data-feather="plus-circle"></span>
+                            </a>
+                        </h6>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="bi bi-people-fill"></i>
+                                Colaboradores
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="">Colaboradores</a>
+                                <a class="dropdown-item" href="{% url 'criar_colaborador' %}">Novo Colaborador</a>
+                            </div>
+                        </li>
+                        <!-- Turmas -->
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                         <span>Turmas</span>
                         <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
                             <span data-feather="plus-circle"></span>
                         </a>
-                    </h6>
-                    
-                    <ul class="nav flex-column mb-2">
-                        
+                    </h6>    
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'home_turmas' %}">
                                 <i class="bi bi-pen-fill"></i>
@@ -119,19 +132,8 @@
                                 Turmas
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Social engagement
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file-text"></span>
-                                Year-end sale
-                            </a>
-                        </li>
-                    </ul>
+                    
+                    </ul>   
                 </div>
             </nav>
             <!-- Fim sidebar -->
