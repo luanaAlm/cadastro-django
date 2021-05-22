@@ -2,11 +2,12 @@
 {% block main %}
 {% csrf_token %}
     
-    <div class="corpo-pdf border">
+    <div class="corpo-pdf border" >
         <h4>CLASSE</h4>
-        {% for professor in professores %}
-            <h5><b>Número da sala: </b>{{professor.turma_id}}</h5>
-            <h5><b>Sala: </b> {{professor.turma}}</h5>
+        
+        {% for titulo in titulos %}
+            <h5><b>Sala: </b> {{titulo.turma}}</h5>
+            <h5><b>Modalidade </b>{{titulo.modalidade}} </h5>
         {% endfor %}
         <hr>
         <h4>Professores</h4>
