@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block main %}
+
+<div class="d-flex justify-content-between flex-wrap 
+flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+<h3>Colaborador(a)</h3>
+<div class="btn-toolbar mb-2 mb-md-0"></div>
+</div>
+<div class="card rounded-sm">
+    <div class="card-header">
+        <h5 class="title-card">Excluir</h5>
+    </div>
+    <div class="inner-square shadow">
+        <h4>Tem certeza que deseja deletar o(a) colaborador(a): {{ colaborador }}</h4>
+
+<form action="{% url 'delete_colaborador' colaborador.ID_Adm %}" method="POST">
+    {% csrf_token %}
+    <br>
+    <button class="btn btn-danger btn-block" onclick="alerta()" type="submit">Deletar</button>
+    <p id="demo"></p>
+</form>
+
+    </div>
+</div>
+<script>
+    function alerta(){
+        alert("Deseja Excluir o registro!");
+    }
+</script>
+{% endblock %}

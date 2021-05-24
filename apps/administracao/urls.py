@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import criarColaborador, colaboradorNovo, listarColaboradores, consulta, updateColaborador
+from .views import criarColaborador, colaboradorNovo, listarColaboradores, consulta, updateColaborador, deleteColaborador
 
 # urls Professores
 urlpatterns = [
@@ -10,5 +10,8 @@ urlpatterns = [
     path('consulta/', consulta),
     path('^update_colaborador/(?P<ID_Adm>\d+)/$',
          updateColaborador, name='update_colaborador'),
+    path('^delete_colaborador/(?P<ID_Adm>\d+)/$',
+         deleteColaborador, name='delete_colaborador'),
+
 
 ]

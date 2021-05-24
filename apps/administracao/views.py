@@ -63,3 +63,14 @@ def updateColaborador(request, ID_Adm):
             return redirect('listar_colaboradores')
     else:
         return render(request, 'update_colaborador.html', data)
+
+
+@login_required
+def deleteColaborador(request, ID_Adm):
+    colaborador = Administracao.objects.get(ID_Adm=ID_Adm)
+
+    if request.method == 'POST':
+        colaborador.delete()
+        return redirect('listar_colaboradores')
+    else:
+        return render(request, 'delete_colaborador.html', {'colaborador': colaborador})
