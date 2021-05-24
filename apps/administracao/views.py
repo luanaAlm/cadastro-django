@@ -47,3 +47,19 @@ def colaboradorNovo(request):
     if form.is_valid():
         form.save()
     return redirect('listar_colaboradores')
+
+
+@login_required
+def updateColaborador(request, ID_Adm):
+    data = {}
+    colaborador = Administracao.objects.get(ID_Adm=ID_Adm)
+    form = ColaboradorForm(request.POST or None, instance=colaborador)
+    data['colaborador'] = colaborador
+    data['form'] = form
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('listar_colaboradores')
+    else:
+        return render(request, 'update_colaborador.html', data)
