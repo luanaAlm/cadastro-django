@@ -74,3 +74,14 @@ def deleteColaborador(request, ID_Adm):
         return redirect('listar_colaboradores')
     else:
         return render(request, 'delete_colaborador.html', {'colaborador': colaborador})
+
+
+@login_required
+def visualizarColaborador(request, ID_Adm):
+    data = {}
+    colaboradores = Administracao.objects.get(ID_Adm=ID_Adm)
+    form = ColaboradorForm(request.POST or None, instance=colaboradores)
+    data['colaboradores'] = colaboradores
+    data['form'] = form
+
+    return render(request, 'visualizar_colaborador.html', data)

@@ -1,0 +1,43 @@
+{% extends 'base_pdf.html' %}
+{% load static %}
+{% block main %} 
+
+    <div class="corpo-pdf border">
+        
+        
+        <!-- Inicio da Visualizacao -->
+        <div class="row">
+            <!-- <div class="col-lg-12 col-md-12 col-sm-12">
+                <h5><b>Turma:</b> {{colaboradores.turma}}</h5>
+                <hr>
+            </div> -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <h4><b>DADOS PESSOAIS</b></h4>
+            </div>
+                <div class="col-lg-8 col-md-6 col-sm-12"> 
+                <h5><b>Matricula: </b> {{colaboradores.ID_Adm}}</h5>
+                <h5><b>Função: </b> {{colaboradores.funcao}}</h5>
+                <h5> <b>Nome completo: </b> {{ colaboradores }}</h5> 
+                <h5> <b>Sexo: </b> {{colaboradores.sexo}}</h5>
+                <h5> <b>Data de Nascimento: </b> {{colaboradores.data}}</h5>
+                <h5> <b>CPF: </b> {{colaboradores.cpf}}</h5>
+                <h5> <b>Telefone: </b> {{colaboradores.telefone}} </h5>
+                <h5> <b>Email: </b> {{colaboradores.email}} </h5>
+                <hr>
+                <h5><b>Moradia</b></h5><br>
+                <h5> <b>CEP: </b> {{colaboradores.cep}}</h5>
+                <h5> <b>Endereço: </b> {{colaboradores.endereco}}</h5>
+                <h5> <b>Número: </b> {{colaboradores.numero}}</h5>
+                <h5> <b>Complemento: </b> {{colaboradores.complemento}}</h5>
+                <h5> <b>Bairro: </b> {{colaboradores.bairro}}</h5>
+                <h5> <b>Município: </b> {{colaboradores.municipio}} </h5>
+                <h5> <b>Estado: </b> {{colaboradores.estado}}</h5>
+                <br>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <img src="{{colaboradores.imagem.url}}" class="rounded img-corpo" alt="colaborador">
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
