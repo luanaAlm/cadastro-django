@@ -3,17 +3,14 @@
 {% csrf_token %}
 
     <!-- titulo -->
-    <div class="d-flex justify-content-between flex-wrap 
-        flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h3>{{titulo}}</h3>
-        <div class="btn-toolbar mb-2 mb-md-0"></div>
-    </div>
-
-    <div class="card rounded-sm">
-        <div class="card-header">
-            <h5 class="title-card">{{subtitle}}</h5>
+    <h1 class="h3 mb-4 text-gray-800">{{titulo}}</h1>
+    <hr class="sidebar-divider d-none d-md-block">
+    
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">{{subtitle}}</h6>
         </div>
-        <div class="inner-square shadow">
+        <div class="card-body">
             <!--Inicio Consulta-->
             <form action="consulta/" method="POST" name="frm_consulta" 
                 class="ml-3">
@@ -82,5 +79,8 @@
             <!--Fim Tabela-->
         </div>
     </div>
+    <!-- Lista -->
+
+    
 
 {% endblock %}

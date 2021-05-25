@@ -1,21 +1,15 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Aluno
 from .form import AlunoForm
 from django.views.decorators.csrf import csrf_protect
 
-# views Alunos
-# @login_required
-# def homeAlunos(request):
-#    return render(request, 'home_alunos.html')
-
 
 @login_required
 @csrf_protect
 def listarAlunos(request):
-    titulo = 'Aluno'
-    subtitle = 'Lista de Alunos'
+    titulo = 'Alunos'
+    subtitle = 'Lista'
     termo_busca = request.GET.get('pesquisa', None)
     if termo_busca:
         alunos = Aluno.objects.all()
