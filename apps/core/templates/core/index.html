@@ -10,15 +10,17 @@
     <div class="row"> 
         <!-- Card Alunos -->
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4 border border-primary shadow">
+            <div class="card mb-4 border-left-primary shadow h-10 py-2">
                 <div class="card-body">
-                    <h5 class="">Alunos</h5>
+                    <h5 class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        Alunos
+                    </h5>
                     <p class="card-text">
-                        Mostra a lista de todos os estudantes e suas respectivas informações.  
+                        Mostra a lista com todos os estudantes e suas 
+                        respectivas informações.  
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
                         <a href="{% url 'listar_alunos' %}" class="btn btn-primary btn-block">
-                            <i class="bi bi-people-fill"></i>
                             Entrar
                         </a>
                     </div>
@@ -27,11 +29,12 @@
         </div>
         <!-- Card Professores -->
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4 border border-warning shadow">
+            <div class="card mb-4 border-left-warning shadow h-10 py-2">
                 <div class="card-body">
-                    <h5 class="">Professores</h5>
+                    <h5 class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        Professores</h5>
                     <p class="card-text">
-                        Mostra a lista de todos os educadores e suas respectivas informações.  
+                        Mostra a lista com todos os educadores e suas respectivas informações.  
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
                         <a href="{% url 'listar_professores' %}" class="btn btn-warning btn-block">
@@ -43,15 +46,16 @@
         </div>
         <!-- Card Turmas -->
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4 border border-success shadow">
+            <div class="card mb-4 border-left-success shadow h-10 py-2">
                 <div class="card-body">
-                    <h5 class="">Turmas</h5>
+                    <h5 class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        Turmas
+                    </h5>
                     <p class="card-text">
-                        Mostra a lista de todas as salas e suas respectivas informações.  
+                        Mostra a lista com todas as salas e suas respectivas informações.  
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
                         <a href="{% url 'home_turmas' %}" class="btn btn-success btn-block">
-                            <i class="bi bi-people-fill"></i>
                             Entrar
                         </a>
                     </div>
@@ -60,15 +64,16 @@
         </div>
         <!-- Card Administração -->
         <div class="col-lg-4 col-md-6 col-sm-12">
-            <div class="card mb-4 border border-danger shadow">
+            <div class="card mb-4 border-left-danger shadow h-10 py-2">
                 <div class="card-body">
-                    <h5 class="">Administração</h5>
+                    <h5 class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        Administração
+                    </h5>
                     <p class="card-text">
                         Mostra a lista de todas as salas e suas respectivas informações.  
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
                         <a href="{% url 'listar_colaboradores' %}" class="btn btn-danger btn-block">
-                            <i class="bi bi-people-fill"></i>
                             Entrar
                         </a>
                     </div>
