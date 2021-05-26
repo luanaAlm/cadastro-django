@@ -91,3 +91,17 @@ def consulta(request):
         alunos = Aluno.objects.filter(bairro__contains=consulta)
 
     return render(request, 'listar_alunos.html', {'alunos': alunos})
+
+
+_campo = ''
+
+
+def ordenacao(request, campo):
+    global _campo
+    if campo == _campo:
+        alunos = Aluno.objects.all().order_by(campo).reverse()
+        _campo = ''
+    else:
+        alunos = Aluno.objects.all().order_by(campo)
+        _campo = campo
+    return render(request, 'listar_alunos.html', {'alunos': alunos})

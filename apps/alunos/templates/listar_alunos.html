@@ -12,7 +12,7 @@
         </div>
         <div class="card-body">
             <!--Inicio Consulta-->
-            <form action="consulta/" method="POST" name="frm_consulta" 
+            <!-- <form action="consulta/" method="POST" name="frm_consulta" 
                 class="ml-3">
                 {% csrf_token %}
                 <div class="form-group">
@@ -28,12 +28,13 @@
                         <button type="submit" class="btn btn-warning">Consultar</button>
                     </div>
                 </div>
-            </form>
+            </form> -->
             <!--FIm Consulta-->
+            
             <!--Inicio Tabela-->
-            <div style="overflow-y: scroll; height: 410px; width: 100%;" align="center">
-                <table class="table">
-                    <table class="table table-hover">
+            <div>
+                <table class="table table-hover" id="tabelaAlunos">
+                   
                         <thead>
                             <tr>
                                 <th scope="col">Matricula</th>
@@ -73,14 +74,49 @@
                             </tr>
                             {% endfor %}
                         </tbody>
-                    </table>
+                    
                 </table>
             </div>
             <!--Fim Tabela-->
         </div>
     </div>
     <!-- Lista -->
-
-    
-
+    <script>
+        
+    </script>
+{% endblock %}
+{% block scripts %}
+    <script>
+        $('#tabelaAlunos').DataTable({
+        responsive: true,
+        // "bSort": false,
+        "aaSorting": [],
+        "pageLength": 50,
+        "language": {
+            "decimal": "",
+            "emptyTable": "Sem dados disponíveis",
+            "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
+            "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+            "infoFiltered": "(filtrado de _MAX_ registos no total)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ registos",
+            "loadingRecords": "A carregar dados...",
+            "processing": "A processar...",
+            "search": "Procurar:",
+            "zeroRecords": "Não foram encontrados resultados",
+            "paginate": {
+                "first": "Primeiro",
+                "last": "Último",
+                "next": "Seguinte",
+                "previous": "Anterior"
+            },
+            "aria": {
+                "sortAscending": ": ordem crescente",
+                "sortDescending": ": ordem decrescente"
+            }
+        }
+    });
+        
+    </script>
 {% endblock %}

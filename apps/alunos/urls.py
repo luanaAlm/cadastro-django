@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import listarAlunos, criarAluno, alunoNovo, updateAluno, deleteAluno, consulta, visualizarAluno
+from .views import listarAlunos, criarAluno, alunoNovo, updateAluno, deleteAluno, consulta, visualizarAluno, ordenacao
 
 
 # urls Alunos
@@ -12,4 +12,5 @@ urlpatterns = [
     path('visualizar_aluno/(?P<ID_Aluno>\d+)/$',
          visualizarAluno, name='visualizar_aluno'),
     path('consulta/', consulta),
+    path('ordenacao/<str:campo>/', ordenacao),
 ]
