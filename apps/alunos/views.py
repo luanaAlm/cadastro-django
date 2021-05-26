@@ -73,35 +73,3 @@ def visualizarAluno(request, ID_Aluno):
     data['form'] = form
 
     return render(request, 'visualizar_alunos.html', data)
-
-
-@login_required
-@csrf_protect
-def consulta(request):
-    consulta = request.POST.get('consulta')
-    campo = request.POST.get('campo')
-
-    if campo == 'nome':
-        alunos = Aluno.objects.filter(nome__contains=consulta)
-    elif campo == 'cpf':
-        alunos = Aluno.objects.filter(cpf__contains=consulta)
-    elif campo == 'endereco':
-        alunos = Aluno.objects.filter(endereco__contains=consulta)
-    elif campo == 'bairro':
-        alunos = Aluno.objects.filter(bairro__contains=consulta)
-
-    return render(request, 'listar_alunos.html', {'alunos': alunos})
-
-
-_campo = ''
-
-
-def ordenacao(request, campo):
-    global _campo
-    if campo == _campo:
-        alunos = Aluno.objects.all().order_by(campo).reverse()
-        _campo = ''
-    else:
-        alunos = Aluno.objects.all().order_by(campo)
-        _campo = campo
-    return render(request, 'listar_alunos.html', {'alunos': alunos})
