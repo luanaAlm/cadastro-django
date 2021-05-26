@@ -45,10 +45,10 @@ class Aluno(models.Model):
     sexo = models.CharField(max_length=100, choices=SEXO_CHOICES)
     data = models.DateField(max_length=8)
     cpf = CPFField(max_length=14)
-    telefone = models.IntegerField(blank=False, null=False, max_length=16)
+    telefone = models.CharField(blank=False, null=False, max_length=11)
     email = models.EmailField(max_length=200, null=True)
     # endereço
-    cep = models.IntegerField(max_length=8)
+    cep = models.CharField(max_length=9)
     endereco = models.CharField(max_length=100, blank=False, null=False)
     numero = models.IntegerField(null=True, blank=True)
     complemento = models.CharField(max_length=1000, null=True)
@@ -58,8 +58,8 @@ class Aluno(models.Model):
     # Responsavel
     nomeResp = models.CharField(
         "Em caso de emergência entrar em contato com?", max_length=45)
-    telefoneResp = models.IntegerField(
-        "Telefone do responsável", blank=False, null=False, max_length=16)
+    telefoneResp = models.CharField(
+        "Telefone do responsável", blank=False, null=False, max_length=11)
     # saude
     Saude = models.CharField("Possui algum problema de saúde?", max_length=100)
     Medicamento = models.CharField(
