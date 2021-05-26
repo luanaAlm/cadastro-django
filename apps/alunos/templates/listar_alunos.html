@@ -11,79 +11,52 @@
             <h6 class="m-0 font-weight-bold text-primary">{{subtitle}}</h6>
         </div>
         <div class="card-body">
-            <!--Inicio Consulta-->
-            <!-- <form action="consulta/" method="POST" name="frm_consulta" 
-                class="ml-3">
-                {% csrf_token %}
-                <div class="form-group">
-                    <div class="row">
-                        <input type="text" class="form-control col-md-5" name="consulta"
-                        placeholder="Digite aqui a sua consulta">
-                        <select class="form-control col-md-2" name="campo">
-                            <option value="nome">Nome</option>
-                            <option value="cpf">CPF</option>
-                            <option value="endereco">Endereço</option>
-                            <option value="bairro">Bairro</option>
-                        </select>
-                        <button type="submit" class="btn btn-warning">Consultar</button>
-                    </div>
-                </div>
-            </form> -->
-            <!--FIm Consulta-->
-            
             <!--Inicio Tabela-->
-            <div>
-                <table class="table table-hover" id="tabelaAlunos">
-                   
-                        <thead>
-                            <tr>
-                                <th scope="col">Matricula</th>
-                                <th scope="col">Nome</th>
-                                <th scope="col">Turma</th>
-                                <th scope="col">Editar</th>
-                                <th scope="col">Visualizar</th>
-                                <th scope="col">Excluir</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for aluno in alunos %}
-                            <tr>
-                                <th scope="row">{{ aluno.ID_Aluno }}</th>
-                                <td>{{ aluno.nome }}</td>
-                                <td>{{ aluno.turma }}</td>
-                                <td>
-                                    <a type="button" class="btn-sm btn-primary" 
-                                        href="{% url 'update_aluno' aluno.ID_Aluno %}">
-                                        <i class="bi bi-pencil-square"></i>
-                                        Editar
-                                    </a>
-                                </td>
-                                <td>
-                                    <a type="button" class="btn-sm btn-success" 
-                                        href="{% url 'visualizar_aluno' aluno.ID_Aluno %}">
-                                        <i class="bi bi-eye"></i>
-                                        Visualizar
-                                    </a>
-                                </td>
-                                <td>
-                                    <a type="button" class="btn-sm btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">
-                                        <i class="bi bi-file-earmark-x"></i>
-                                        Excluir
-                                    </a>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    
-                </table>
-            </div>
+            <table class="table table-hover" id="tabelaAlunos">
+                <thead>
+                    <tr>
+                        <th scope="col">Matricula</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Turma</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Visualizar</th>
+                        <th scope="col">Excluir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for aluno in alunos %}
+                        <tr>
+                            <th scope="row">{{ aluno.ID_Aluno }}</th>
+                            <td>{{ aluno.nome }}</td>
+                            <td>{{ aluno.turma }}</td>
+                            <td>
+                                <a type="button" class="btn-sm btn-primary" 
+                                    href="{% url 'update_aluno' aluno.ID_Aluno %}">
+                                    <i class="bi bi-pencil-square"></i>
+                                    Editar
+                            </a>
+                            </td>
+                            <td>
+                                <a type="button" class="btn-sm btn-success" 
+                                    href="{% url 'visualizar_aluno' aluno.ID_Aluno %}">
+                                    <i class="bi bi-eye"></i>
+                                    Visualizar
+                                </a>
+                            </td>
+                            <td>
+                                <a type="button" class="btn-sm btn-danger" href="{% url 'delete_aluno' aluno.ID_Aluno %}">
+                                    <i class="bi bi-file-earmark-x"></i>
+                                    Excluir
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
             <!--Fim Tabela-->
         </div>
     </div>
     <!-- Lista -->
-    <script>
-        
-    </script>
 {% endblock %}
 {% block scripts %}
     <script>
