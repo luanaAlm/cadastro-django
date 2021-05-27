@@ -8,6 +8,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# mensagem alerta
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

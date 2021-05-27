@@ -3,13 +3,14 @@ from django.contrib.auth.decorators import login_required
 from .models import Aluno
 from .form import AlunoForm
 from django.views.decorators.csrf import csrf_protect
+from django.contrib import messages
 
 
 @login_required
 @csrf_protect
 def listarAlunos(request):
     titulo = 'Alunos'
-    subtitle = 'Lista'
+    subtitle = 'Lista de alunos'
     alunos = Aluno.objects.all()
     return render(request, 'listar_alunos.html', {'titulo': titulo, 'subtitle': subtitle, 'alunos': alunos})
 
@@ -17,7 +18,7 @@ def listarAlunos(request):
 @login_required
 def criarAluno(request):
     titulo = 'Aluno'
-    subtitle = 'Criar novo Aluno'
+    subtitle = 'Criar novo Aluno(a)'
     form = AlunoForm(request.POST or None)
     return render(request, 'criar_alunos.html', {'titulo': titulo, 'subtitle': subtitle, 'form': form})
 
@@ -27,6 +28,7 @@ def alunoNovo(request):
     form = AlunoForm(request.POST, request.FILES)
     if form.is_valid():
         form.save()
+        messages.success(request, 'Aluno salvo com sucesso!')
     return redirect('listar_alunos')
 
 
@@ -43,6 +45,7 @@ def updateAluno(request, ID_Aluno):
         form = AlunoForm(request.POST, instance=aluno)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Aluno modificado com sucesso!')
             return redirect('listar_alunos')
     else:
         return render(request, 'update_alunos.html', data)
@@ -50,13 +53,16 @@ def updateAluno(request, ID_Aluno):
 
 @login_required
 def deleteAluno(request, ID_Aluno):
+    titulo = 'Aluno'
+    subtitle = 'Deletar Aluno(a)'
     aluno = Aluno.objects.get(ID_Aluno=ID_Aluno)
 
     if request.method == 'POST':
         aluno.delete()
+        messages.success(request, 'Aluno deletado com sucesso!')
         return redirect('listar_alunos')
     else:
-        return render(request, 'delete_alunos.html', {'aluno': aluno})
+        return render(request, 'delete_alunos.html', {'titulo': titulo, 'subtitle': subtitle, 'aluno': aluno})
 
 
 @login_required

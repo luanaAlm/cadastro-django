@@ -3,6 +3,9 @@
 {% load bootstrap %}
 
 {% block main %}
+
+<script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+
     {% csrf_token %}
     <!-- titulo -->
     <h1 class="h3 mb-4 text-gray-800">{{titulo}}</h1>
@@ -31,7 +34,7 @@
                         <button class="btn btn-success" type="submit">
                             Salvar
                         </button>
-                        <a class="btn btn-warning" type="button" href="{% url 'home' %}">
+                        <a class="btn btn-warning" onclick="alertaVoltar()" type="button" href="{% url 'home' %}">
                             Voltar
                         </a>
                     </div>
@@ -39,7 +42,14 @@
             </form>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+    <!-- Alerta do borao voltar -->
+    <script>
+        function alertaVoltar(){
+            alert("Ao voltar o resgistro não sera salvo!");
+        }
+    </script>
+    
+    <!-- Mask -->
     <script>
         var cleave = new Cleave('#id_data', {
             date: true,
@@ -67,5 +77,6 @@
             uppercase: true
         });
     </script>
+    
 {% endblock %}
     

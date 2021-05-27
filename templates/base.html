@@ -24,7 +24,7 @@
     <link  rel="icon" type="img/jpg" href="{% static 'img/ebd.jpg' %}"></link>
     <!-- datatables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.24/datatables.min.css"/>
- 
+    
 </head>
 
     <body id="page-top">
@@ -181,18 +181,25 @@
 
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
-
-                        <!-- Page Heading -->
                         
+                        <!-- alerta -->
+                        {% if messages %}
+                            {% for m in messages %}
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>{{m}}</strong>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                
+                            {% endfor %}
+                        {% endif %}
+                        <!-- Paginas -->
                         {% block main %} {% endblock %}
-                        <!-- Content Row -->
-                        
                     </div>
-                    <!-- /.container-fluid -->
-
+                    
                 </div>
-                <!-- End of Main Content -->
-
+               
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">

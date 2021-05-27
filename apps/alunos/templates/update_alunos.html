@@ -2,41 +2,40 @@
 {% load bootstrap %}
 
 {% block main %}
-<!-- titulo -->
-<div class="d-flex justify-content-between flex-wrap 
-flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-<h3>Aluno</h3>
-<div class="btn-toolbar mb-2 mb-md-0"></div>
-</div>
-
-<div class="card rounded-sm">
-    <div class="card-header">
-        <h5 class="title-card">Edição aluno(a): {{ aluno }}</h5>
-    </div>
-    <div class="inner-square shadow">
-<form action="{% url 'update_aluno' aluno.ID_Aluno %}" 
-    enctype="multipart/form-data" method="POST">
-    {% csrf_token %}
-    <div class="form-row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-            <div class="alert alert-primary" role="alert">
-                Preencha todos os campos obrigatórios.
-            </div>
-            {{ form|bootstrap }}
-            <br>
-            <button class="btn btn-success" type="submit">Salvar</button>
-            <a class="btn btn-warning" type="button" onclick="alerta()" 
-            href="{% url 'listar_alunos' %}">
-                Voltar
-            </a>
+    <!-- titulo -->
+    <h1 class="h3 mb-4 text-gray-800">Aluno</h1>
+    <hr class="sidebar-divider d-none d-md-block">
+    
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">
+                Edição aluno(a): {{ aluno }}
+            </h6>
         </div>
-</form>
+        <div class="card-body">
+            <form action="{% url 'update_aluno' aluno.ID_Aluno %}" 
+                enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                        <div class="alert alert-primary" role="alert">
+                            Preencha todos os campos obrigatórios.
+                        </div>
+                        {{ form|bootstrap }}
+                        <br>
+                        <button class="btn btn-success" type="submit">Salvar</button>
+                        <a class="btn btn-warning" type="button" onclick="alerta()" 
+                        href="{% url 'listar_alunos' %}">
+                            Voltar
+                        </a>
+                    </div>
+            </form>
+        </div>
     </div>
-</div>
-<script>
-    function alerta(){
-        alert("Ao voltar o registo não será salvo!");
-    }
-</script>
+    <script>
+        function alerta(){
+            alert("Ao voltar o registo não será salvo!");
+        }
+    </script>
 {% endblock %}
