@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block main %}
 {% csrf_token %}
-
     <!-- titulo -->
     <h1 class="h3 mb-4 text-gray-800">{{titulo}}</h1>
     <hr class="sidebar-divider d-none d-md-block">
@@ -57,39 +57,4 @@
         </div>
     </div>
     <!-- Lista -->
-{% endblock %}
-{% block scripts %}
-    <script>
-        $('#tabelaAlunos').DataTable({
-        responsive: true,
-        // "bSort": false,
-        "aaSorting": [],
-        "pageLength": 50,
-        "language": {
-            "decimal": "",
-            "emptyTable": "Sem dados disponíveis",
-            "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
-            "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
-            "infoFiltered": "(filtrado de _MAX_ registos no total)",
-            "infoPostFix": "",
-            "thousands": ",",
-            "lengthMenu": "Mostrar _MENU_ registos",
-            "loadingRecords": "A carregar dados...",
-            "processing": "A processar...",
-            "search": "Procurar:",
-            "zeroRecords": "Não foram encontrados resultados",
-            "paginate": {
-                "first": "Primeiro",
-                "last": "Último",
-                "next": "Seguinte",
-                "previous": "Anterior"
-            },
-            "aria": {
-                "sortAscending": ": ordem crescente",
-                "sortDescending": ": ordem decrescente"
-            }
-        }
-    });
-        
-    </script>
 {% endblock %}
