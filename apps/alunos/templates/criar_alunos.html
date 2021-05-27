@@ -4,7 +4,6 @@
 
 {% block main %}
 
-<script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
 
     {% csrf_token %}
     <!-- titulo -->
@@ -23,10 +22,6 @@
                 <div class="form-row">
                     <div class="col-sm-2"></div>
                     <div class="col-sm-8">
-                        <!-- <h1>Novo aluno</h1> -->
-                        <div class="alert alert-primary" role="alert">
-                            Preencha todos os campos obrigatórios.
-                        </div> 
                         <hr>
                         {% csrf_token %}
                         {{ form|bootstrap }}
@@ -42,7 +37,7 @@
             </form>
         </div>
     </div>
-    <!-- Alerta do borao voltar -->
+    
     <script>
         function alertaVoltar(){
             alert("Ao voltar o resgistro não sera salvo!");
@@ -50,6 +45,9 @@
     </script>
     
     <!-- Mask -->
+    <!-- Alerta do borao voltar -->
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+
     <script>
         var cleave = new Cleave('#id_data', {
             date: true,

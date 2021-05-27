@@ -19,6 +19,7 @@ def listarAlunos(request):
 def criarAluno(request):
     titulo = 'Aluno'
     subtitle = 'Criar novo Aluno(a)'
+    messages.info(request, 'Preencha todos os campos obrigatórios!')
     form = AlunoForm(request.POST or None)
     return render(request, 'criar_alunos.html', {'titulo': titulo, 'subtitle': subtitle, 'form': form})
 
@@ -28,8 +29,12 @@ def alunoNovo(request):
     form = AlunoForm(request.POST, request.FILES)
     if form.is_valid():
         form.save()
-        messages.success(request, 'Aluno salvo com sucesso!')
-    return redirect('listar_alunos')
+        messages.success(request, 'Registro salvo com sucesso!')
+        return redirect('listar_alunos')
+    else:
+        messages.error(
+            request, 'Registro não foi salvo! Verifique se existe alguma informação errada ou incompleta.')
+        return redirect('listar_alunos')
 
 
 @login_required
@@ -45,9 +50,10 @@ def updateAluno(request, ID_Aluno):
         form = AlunoForm(request.POST, instance=aluno)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Aluno modificado com sucesso!')
+            messages.success(request, 'Registro modificado com sucesso!')
             return redirect('listar_alunos')
     else:
+        messages.info(request, 'Preencha todos os campos obrigatórios!')
         return render(request, 'update_alunos.html', data)
 
 
@@ -59,7 +65,7 @@ def deleteAluno(request, ID_Aluno):
 
     if request.method == 'POST':
         aluno.delete()
-        messages.success(request, 'Aluno deletado com sucesso!')
+        messages.success(request, 'Registro deletado com sucesso!')
         return redirect('listar_alunos')
     else:
         return render(request, 'delete_alunos.html', {'titulo': titulo, 'subtitle': subtitle, 'aluno': aluno})
