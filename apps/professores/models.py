@@ -43,7 +43,7 @@ class Professor(models.Model):
 
     nome = models.CharField(max_length=45)
     sexo = models.CharField(max_length=100, choices=SEXO_CHOICES)
-    data = models.DateField(max_length=8)
+    data = models.DateField('Data de Nascimento', max_length=8)
     cpf = CPFField(max_length=14)
     telefone = models.CharField(blank=False, null=False, max_length=13)
     email = models.EmailField(max_length=200, null=True)
