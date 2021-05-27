@@ -3,47 +3,68 @@
 
 {% block main %}
 {% csrf_token %}
-    <div class="d-flex justify-content-between flex-wrap 
-        flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h3>{{titulo}}</h3>
-        <div class="btn-toolbar mb-2 mb-md-0"></div>
-    </div>
-    <div class="card rounded-sm">
-        <div class="card-header">
-            <h5 class="title-card">{{subtitle}}</h5>
+    <!-- titulo -->
+    <h1 class="h3 mb-4 text-gray-800">{{titulo}}</h1>
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">{{subtitle}}</h6>
         </div>
-        <div class="inner-square shadow">
+        <div class="card-body">
             <form action="{% url 'novo_professor' %}" method="POST"
-                enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="form-row">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-8">
-                        <!-- <h1>Novo aluno</h1> -->
-                        <div class="alert alert-primary" role="alert">
-                            Preencha todos os campos obrigatórios.
+                    enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-8">
+                            {% csrf_token %}
+                            {{ form|bootstrap }}
+                            <br>
+                            <button class="btn btn-success" type="submit">
+                                Salvar
+                            </button>
+                            <a class="btn btn-warning" type="button" 
+                                onclick="alerta()" href="{% url 'home' %}">
+                                Voltar
+                            </a>
                         </div>
-                        
-                        <hr>
-                        {% csrf_token %}
-                        {{ form|bootstrap }}
-                        <br>
-                        <button class="btn btn-success" type="submit">
-                            Salvar
-                        </button>
-                        <a class="btn btn-warning" type="button" 
-                            onclick="alerta()" href="{% url 'home' %}">
-                            Voltar
-                        </a>
+                
                     </div>
-            
-                </div>
-            </form>
+                </form>
         </div>
     </div>
     <script>
         function alerta(){
-            alert("Ao voltar o registo não ser salvo!");
+            alert("Ao voltar o resgistro não sera salvo!");
         }
     </script>
+
+    <!-- Mask -->
+    <!-- Alerta do borao voltar -->
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+
+    <script>
+        var cleave = new Cleave('#id_data', {
+            date: true,
+            delimiter: '/',
+            datePattern: ['d', 'm', 'Y']
+        });
+        var cleave = new Cleave('#id_cpf', {
+            delimiters: ['.', '.', '-'],
+            blocks: [3, 3, 3, 2],
+            uppercase: true
+        });
+        var cleave = new Cleave('#id_telefone', {
+            delimiters: ['-'],
+            blocks: [2, 5, 4],
+            uppercase: true
+        });
+        var cleave = new Cleave('#id_cep', {
+            delimiters: ['-'],
+            blocks: [5, 3],
+            uppercase: true
+        });
+    </script>
+
 {% endblock %}

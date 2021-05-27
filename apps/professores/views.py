@@ -1,28 +1,24 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Professor
 from .form import ProfessorForm
 from django.views.decorators.csrf import csrf_protect
+from django.contrib import messages
 
 
 @login_required
 def listarProfessores(request):
     titulo = 'Professor'
     subtitle = 'Lista de Professores'
-    termo_busca = request.GET.get('pesquisa', None)
-    if termo_busca:
-        professores = Professor.objects.all()
-        professores = Professor.filter(nome__contains=termo_busca)
-    else:
-        professores = Professor.objects.all()
+    professores = Professor.objects.all()
     return render(request, 'listar_professores.html', {'titulo': titulo, 'subtitle': subtitle, 'professores': professores})
 
 
 @login_required
 def criarProfessor(request):
     titulo = 'Professor'
-    subtitle = 'Lista de Professores'
+    subtitle = 'Criar novo Professor(a)'
+    messages.info(request, 'Preencha todos os campos obrigatórios!')
     form = ProfessorForm(request.POST or None)
     return render(request, 'criar_professores.html', {'titulo': titulo, 'subtitle': subtitle, 'form': form})
 
@@ -32,7 +28,12 @@ def professorNovo(request):
     form = ProfessorForm(request.POST, request.FILES)
     if form.is_valid():
         form.save()
-    return redirect('listar_professores')
+        messages.success(request, 'Registro salvo com sucesso!')
+        return redirect('listar_professores')
+    else:
+        messages.error(
+            request, 'Registro não foi salvo! Verifique se existe alguma informação errada ou incompleta.')
+        return redirect('listar_professores')
 
 
 @login_required
@@ -46,8 +47,10 @@ def updateProfessor(request, ID_Professor):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            messages.success(request, 'Registro modificado com sucesso!')
             return redirect('listar_professores')
     else:
+        messages.info(request, 'Preencha todos os campos obrigatórios!')
         return render(request, 'update_professores.html', data)
 
 
@@ -57,6 +60,7 @@ def deleteProfessor(request, ID_Professor):
 
     if request.method == 'POST':
         professor.delete()
+        messages.success(request, 'Registro deletado com sucesso!')
         return redirect('listar_professores')
     else:
         return render(request, 'delete_professores.html', {'professor': professor})
@@ -71,17 +75,3 @@ def visualizarProfessor(request, ID_Professor):
     data['form'] = form
 
     return render(request, 'visualizar_professor.html', data)
-
-
-@login_required
-@csrf_protect
-def consulta(request):
-    consulta = request.POST.get('consulta')
-    campo = request.POST.get('campo')
-
-    if campo == 'nome':
-        professores = Professor.objects.filter(nome__contains=consulta)
-    # elif campo == 'turma':
-    #     professores = Professor.objects.filter(Turma__contains=consulta)
-
-    return render(request, 'listar_professores.html', {'professores': professores})

@@ -45,10 +45,10 @@ class Professor(models.Model):
     sexo = models.CharField(max_length=100, choices=SEXO_CHOICES)
     data = models.DateField(max_length=8)
     cpf = CPFField(max_length=14)
-    telefone = models.IntegerField(blank=False, null=False, max_length=16)
+    telefone = models.CharField(blank=False, null=False, max_length=13)
     email = models.EmailField(max_length=200, null=True)
     # endereço
-    cep = models.IntegerField(max_length=8)
+    cep = models.CharField(max_length=9)
     endereco = models.CharField(max_length=100, blank=False, null=False)
     numero = models.IntegerField(null=True, blank=True)
     complemento = models.CharField(max_length=1000, null=True)
