@@ -2,6 +2,7 @@
 {% load static %}
 {% block main %}
 {% csrf_token %}
+
     <!-- titulo -->
     <h1 class="h3 mb-4 text-gray-800">{{titulo}}</h1>
     <hr class="sidebar-divider d-none d-md-block">
@@ -12,7 +13,7 @@
         </div>
         <div class="card-body">
             <!--Inicio Tabela-->
-            <table class="table table-hover" id="tabelaAlunos">
+            <table class="table table-hover" id="tabela">
                 <thead>
                     <tr>
                         <th scope="col">Matricula</th>
