@@ -31,9 +31,37 @@
             </form>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+
     <script>
         function alerta(){
             alert("Ao voltar o registo não será salvo!");
         }
+        var cleave = new Cleave('#id_data', {
+            date: true,
+            delimiter: '/',
+            datePattern: ['d', 'm', 'Y']
+        });
+        var cleave = new Cleave('#id_cpf', {
+            delimiters: ['.', '.', '-'],
+            blocks: [3, 3, 3, 2],
+            uppercase: true
+        });
+        var cleave = new Cleave('#id_telefone', {
+            delimiters: ['-'],
+            blocks: [2, 5, 4],
+            uppercase: true
+        });
+        var cleave = new Cleave('#id_cep', {
+            delimiters: ['-'],
+            blocks: [5, 3],
+            uppercase: true
+        });
+        var cleave = new Cleave('#id_telefoneResp', {
+            delimiters: ['-'],
+            blocks: [2, 5, 4],
+            uppercase: true
+        });
     </script>
 {% endblock %}

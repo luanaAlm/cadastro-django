@@ -29,7 +29,7 @@
                         <button class="btn btn-success" type="submit">
                             Salvar
                         </button>
-                        <a class="btn btn-warning" onclick="alertaVoltar()" type="button" href="{% url 'home' %}">
+                        <a class="btn btn-warning" onclick="alerta()" type="button" href="{% url 'home' %}">
                             Voltar
                         </a>
                     </div>
@@ -37,18 +37,16 @@
             </form>
         </div>
     </div>
-    
-    <script>
-        function alertaVoltar(){
-            alert("Ao voltar o resgistro não sera salvo!");
-        }
-    </script>
-    
+
     <!-- Mask -->
-    <!-- Alerta do borao voltar -->
     <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
 
     <script>
+        
+        function alerta(){
+            alert("Ao voltar o resgistro não sera salvo!");
+        }
+        //Mask
         var cleave = new Cleave('#id_data', {
             date: true,
             delimiter: '/',
