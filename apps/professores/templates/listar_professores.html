@@ -2,82 +2,57 @@
 {% block main %}
 {% csrf_token %}
 
-    <!-- titulo -->
-    <div class="d-flex justify-content-between flex-wrap 
-        flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h3>{{titulo}}</h3>
-        <div class="btn-toolbar mb-2 mb-md-0"></div>
-    </div>
+<!-- titulo -->
+<h1 class="h3 mb-4 text-gray-800">{{titulo}}</h1>
+<hr class="sidebar-divider d-none d-md-block">
 
-    <div class="card rounded-sm">
-        <div class="card-header">
-            <h5 class="title-card">{{subtitle}}</h5>
-        </div>
-        <div class="inner-square shadow">
-            <!--Inicio Consulta-->
-            <form action="consulta/" method="POST" name="frm_consulta" 
-                class="ml-3">
-                {% csrf_token %}
-                <div class="form-group">
-                    <div class="row">
-                        <input type="text" class="form-control col-md-5" name="consulta"
-                        placeholder="Digite aqui a sua consulta">
-                        <select class="form-control col-md-2" name="campo">
-                            <option value="nome">Nome</option>
-                            <!-- <option value="turma">Turma</option> -->
-                        </select>
-                        <button type="submit" class="btn btn-warning">Consultar</button>
-                    </div>
-                </div>
-            </form>
-            <!--FIm Consulta-->
-            <!--Inicio Tabela-->
-            <div style="overflow-y: scroll; height: 410px; width: 100%;" align="center">
-                <table class="table">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">Matricula</th>
-                                <th scope="col">Nome</th>
-                                <th scope="col">Turma</th>
-                                <th scope="col">Editar</th>
-                                <th scope="col">Visualizar</th>
-                                <th scope="col">Excluir</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for professor in professores %}
-                            <tr>
-                                <th scope="row">{{ professor.ID_Professor }}</th>
-                                <td>{{ professor.nome }}</td>
-                                <td>{{ professor.turma }}</td>
-                                <td>
-                                    <a type="button" class="btn-sm btn-primary" 
-                                        href="{% url 'update_professor' professor.ID_Professor %}">
-                                        <i class="bi bi-pencil-square"></i>
-                                        Editar
-                                    </a>
-                                </td>
-                                <td>
-                                    <a type="button" class="btn-sm btn-success" 
-                                        href="{% url 'visualizar_professor' professor.ID_Professor %}">
-                                        <i class="bi bi-eye"></i>
-                                        Visualizar
-                                    </a>
-                                </td>
-                                <td>
-                                    <a type="button" class="btn-sm btn-danger" href="{% url 'delete_professor' professor.ID_Professor %}">
-                                        <i class="bi bi-file-earmark-x"></i>
-                                        Excluir
-                                    </a>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </table>
-            </div>
-            <!--Fim Tabela-->
-        </div>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">{{subtitle}}</h6>
     </div>
+    <div class="card-body">
+        <!-- Tabela Porfessores -->
+        <table class="table table-hover" id="tabela">
+            <thead>
+                <tr>
+                    <th scope="col">Matricula</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Turma</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Visualizar</th>
+                    <th scope="col">Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for professor in professores %}
+                <tr>
+                    <th scope="row">{{ professor.ID_Professor }}</th>
+                    <td>{{ professor.nome }}</td>
+                    <td>{{ professor.turma }}</td>
+                    <td>
+                        <a type="button" class="btn-sm btn-primary" 
+                            href="{% url 'update_professor' professor.ID_Professor %}">
+                            <i class="bi bi-pencil-square"></i>
+                            Editar
+                        </a>
+                    </td>
+                    <td>
+                        <a type="button" class="btn-sm btn-success" 
+                            href="{% url 'visualizar_professor' professor.ID_Professor %}">
+                            <i class="bi bi-eye"></i>
+                            Visualizar
+                        </a>
+                    </td>
+                    <td>
+                        <a type="button" class="btn-sm btn-danger" href="{% url 'delete_professor' professor.ID_Professor %}">
+                            <i class="bi bi-file-earmark-x"></i>
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
