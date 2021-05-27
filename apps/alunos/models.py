@@ -45,7 +45,7 @@ class Aluno(models.Model):
     sexo = models.CharField(max_length=100, choices=SEXO_CHOICES)
     data = models.DateField(max_length=8)
     cpf = CPFField(max_length=14)
-    telefone = models.CharField(blank=False, null=False, max_length=11)
+    telefone = models.CharField(blank=False, null=False, max_length=13)
     email = models.EmailField(max_length=200, null=True)
     # endereço
     cep = models.CharField(max_length=9)
@@ -59,7 +59,7 @@ class Aluno(models.Model):
     nomeResp = models.CharField(
         "Em caso de emergência entrar em contato com?", max_length=45)
     telefoneResp = models.CharField(
-        "Telefone do responsável", blank=False, null=False, max_length=11)
+        "Telefone do responsável", blank=False, null=False, max_length=13)
     # saude
     Saude = models.CharField("Possui algum problema de saúde?", max_length=100)
     Medicamento = models.CharField(
