@@ -56,6 +56,9 @@ def updateProfessor(request, ID_Professor):
 
 @login_required
 def deleteProfessor(request, ID_Professor):
+    titulo = 'Professor'
+    subtitle = 'Deletar Porfessor(a)'
+
     professor = Professor.objects.get(ID_Professor=ID_Professor)
 
     if request.method == 'POST':
@@ -63,7 +66,7 @@ def deleteProfessor(request, ID_Professor):
         messages.success(request, 'Registro deletado com sucesso!')
         return redirect('listar_professores')
     else:
-        return render(request, 'delete_professores.html', {'professor': professor})
+        return render(request, 'delete_professores.html', {'titulo': titulo, 'subtitle': subtitle, 'professor': professor})
 
 
 @login_required
