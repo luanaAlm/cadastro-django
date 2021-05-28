@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_protect
 
 
 @login_required
+@csrf_protect
 def listarColaboradores(request):
     titulo = 'Colaborador'
     subtitle = 'Lista de Colaboradores'

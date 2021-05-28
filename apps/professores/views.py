@@ -7,6 +7,7 @@ from django.contrib import messages
 
 
 @login_required
+@csrf_protect
 def listarProfessores(request):
     titulo = 'Professor'
     subtitle = 'Lista de Professores'
