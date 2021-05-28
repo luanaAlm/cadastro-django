@@ -1,9 +1,9 @@
-from django.http import request
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Administracao
 from .form import ColaboradorForm
 from django.views.decorators.csrf import csrf_protect
+from django.contrib import messages
 
 
 @login_required
@@ -11,33 +11,15 @@ from django.views.decorators.csrf import csrf_protect
 def listarColaboradores(request):
     titulo = 'Colaborador'
     subtitle = 'Lista de Colaboradores'
-    termo_busca = request.GET.get('pesquisa', None)
-    if termo_busca:
-        colaboradores = Administracao.objects.all()
-        colaboradores = Administracao.filter(nome__contains=termo_busca)
-    else:
-        colaboradores = Administracao.objects.all()
+    colaboradores = Administracao.objects.all()
     return render(request, 'listar_colaboradores.html', {'titulo': titulo, 'subtitle': subtitle, 'colaboradores': colaboradores})
-
-
-@login_required
-@csrf_protect
-def consulta(request):
-    consulta = request.POST.get('consulta')
-    campo = request.POST.get('campo')
-
-    if campo == 'nome':
-        colaboradores = Administracao.objects.filter(nome__contains=consulta)
-    elif campo == 'funcao':
-        colaboradores = Administracao.objects.filter(funcao__contains=consulta)
-
-    return render(request, 'listar_colaboradores.html', {'colaboradores': colaboradores})
 
 
 @login_required
 def criarColaborador(request):
     titulo = 'Colaborador'
-    subtitle = 'Novo Colaborador'
+    subtitle = 'Criar novo Colaborador(a)'
+    messages.info(request, 'Preencha todos os campos obrigatórios!')
     form = ColaboradorForm(request.POST or None)
     return render(request, 'criar_colaborador.html', {'titulo': titulo, 'subtitle': subtitle, 'form': form})
 
@@ -47,7 +29,12 @@ def colaboradorNovo(request):
     form = ColaboradorForm(request.POST, request.FILES)
     if form.is_valid():
         form.save()
-    return redirect('listar_colaboradores')
+        messages.success(request, 'Registro salvo com sucesso!')
+        return redirect('listar_colaboradores')
+    else:
+        messages.error(
+            request, 'Registro não foi salvo! Verifique se existe alguma informação errada ou incompleta.')
+        return redirect('listar_colaboradores')
 
 
 @login_required
@@ -61,20 +48,26 @@ def updateColaborador(request, ID_Adm):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
+            messages.success(request, 'Registro modificado com sucesso!')
             return redirect('listar_colaboradores')
     else:
+        messages.info(request, 'Preencha todos os campos obrigatórios!')
         return render(request, 'update_colaborador.html', data)
 
 
 @login_required
 def deleteColaborador(request, ID_Adm):
+    titulo = 'Colaborador'
+    subtitle = 'Deletar Colaborador(a)'
+
     colaborador = Administracao.objects.get(ID_Adm=ID_Adm)
 
     if request.method == 'POST':
         colaborador.delete()
+        messages.success(request, 'Registro deletado com sucesso!')
         return redirect('listar_colaboradores')
     else:
-        return render(request, 'delete_colaborador.html', {'colaborador': colaborador})
+        return render(request, 'delete_colaborador.html', {'titulo': titulo, 'subtitle': subtitle, 'colaborador': colaborador})
 
 
 @login_required
