@@ -1,11 +1,13 @@
 from django.contrib.messages import constants as messages
 import os
+from decouple import config
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'r$__z!6i59c7!eu$719k+z1d*xzn=nr^n2pp8le0!@0a1u9h+2'
+SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = True
+DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = []
 
