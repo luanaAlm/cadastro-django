@@ -8,6 +8,4 @@ urlpatterns = [
 
     path('listar_turmas/(?P<turma_id>\d+)/$',
          listarTurmas, name='listar_turmas'),
-
-
 ]
