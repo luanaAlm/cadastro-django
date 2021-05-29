@@ -4,6 +4,10 @@ from .models import Professor
 from .form import ProfessorForm
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
+# Excel
+from django.views.generic import View
+import xlwt
+from django.http import HttpResponse
 
 
 @login_required
@@ -79,3 +83,40 @@ def visualizarProfessor(request, ID_Professor):
     data['form'] = form
 
     return render(request, 'visualizar_professor.html', data)
+
+
+class professoresEXL(View):
+    def get(self, request):
+        response = HttpResponse(content_type='application/ms-excel')
+        response['Content-Disposition'] = 'attachment; filename="professores-ebd.xls"'
+
+        wb = xlwt.Workbook(encoding='utf-8')
+        # this will make a sheet named Users Data
+        ws = wb.add_sheet('Profesores')
+
+        # Sheet header, first row
+        row_num = 0
+
+        font_style = xlwt.XFStyle()
+        font_style.font.bold = True
+        columns = ['Matricula', 'Turma', 'Data Nasc.',
+                   'Nome', 'Sexo', 'CPF', 'Telefone',
+                   'Email', 'CEP', 'Endereco', 'Numero', 'Complemento',
+                   'Bairro', 'Municipio', 'Estado']
+
+        for col_num in range(len(columns)):
+            # at 0 row 0 column
+            ws.write(row_num, col_num, columns[col_num], font_style)
+
+        # Sheet body, remaining rows
+        font_style = xlwt.XFStyle()
+
+        rows = Professor.objects.all().values_list(
+            'ID_Professor', 'turma', 'data', 'nome', 'sexo', 'cpf', 'telefone', 'email', 'cep', 'endereco', 'numero', 'complemento', 'bairro', 'municipio', 'estado')
+        for row in rows:
+            row_num += 1
+            for col_num in range(len(row)):
+                ws.write(row_num, col_num, row[col_num], font_style)
+
+        wb.save(response)
+        return response
