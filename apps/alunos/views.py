@@ -100,11 +100,11 @@ class alunoCSV(View):
 
         font_style = xlwt.XFStyle()
         font_style.font.bold = True
-        columns = ['Matricula', 'Data Nasc.',
-                   'Nome', 'sexo', 'cpf', 'telefone',
-                   'email', 'cep', 'endereco', 'numero', 'complemento',
-                   'bairro', 'municipio', 'estado',
-                   'nomeResp', 'telefoneResp', 'Deficiencia', 'RestricaoAlimentar']
+        columns = ['Matricula', 'Turma', 'Data Nasc.',
+                   'Nome', 'Sexo', 'CPF', 'Telefone',
+                   'Email', 'CEP', 'Endereco', 'Numero', 'Complemento',
+                   'Bairro', 'Municipio', 'Estado',
+                   'Nome Resp.', 'Telefone Resp.', 'Deficiencia', 'Restri. Alimentar']
 
         for col_num in range(len(columns)):
             # at 0 row 0 column
@@ -114,7 +114,7 @@ class alunoCSV(View):
         font_style = xlwt.XFStyle()
 
         rows = Aluno.objects.all().values_list(
-            'ID_Aluno', 'data', 'nome', 'sexo', 'cpf', 'telefone', 'email', 'cep', 'endereco', 'numero', 'complemento', 'bairro', 'municipio', 'estado', 'nomeResp', 'telefoneResp', 'Deficiencia', 'RestricaoAlimentar')
+            'ID_Aluno', 'turma', 'data', 'nome', 'sexo', 'cpf', 'telefone', 'email', 'cep', 'endereco', 'numero', 'complemento', 'bairro', 'municipio', 'estado', 'nomeResp', 'telefoneResp', 'Deficiencia', 'RestricaoAlimentar')
         for row in rows:
             row_num += 1
             for col_num in range(len(row)):
