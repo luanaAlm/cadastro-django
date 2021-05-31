@@ -23,9 +23,14 @@
                     </a>
                     <br>
                 </div>
+                <a type="button" class="btn-sm btn-danger"  href="{% url 'pdf_diario_classe' turma.ID_Turma %}">
+                    <i class="bi bi-file-earmark-pdf"></i>
+                      PDF
+                </a>
             </div>
         </div>
     </div>
+    
     {% endfor %}
 </div> 
 {% endblock %}
