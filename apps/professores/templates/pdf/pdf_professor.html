@@ -1,0 +1,34 @@
+{% extends 'base_pdf.html' %}
+
+{% block main %}
+    {% for professor in professores %}
+        <div style="padding-left: 50rem;">
+            <img style="object-fit: cover;" height="150px" width="130px" 
+                src="{{ professor.imagem.path }}" class="rounded img-corpo" 
+                alt="Aluno">
+        </div>
+            <div>
+               <h6>
+                <b>Nome completo: </b>{{ professor }} <br>
+                <b>Turma: </b>{{professor.turma}} <br>
+                <b>Matricula: </b> {{professor.ID_Professor}} <br>
+                <b>Sexo: </b> {{professor.sexo}}<br>
+                <b>Data de Nascimento: </b> {{professor.data}}<br>
+                <b>CPF: </b> {{professor.cpf}}<br>
+                <b>Telefone: </b> {{professor.telefone}}<br>
+                <b>Email: </b> {{professor.email}}<br>
+                <br>
+                <b>Moradia</b> <br>
+                <b>CEP: </b> {{professor.cep}}<br>
+                <b>Endereço: </b> {{professor.endereco}}<br>
+                <b>Número: </b> {{professor.numero}}<br>
+                <b>Complemento: </b> {{professor.complemento}}<br>
+                <b>Bairro: </b> {{professor.bairro}}<br>
+                <b>Município: </b> {{professor.municipio}}<br>
+                <b>Estado: </b> {{professor.estado}}<br>
+                <br>
+            </h6> 
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

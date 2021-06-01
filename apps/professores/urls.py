@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import listarProfessores, criarProfessor, professorNovo, updateProfessor, deleteProfessor, visualizarProfessor, professoresEXL
+from .views import listarProfessores, criarProfessor, professorNovo, updateProfessor, deleteProfessor, visualizarProfessor, professoresEXL, pdfProfessor
 
 
 # urls Professores
@@ -16,5 +16,9 @@ urlpatterns = [
     # excel
     path('professores_exportar_exl', professoresEXL.as_view(),
          name='professores_exportar_exl'),
+    # pdf
+    path('pdf_professor/(?P<ID_Professor>\d+)/$',
+         pdfProfessor, name='pdf_professor'),
+
 
 ]
