@@ -1,49 +1,94 @@
-{% extends 'base_pdf.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block main %} 
-
-    <div class="corpo-pdf border">
-        <h4>FICHA DE MATRÍCULA</h4>
-        <!-- Inicio da Visualizacao -->
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <h5><b>Turma:</b> {{aluno.turma}}</h5>
-                <hr>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12">
-                <h4><b>DADOS PESSOAIS</b></h4>
-            </div>
-            <div class="col-lg-8 col-md-6 col-sm-12"> 
-                <h5><b>Matricula: </b> {{aluno.ID_Aluno}}</h5>
-                <h5> <b>Nome completo: </b> {{ aluno }}</h5> 
-                <h5> <b>Sexo: </b> {{aluno.sexo}}</h5>
-                <h5> <b>Data de Nascimento: </b> {{aluno.data}}</h5>
-                <h5> <b>CPF: </b> {{aluno.cpf}}</h5>
-                <h5> <b>Telefone: </b> {{aluno.telefone}} </h5>
-                <h5> <b>Email: </b> {{aluno.email}} </h5>
-                <hr>
-                <h5><b>Moradia</b></h5><br>
-                <h5> <b>CEP: </b> {{aluno.cep}}</h5>
-                <h5> <b>Endereço: </b> {{aluno.endereco}}</h5>
-                <h5> <b>Número: </b> {{aluno.numero}}</h5>
-                <h5> <b>Complemento: </b> {{aluno.complemento}}</h5>
-                <h5> <b>Bairro: </b> {{aluno.bairro}}</h5>
-                <h5> <b>Município: </b> {{aluno.municipio}} </h5>
-                <h5> <b>Estado: </b> {{aluno.estado}}</h5>
-                <hr>
-                <h5><b>Saúde</b></h5><br>
-                <h5> <b>Em caso de emergência entrar em contato com? </b> {{aluno.nomeResp}}</h5>
-                <h5> <b>Telefone do responsável: </b> {{aluno.telefoneResp}}</h5>
-                <h5> <b>Possui algum problema de saúde? </b> {{aluno.Saude}}</h5>
-                <h5> <b>O aluno toma algum medicamento? </b> {{aluno.Medicamento}}</h5>
-                <h5> <b>Tem alguma deficiência? </b> {{aluno.Deficiencia}}</h5>
-                <h5> <b>Alguma alergia ou restrição alimentar? </b> {{aluno.RestricaoAlimentar}}</h5>
-                <br>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                <img src="{{aluno.imagem.url}}" class="rounded img-corpo" alt="Aluno">
+    <!-- titulo -->
+    <h1 class="h3 mb-4 text-gray-800">Aluno</h1>
+    <hr class="sidebar-divider d-none d-md-block">
+    
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Dados Pessoal</h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <h6 class="text-gray-800">
+                        <b>Nome completo: </b>{{ aluno }}</h6> 
+                    <h6 class="text-gray-800">
+                        <b>Turma: </b>{{aluno.turma}}
+                    </h6>
+                    <h6 class="text-gray-800">
+                        <b>Matricula: </b> {{aluno.ID_Aluno}}</h6>
+                    <h6 class="text-gray-800">
+                        <b>Sexo: </b> {{aluno.sexo}}</h6>
+                    <h6 class="text-gray-800"> 
+                        <b>Data de Nascimento: </b> {{aluno.data}}</h6>
+                    <h6 class="text-gray-800"> 
+                        <b>CPF: </b> {{aluno.cpf}}</h6>
+                    <h6 class="text-gray-800"> 
+                        <b>Telefone: </b> {{aluno.telefone}} </h6>
+                    <h6 class="text-gray-800"> 
+                        <b>Email: </b> {{aluno.email}} </h6>
+                    <hr>
+                    <h6 class="text-gray-800">
+                        <b>Moradia</b></h6><br>
+                    <h6 class="text-gray-800"> 
+                        <b>CEP: </b> {{aluno.cep}}</h6>
+                    <h6 class="text-gray-800"> 
+                        <b>Endereço: </b> {{aluno.endereco}}</h6>
+                    <h6 class="text-gray-800"> 
+                        <b>Número: </b> {{aluno.numero}}</h6>
+                    <h6 class="text-gray-800"> 
+                        <b>Complemento: </b> {{aluno.complemento}}</h6>
+                    <h6 class="text-gray-800"> 
+                        <b>Bairro: </b> {{aluno.bairro}}</h6>
+                    <h6 class="text-gray-800"> 
+                        <b>Município: </b> {{aluno.municipio}} </h6>
+                    <h6 class="text-gray-800"> 
+                        <b>Estado: </b> {{aluno.estado}}</h6>
+                    <hr>
+                    <h6 class="text-gray-800">
+                        <b>Saúde</b></h6>
+                    <br>
+                    <h6 class="text-gray-800"> 
+                        <b>Em caso de emergência entrar em contato com? </b> 
+                        {{aluno.nomeResp}}
+                    </h6>
+                    <h6 class="text-gray-800">
+                        <b>Telefone do responsável: </b> 
+                        {{aluno.telefoneResp}}
+                    </h6>
+                    <h6 class="text-gray-800"> 
+                        <b>Possui algum problema de saúde? </b> 
+                        {{aluno.Saude}}
+                    </h6>
+                    <h6 class="text-gray-800"> 
+                        <b>O aluno toma algum medicamento? </b> 
+                        {{aluno.Medicamento}}
+                    </h6>
+                    <h6 class="text-gray-800"> 
+                        <b>Tem alguma deficiência? </b> 
+                        {{aluno.Deficiencia}}
+                    </h6>
+                    <h6 class="text-gray-800"> 
+                        <b>Alguma alergia ou restrição alimentar? </b> 
+                        {{aluno.RestricaoAlimentar}}
+                    </h6>
+                    <br>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12" 
+                    style="padding-left:20rem;">
+                    <img style="object-fit: cover;" height="150px" width="130px" 
+                        src="{{aluno.imagem.url}}" class="rounded img-corpo" 
+                        alt="Aluno">
+                </div>
             </div>
         </div>
     </div>
-    
+    <div align="right">
+        <a type="button" class="btn btn-danger"  href="{% url 'pdf_aluno' aluno.ID_Aluno %}">
+            <i class="bi bi-file-earmark-pdf"></i>
+              PDF
+        </a>
+    </div>
 {% endblock %}

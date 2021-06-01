@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import listarAlunos, criarAluno, alunoNovo, updateAluno, deleteAluno, visualizarAluno, alunoCSV
+from .views import listarAlunos, criarAluno, alunoNovo, updateAluno, deleteAluno, visualizarAluno, alunoCSV, pdfAluno
 
 
 # urls Alunos
@@ -12,7 +12,10 @@ urlpatterns = [
     path('visualizar_aluno/(?P<ID_Aluno>\d+)/$',
          visualizarAluno, name='visualizar_aluno'),
     # excel
-    path('aluno_exportar_csv/',
-         alunoCSV.as_view(), name='aluno_exportar_csv'),
+    path('aluno_exportar_csv/', alunoCSV.as_view(), name='aluno_exportar_csv'),
+    # pdf aluno
+    path('pdf_aluno/(?P<ID_Aluno>\d+)/$',
+         pdfAluno, name='pdf_aluno'),
+
 
 ]

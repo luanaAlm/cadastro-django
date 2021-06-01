@@ -1,0 +1,42 @@
+{% extends 'base_pdf.html' %}
+
+{% block main %}
+    {% for aluno in alunos %}
+        <div style="padding-left: 50rem;">
+            <img style="object-fit: cover;" height="150px" width="130px" 
+                src="{{ aluno.imagem.path }}" class="rounded img-corpo" 
+                alt="Aluno">
+        </div>
+            <div>
+               <h6>
+                <b>Nome completo: </b>{{ aluno }} <br>
+                <b>Turma: </b>{{aluno.turma}} <br>
+                <b>Matricula: </b> {{aluno.ID_Aluno}} <br>
+                <b>Sexo: </b> {{aluno.sexo}}<br>
+                <b>Data de Nascimento: </b> {{aluno.data}}<br>
+                <b>CPF: </b> {{aluno.cpf}}<br>
+                <b>Telefone: </b> {{aluno.telefone}}<br>
+                <b>Email: </b> {{aluno.email}}<br>
+                <br>
+                <b>Moradia</b> <br>
+                <b>CEP: </b> {{aluno.cep}}<br>
+                <b>Endereço: </b> {{aluno.endereco}}<br>
+                <b>Número: </b> {{aluno.numero}}<br>
+                <b>Complemento: </b> {{aluno.complemento}}<br>
+                <b>Bairro: </b> {{aluno.bairro}}<br>
+                <b>Município: </b> {{aluno.municipio}}<br>
+                <b>Estado: </b> {{aluno.estado}}<br>
+                <br>
+                <b>Saúde</b><br>
+                <b>Em caso de emergência entrar em contato com? </b> 
+                    {{aluno.nomeResp}}<br>
+                <b>Telefone do responsável: </b> {{aluno.telefoneResp}}<br>
+                <b>Possui algum problema de saúde? </b> {{aluno.Saude}}<br>
+                <b>O aluno toma algum medicamento? </b> {{aluno.Medicamento}}<br>
+                <b>Tem alguma deficiência? </b> {{aluno.Deficiencia}}<br>
+                <b>Alguma alergia ou restrição alimentar? </b> {{aluno.RestricaoAlimentar}}<br>
+            </h6> 
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
