@@ -1,0 +1,34 @@
+{% extends 'base_pdf.html' %}
+
+{% block main %}
+    {% for colaborador in colaboradores %}
+        <div style="padding-left: 50rem;">
+            <img style="object-fit: cover;" height="150px" width="130px" 
+                src="{{ colaborador.imagem.path }}" class="rounded img-corpo" 
+                alt="Aluno">
+        </div>
+            <div>
+               <h5>
+                <b>Nome completo: </b>{{ colaborador }} <br>
+                <b>Função: </b>{{colaborador.funcao}} <br>
+                <b>Matricula: </b> {{colaborador.ID_Adm}} <br>
+                <b>Sexo: </b> {{colaborador.sexo}}<br>
+                <b>Data de Nascimento: </b> {{colaborador.data}}<br>
+                <b>CPF: </b> {{colaborador.cpf}}<br>
+                <b>Telefone: </b> {{colaborador.telefone}}<br>
+                <b>Email: </b> {{colaborador.email}}<br>
+                <br>
+                <b>Moradia</b> <br>
+                <b>CEP: </b> {{colaborador.cep}}<br>
+                <b>Endereço: </b> {{colaborador.endereco}}<br>
+                <b>Número: </b> {{colaborador.numero}}<br>
+                <b>Complemento: </b> {{colaborador.complemento}}<br>
+                <b>Bairro: </b> {{colaborador.bairro}}<br>
+                <b>Município: </b> {{colaborador.municipio}}<br>
+                <b>Estado: </b> {{colaborador.estado}}<br>
+                <br>
+            </h5> 
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

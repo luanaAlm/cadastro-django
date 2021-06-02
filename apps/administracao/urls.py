@@ -1,6 +1,5 @@
 from django.urls import path
-from .views import criarColaborador, colaboradorNovo, listarColaboradores, updateColaborador, deleteColaborador, visualizarColaborador, colaboradoresCSV
-
+from .views import criarColaborador, colaboradorNovo, listarColaboradores, updateColaborador, deleteColaborador, visualizarColaborador, colaboradoresCSV, pdfColaborador
 
 # urls Professores
 urlpatterns = [
@@ -17,6 +16,9 @@ urlpatterns = [
     # excel
     path('colaboradores_exportar_csv', colaboradoresCSV.as_view(),
          name='colaboradores_exportar_csv'),
+    # pdf
+    path('pdf_colaborador/(?P<ID_Adm>\d+)/$', pdfColaborador,
+         name='pdf_colaborador'),
 
 
 

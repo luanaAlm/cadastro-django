@@ -4,10 +4,13 @@ from .models import Administracao
 from .form import ColaboradorForm
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
+from django.http import HttpResponse
 # Excel
 from django.views.generic import View
 import xlwt
-from django.http import HttpResponse
+# pdf
+from django.template.loader import get_template
+from xhtml2pdf import pisa
 
 
 @login_required
@@ -120,3 +123,27 @@ class colaboradoresCSV(View):
 
         wb.save(response)
         return response
+
+
+# pdf
+def pdfColaborador(request, ID_Adm):
+    colaboradores = Administracao.objects.filter(ID_Adm=ID_Adm)
+
+    template_path = 'pdf/pdf_colaborador.html'
+    context = {'colaboradores': colaboradores}
+
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    # attachment;
+    response['Content-Disposition'] = 'filename="pdf_colaborador.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+        html, dest=response)
+    # if error then show some funy view
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
