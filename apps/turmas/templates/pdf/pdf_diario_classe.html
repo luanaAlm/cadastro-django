@@ -23,12 +23,6 @@
 
     <!-- Css -->
     <link rel="stylesheet" href="{% static 'css/style_pdf.css' %}">
-    <style>
-      @page {
-      size: letter landscape;
-      margin: 1.5cm;
-      }
-    </style>
   </head>
   
   <body>
@@ -82,37 +76,23 @@
     </h5>
     <!--Inicio Tabela Aluno-->
     <div align="center">
-        <table>
+        <table border=1 style="padding:.2rem ;">
           <thead>
             <tr>
-              <th>N°</th>
-
               <th>Matricula</th>
               <th scope="col">Nome</th>
               <th >Aniversário</th>
-              <th >00</th>
-              <th >00</th>
-              <th >00</th>
-              <th >00</th>
-              <th scope="col">00</th>
-              <th scope="col">00</th>
-              <th scope="col">00</th>
-              <th scope="col">00</th>
-              <th scope="col">00</th>
-              <th scope="col">00</th>
-              <th scope="col">00</th>
-              <th scope="col">00</th>
             </tr>
           </thead>
           <tbody>
             
             <tr>
-              <th>01</th>
               {% for aluno in alunos %}
               
               <th scope="row">{{ aluno.ID_Aluno }}</th>
-              <td>{{ aluno.nome }}</td>
               <td>{{ aluno.data }}</td>
+              <td>{{ aluno.nome }}</td>
+              
               
             </tr>
             {% endfor %}

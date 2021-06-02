@@ -18,15 +18,20 @@
                     {{ turma.modalidade }}   
                 </p>
                 <div class="d-flex justify-content-between align-items-center">
-                    <a href="{% url 'listar_turmas' turma.ID_Turma %}" class="btn btn-primary btn-block">
+                    <a href="{% url 'listar_turmas' turma.ID_Turma %}" class="btn-sm btn-primary">
+                        <i class="bi bi-file-arrow-up"></i>
                         Entrar
                     </a>
-                    <br>
+                    <a type="button" class="btn-sm btn-danger"  href="{% url 'pdf_diario_classe' turma.ID_Turma %}">
+                        <i class="bi bi-file-earmark-pdf"></i>
+                          PDF
+                    </a>
+                    <a type="button" class="btn-sm btn-success"  href="{% url 'turma_exportar_exl' turma.ID_Turma %}">
+                        <i class="bi bi-file-earmark-excel"></i>
+                        Excel
+                    </a>
                 </div>
-                <a type="button" class="btn-sm btn-danger"  href="{% url 'pdf_diario_classe' turma.ID_Turma %}">
-                    <i class="bi bi-file-earmark-pdf"></i>
-                      PDF
-                </a>
+                
             </div>
         </div>
     </div>
