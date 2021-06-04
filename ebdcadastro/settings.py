@@ -1,5 +1,7 @@
+import django
 from django.contrib.messages import constants as messages
 import os
+
 
 from decouple import config
 
@@ -8,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = config('DEBUG')
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -121,5 +123,3 @@ MEDIA_ROOT = "{}/media".format(BASE_DIR)
 LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'login'
-
-# Media files
