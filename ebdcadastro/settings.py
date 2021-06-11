@@ -1,17 +1,19 @@
+from typing import cast
 import django
-from django.contrib.messages import constants as messages
+from django.contrib.messages import constants as messages, default_app_config
 import os
 
 from decouple import config
 
+from dj_database_url import parse as dburl
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ebdcadastro.herokuapp.com', 'localhost:8000']
 
 # mensagem alerta
 #MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
@@ -72,16 +74,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ebdcadastro.wsgi.application'
 
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        "NAME": config('NAME'),
-        "USER": config('USER'),
-        "PASSWORD": config('PASSWORD'),
-        "HOST": config('HOST'),
-        "PORT": "5432",
-    }
+    'default': config(
+        'DATABASE_URL', default=default_dburl, cast=dburl),
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         "NAME": config('NAME'),
+#         "USER": config('USER'),
+#         "PASSWORD": config('PASSWORD'),
+#         "HOST": config('HOST'),
+#         "PORT": "5432",
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
