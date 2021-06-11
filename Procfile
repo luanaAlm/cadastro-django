@@ -1,1 +1,1 @@
-web: gunicorn ebdcadastro.wsgi
+web: gunicorn cadastro-django.wsgi

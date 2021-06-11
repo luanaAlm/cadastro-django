@@ -3,6 +3,7 @@ import django
 from django.contrib.messages import constants as messages, default_app_config
 import os
 
+import django_heroku
 from decouple import config
 
 from dj_database_url import parse as dburl
@@ -130,3 +131,5 @@ MEDIA_ROOT = "{}/media".format(BASE_DIR)
 LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'login'
+
+django_heroku.settings(locals())
