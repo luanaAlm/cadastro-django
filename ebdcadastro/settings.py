@@ -2,7 +2,6 @@ import django
 from django.contrib.messages import constants as messages
 import os
 
-
 from decouple import config
 
 
